@@ -1,0 +1,28 @@
+{
+  "name": "Shashank Shekhar",
+  "title": "AI-Integrated Product Engineer",
+  "tagline": "I design and ship AI-integrated products that scale from enterprise search to automation platforms.",
+  "description": "AI-integrated product engineer with 8+ years of experience delivering enterprise search, workflow systems, and automation platforms. Focused on responsible AI, high-scale architecture, and end-to-end product delivery.",
+  "location": "Bengaluru, India • Open to EU/Remote",
+  "siteUrl": "https://www.buildwithshashank.com",
+  "footerLine": "Building calm, reliable systems that scale.",
+  "email": "hello@buildwithshashank.com",
+  "links": {
+    "linkedin": "https://www.linkedin.com/in/shashank-shekhar",
+    "github": "https://github.com/shashank-shekhar",
+    "resume": "/resume-shashank-shekhar.pdf"
+  },
+  "proofBar": [
+    "8+ years experience",
+    "7.7M+ SKU search platform",
+    "AI-integrated workflow systems",
+    "FastAPI + Docker + CI/CD",
+    "AWS/GCP deployments"
+  ],
+  "whatIBring": [
+    "Translate ambiguity into architecture and delivery plans",
+    "Own end-to-end product delivery across UI, API, and infra",
+    "Responsible AI integration with validation, fallback, and cost controls",
+    "Production support mindset with observability and reliability"
+  ]
+}

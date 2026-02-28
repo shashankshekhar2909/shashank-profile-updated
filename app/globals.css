@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --ring: 0 0 0 1px rgba(11, 15, 20, 0.1);
+}
+
+* {
+  @apply antialiased;
+}
+
+body {
+  @apply bg-stone text-ink font-sans;
+}
+
+::selection {
+  background: #d9d3c7;
+}
+
+.prose-content h2 {
+  @apply text-2xl font-semibold tracking-tight mt-8 mb-3;
+}
+
+.prose-content h3 {
+  @apply text-xl font-semibold tracking-tight mt-6 mb-2;
+}
+
+.prose-content p {
+  @apply text-base leading-relaxed text-graphite mb-4;
+}
+
+.prose-content ul {
+  @apply list-disc pl-5 mb-4 text-graphite;
+}
+
+.prose-content li {
+  @apply mb-1;
+}
+
+.section-title {
+  @apply text-xl font-semibold tracking-tight;
+}
+
+.card {
+  @apply bg-white border border-mist rounded-2xl shadow-soft;
+}
+
+.link-hover {
+  @apply transition-colors hover:text-ink;
+}
+
+.badge {
+  @apply inline-flex items-center rounded-full border border-mist bg-white px-3 py-1 text-xs uppercase tracking-wide text-accent;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center rounded-full px-5 py-2 text-sm font-medium transition-colors;
+}
+
+.btn-primary {
+  @apply btn bg-ink text-white hover:bg-graphite;
+}
+
+.btn-secondary {
+  @apply btn border border-ink text-ink hover:bg-ink hover:text-white;
+}
