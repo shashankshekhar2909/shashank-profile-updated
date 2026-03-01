@@ -1,5 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Space_Grotesk, Instrument_Serif } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -49,6 +50,16 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${instrumentSerif.variable}`}>
       <body>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-BCQQMMTVM2"
+          strategy="afterInteractive"
+        />
+        <Script id="ga-setup" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-BCQQMMTVM2');`}
+        </Script>
         <Header />
         <main className="min-h-screen px-6 pb-24 pt-28 sm:px-10">
           {children}

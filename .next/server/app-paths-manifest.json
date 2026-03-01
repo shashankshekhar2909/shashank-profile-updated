@@ -1,8 +1,7 @@
 {
-  "/projects/page": "app/projects/page.js",
   "/page": "app/page.js",
-  "/contact/page": "app/contact/page.js",
-  "/resume/page": "app/resume/page.js",
   "/projects/[slug]/page": "app/projects/[slug]/page.js",
-  "/experience/page": "app/experience/page.js"
+  "/resume/page": "app/resume/page.js",
+  "/experience/page": "app/experience/page.js",
+  "/contact/page": "app/contact/page.js"
 }
