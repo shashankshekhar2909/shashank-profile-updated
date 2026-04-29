@@ -48,6 +48,51 @@ export default async function HomePage() {
 
       <section className="grid gap-6 md:grid-cols-2">
         <div className="card p-6">
+          <p className="badge">Featured app</p>
+          <h2 className="mt-4 text-2xl font-semibold tracking-tight text-ink">
+            AI Tools App
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-graphite">
+            A tool discovery and comparison platform for exploring AI products
+            with a focused, opinionated workflow.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link
+              href="https://ai.buildwithshashank.com"
+              className="btn-secondary"
+            >
+              Open app
+            </Link>
+            <Button href="/about" variant="secondary">
+              Product Lab
+            </Button>
+          </div>
+        </div>
+        <div className="card p-6">
+          <p className="badge">Homelab</p>
+          <h2 className="mt-4 text-2xl font-semibold tracking-tight text-ink">
+            How I build and run it
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-graphite">
+            A living record of the homelab systems, workflows, and reliability
+            patterns I use to prototype and ship real products.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link
+              href="https://homelab.buildwithshashank.com/"
+              className="btn-secondary"
+            >
+              View homelab
+            </Link>
+            <Button href="/about" variant="secondary">
+              Product Lab
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <section className="grid gap-6 md:grid-cols-2">
+        <div className="card p-6">
           <h2 className="section-title">What I bring</h2>
           <ul className="mt-4 grid gap-3 text-sm text-graphite">
             {site.whatIBring.map((item) => (
