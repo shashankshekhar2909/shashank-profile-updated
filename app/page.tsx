@@ -25,6 +25,9 @@ export default async function HomePage() {
             <Button href="/resume" variant="secondary">
               View resume
             </Button>
+            <Link href={site.links.v2} className="btn-secondary">
+              Profile v2 (beta)
+            </Link>
             <Link href={site.links.linkedin} className="btn-secondary">
               LinkedIn
             </Link>

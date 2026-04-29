@@ -10,6 +10,9 @@ export default function Footer() {
           <p className="mt-1">{site.location}</p>
         </div>
         <div className="flex flex-wrap items-center gap-4">
+          <Link href={site.links.v2} className="link-hover">
+            Profile v2 (beta)
+          </Link>
           <Link href={site.links.linkedin} className="link-hover">
             LinkedIn
           </Link>
