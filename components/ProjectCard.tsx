@@ -18,6 +18,25 @@ export default function ProjectCard({ project }: { project: Project }) {
         <p className="mt-3 text-sm leading-relaxed text-graphite">
           {project.summary}
         </p>
+        {project.problem && (
+          <p className="mt-3 text-sm leading-relaxed text-graphite">
+            <span className="font-medium text-ink">Problem:</span> {project.problem}
+          </p>
+        )}
+        <p className="mt-3 text-sm leading-relaxed text-graphite">
+          <span className="font-medium text-ink">Tech stack:</span>{" "}
+          {project.stack.slice(0, 4).join(", ")}
+        </p>
+        {project.outcome && (
+          <p className="mt-3 text-sm leading-relaxed text-graphite">
+            <span className="font-medium text-ink">Outcome:</span> {project.outcome}
+          </p>
+        )}
+        <p className="mt-3 text-sm">
+          <Link href={`/projects/${project.slug}`} className="link-hover underline underline-offset-4">
+            View project details and related implementation
+          </Link>
+        </p>
       </div>
       <div className="mt-6 flex flex-wrap gap-2">
         {project.tags.map((tag) => (

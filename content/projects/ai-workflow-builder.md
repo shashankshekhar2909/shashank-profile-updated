@@ -15,6 +15,8 @@ stack:
   - "Docker"
 featured: true
 summary: "Visual workflow builder with NL-to-graph generation, versioning, and separation between definition and execution layers."
+problem: "Operations teams needed AI workflow automation with clear controls, reusable templates, and auditable execution paths."
+outcome: "Shipped a production-ready workflow platform with FastAPI backend services, Docker deployment, and versioned workflow governance."
 ---
 
 ## Problem

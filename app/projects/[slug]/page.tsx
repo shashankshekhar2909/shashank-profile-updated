@@ -21,7 +21,16 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 
   return {
     title: project.title,
-    description: project.summary
+    description: project.summary,
+    alternates: {
+      canonical: `/projects/${project.slug}`
+    },
+    openGraph: {
+      title: `${project.title} | Shashank Shekhar`,
+      description: project.summary,
+      url: `/projects/${project.slug}`,
+      type: "article"
+    }
   };
 }
 
@@ -46,6 +55,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <p className="mt-4 text-base leading-relaxed text-graphite">
           {project.summary}
         </p>
+        {project.problem && (
+          <p className="mt-4 text-base leading-relaxed text-graphite">
+            <span className="font-medium text-ink">Problem:</span> {project.problem}
+          </p>
+        )}
+        {project.outcome && (
+          <p className="mt-4 text-base leading-relaxed text-graphite">
+            <span className="font-medium text-ink">Outcome:</span> {project.outcome}
+          </p>
+        )}
         <div className="mt-6 flex flex-wrap gap-2">
           {project.tags.map((tag) => (
             <span key={tag} className="badge">
@@ -91,6 +110,26 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </section>
       )}
+
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            name: project.title,
+            description: project.summary,
+            url: `https://buildwithshashank.com/projects/${project.slug}`,
+            author: {
+              "@type": "Person",
+              name: "Shashank Shekhar"
+            },
+            keywords: project.tags,
+            about: project.stack
+          })
+        }}
+      />
     </div>
   );
 }

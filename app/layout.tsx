@@ -20,15 +20,16 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: `${site.name} | ${site.title}`,
-    template: `%s | ${site.name}`
-  },
+  title: "Shashank Shekhar | Senior Frontend Developer & AI-Integrated Product Engineer",
   description: site.description,
   metadataBase: new URL(site.siteUrl),
+  alternates: {
+    canonical: "/"
+  },
   openGraph: {
-    title: `${site.name} | ${site.title}`,
-    description: site.description,
+    title: "Shashank Shekhar | Senior Frontend Developer & AI-Integrated Product Engineer",
+    description:
+      "Portfolio of Shashank Shekhar, a Senior Frontend Developer building Angular, React, Next.js, FastAPI, Typesense, Docker, and AI-integrated product systems.",
     url: site.siteUrl,
     siteName: site.name,
     type: "website",
@@ -36,8 +37,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} | ${site.title}`,
-    description: site.description,
+    title: "Shashank Shekhar | Senior Frontend Developer & AI-Integrated Product Engineer",
+    description:
+      "Senior Frontend Developer and AI-Integrated Product Engineer building scalable frontend, search, automation, and AI-native systems.",
     images: ["/og.svg"]
   }
 };
@@ -65,21 +67,6 @@ gtag('config', 'G-BCQQMMTVM2');`}
           {children}
         </main>
         <Footer />
-        <script
-          type="application/ld+json"
-          suppressHydrationWarning
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Person",
-              name: site.name,
-              jobTitle: site.title,
-              url: site.siteUrl,
-              sameAs: [site.links.linkedin, site.links.github].filter(Boolean),
-              description: site.description
-            })
-          }}
-        />
       </body>
     </html>
   );

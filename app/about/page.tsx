@@ -1,3 +1,14 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Shashank Shekhar - Frontend and AI Product Engineer",
+  description:
+    "About Shashank Shekhar, a Senior Frontend Developer and AI-Integrated Product Engineer building Angular, React, Next.js, FastAPI, Typesense, and product workflow systems.",
+  alternates: {
+    canonical: "/about"
+  }
+};
+
 const skills = {
   "System Design & Architecture": [
     "Event-driven and API-first platform design",

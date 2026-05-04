@@ -19,6 +19,8 @@ links:
   - label: "CrowdAnalytix"
     url: "https://www.crowdanalytix.com"
 summary: "Enterprise-scale product discovery platform for 7.7M+ SKUs with schema-driven UI, faceted search, and bulk editorial workflows."
+problem: "Retail teams needed an Angular product catalog system to manage millions of SKUs with governed search and bulk updates."
+outcome: "Delivered a high-scale Typesense search interface and product engineering workflow that improved discovery speed and editorial consistency."
 ---
 
 ## Problem

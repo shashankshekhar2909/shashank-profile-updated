@@ -14,6 +14,8 @@ stack:
   - "Ollama"
 featured: false
 summary: "Automation services for PDF/text extraction into structured JSON with validation, deterministic post-processing, and fallback paths."
+problem: "Product teams needed dependable AI workflow automation without brittle prompts or costly retry loops."
+outcome: "Implemented FastAPI-based automation services with deterministic validation, reduced extraction errors, and stable Docker deployment patterns."
 ---
 
 ## Problem

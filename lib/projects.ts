@@ -14,6 +14,8 @@ export interface ProjectFrontmatter {
   featured: boolean;
   links?: { label: string; url: string }[];
   summary: string;
+  problem?: string;
+  outcome?: string;
 }
 
 export interface Project extends ProjectFrontmatter {

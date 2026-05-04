@@ -1,4 +1,14 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Resume - Shashank Shekhar | Senior Frontend Developer",
+  description:
+    "Resume of Shashank Shekhar, Senior Frontend Developer and AI-Integrated Product Engineer with experience across Angular, FastAPI, Typesense, Docker, AWS, and GCP.",
+  alternates: {
+    canonical: "/resume"
+  }
+};
 
 export default function ResumePage() {
   return (

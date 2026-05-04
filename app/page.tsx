@@ -1,8 +1,29 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import site from "@/content/site.json";
 import Button from "@/components/Button";
 import ProjectCard from "@/components/ProjectCard";
 import { getFeaturedProjects } from "@/lib/projects";
+
+export const metadata: Metadata = {
+  title: "Shashank Shekhar | Senior Frontend Developer & AI-Integrated Product Engineer",
+  description:
+    "Shashank Shekhar is a Senior Frontend Developer and AI-Integrated Product Engineer based in India. He builds scalable Angular, React, Next.js, FastAPI, Typesense, Docker, and cloud-based product systems.",
+  keywords: [
+    "Shashank Shekhar",
+    "Senior Frontend Developer",
+    "Angular Developer",
+    "AI-Integrated Product Engineer",
+    "AI-Native Product Engineer",
+    "Typesense Developer",
+    "FastAPI Developer",
+    "Product Catalog Engineer",
+    "Frontend Architect India"
+  ],
+  alternates: {
+    canonical: "/"
+  }
+};
 
 export default async function HomePage() {
   const featuredProjects = await getFeaturedProjects();
@@ -13,7 +34,7 @@ export default async function HomePage() {
         <div>
           <p className="badge">AI-Integrated Product Engineer</p>
           <h1 className="mt-5 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-            {site.name}
+            Shashank Shekhar - Senior Frontend Developer &amp; AI-Integrated Product Engineer
           </h1>
           <p className="mt-4 text-lg text-graphite max-w-2xl">
             {site.tagline}
@@ -96,6 +117,83 @@ export default async function HomePage() {
 
       <section className="grid gap-6 md:grid-cols-2">
         <div className="card p-6">
+          <h2 className="section-title">What I do</h2>
+          <div className="mt-4 grid gap-4">
+            <article>
+              <h3 className="text-base font-semibold text-ink">Frontend Engineering</h3>
+              <p className="mt-1 text-sm leading-relaxed text-graphite">
+                Senior frontend development using Angular, React, Next.js, TypeScript,
+                design systems, dashboards, and scalable UI architecture.
+              </p>
+            </article>
+            <article>
+              <h3 className="text-base font-semibold text-ink">AI-Integrated Product Systems</h3>
+              <p className="mt-1 text-sm leading-relaxed text-graphite">
+                Building AI-assisted workflows, LLM-powered interfaces, automation tools,
+                and product systems that combine frontend, backend, and AI APIs.
+              </p>
+            </article>
+          </div>
+        </div>
+        <div className="card p-6">
+          <h2 className="section-title">What I do</h2>
+          <div className="mt-4 grid gap-4">
+            <article>
+              <h3 className="text-base font-semibold text-ink">Search &amp; Product Catalog Platforms</h3>
+              <p className="mt-1 text-sm leading-relaxed text-graphite">
+                Experience building product catalog systems, taxonomy tools, dynamic
+                attributes, and Typesense-powered search interfaces for large SKU datasets.
+              </p>
+            </article>
+            <article>
+              <h3 className="text-base font-semibold text-ink">Full Stack Delivery</h3>
+              <p className="mt-1 text-sm leading-relaxed text-graphite">
+                FastAPI, PostgreSQL, Docker, CI/CD, AWS, GCP, and production-focused
+                deployment workflows.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="card p-6">
+        <h2 className="section-title">Explore my work</h2>
+        <div className="mt-4 grid gap-2 text-sm text-graphite">
+          <Link href="/projects" className="underline underline-offset-4 hover:text-ink">
+            View my Angular and AI product engineering projects
+          </Link>
+          <Link href="/experience" className="underline underline-offset-4 hover:text-ink">
+            Explore my frontend engineering experience
+          </Link>
+          <Link href="/resume" className="underline underline-offset-4 hover:text-ink">
+            Review my resume for Senior Frontend Developer and product engineering roles
+          </Link>
+          <Link href="/contact" className="underline underline-offset-4 hover:text-ink">
+            Contact Shashank Shekhar for frontend or AI product work
+          </Link>
+          <Link
+            href="https://ai.buildwithshashank.com"
+            className="underline underline-offset-4 hover:text-ink"
+          >
+            Explore AI Stack Lab projects
+          </Link>
+          <Link
+            href="https://homelab.buildwithshashank.com/"
+            className="underline underline-offset-4 hover:text-ink"
+          >
+            Explore my homelab engineering systems
+          </Link>
+          <Link
+            href="https://blogmanager.buildwithshashank.com"
+            className="underline underline-offset-4 hover:text-ink"
+          >
+            Read product engineering notes and articles
+          </Link>
+        </div>
+      </section>
+
+      <section className="grid gap-6 md:grid-cols-2">
+        <div className="card p-6">
           <h2 className="section-title">What I bring</h2>
           <ul className="mt-4 grid gap-3 text-sm text-graphite">
             {site.whatIBring.map((item) => (
@@ -160,6 +258,54 @@ export default async function HomePage() {
           </Button>
         </div>
       </section>
+
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Shashank Shekhar",
+              url: "https://buildwithshashank.com/",
+              jobTitle: [
+                "Senior Frontend Developer",
+                "AI-Integrated Product Engineer",
+                "Angular Developer",
+                "Frontend Engineer"
+              ],
+              knowsAbout: [
+                "Angular",
+                "React",
+                "Next.js",
+                "TypeScript",
+                "FastAPI",
+                "Typesense",
+                "Docker",
+                "CI/CD",
+                "AWS",
+                "GCP",
+                "Frontend Architecture",
+                "Product Catalog Systems",
+                "AI Workflow Automation"
+              ],
+              sameAs: [
+                "https://www.linkedin.com/in/shashankshekhar2k15/",
+                "https://github.com/shashankshekhar2909/"
+              ]
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Build with Shashank",
+              url: "https://buildwithshashank.com/",
+              description:
+                "Portfolio of Shashank Shekhar, Senior Frontend Developer and AI-Integrated Product Engineer."
+            }
+          ])
+        }}
+      />
     </div>
   );
 }

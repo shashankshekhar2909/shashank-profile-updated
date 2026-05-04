@@ -1,10 +1,20 @@
 import { getAllProjects, getAllTags } from "@/lib/projects";
+import type { Metadata } from "next";
 import ProjectCard from "@/components/ProjectCard";
 import TagFilter from "@/components/TagFilter";
 
 interface ProjectsPageProps {
   searchParams?: { tag?: string };
 }
+
+export const metadata: Metadata = {
+  title: "Projects by Shashank Shekhar - Angular, AI, Search & Product Systems",
+  description:
+    "Projects by Shashank Shekhar across Angular product catalog systems, Typesense search interfaces, AI workflow automation, FastAPI backends, Docker deployment, and frontend architecture.",
+  alternates: {
+    canonical: "/projects"
+  }
+};
 
 export default async function ProjectsPage({ searchParams }: ProjectsPageProps) {
   const activeTag = searchParams?.tag;
@@ -19,7 +29,7 @@ export default async function ProjectsPage({ searchParams }: ProjectsPageProps) 
     <div className="mx-auto flex max-w-6xl flex-col gap-10">
       <section className="card p-8">
         <h1 className="text-3xl font-semibold tracking-tight text-ink">
-          Projects
+          Projects by Shashank Shekhar - Angular, AI, Search &amp; Product Systems
         </h1>
         <p className="mt-3 text-base leading-relaxed text-graphite">
           A blend of enterprise platforms and independent systems across search,

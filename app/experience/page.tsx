@@ -1,4 +1,33 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Experience - Senior Frontend Developer, Angular Developer & Product Engineer",
+  description:
+    "Shashank Shekhar is a software engineer based in India with 8+ years of experience in frontend engineering, Angular, TypeScript, product catalog platforms, search-driven UIs, and AI-integrated product systems.",
+  alternates: {
+    canonical: "/experience"
+  }
+};
+
 export default function ExperiencePage() {
+  const coreSkills = [
+    "Angular",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "FastAPI",
+    "Typesense",
+    "Docker",
+    "CI/CD",
+    "AWS",
+    "GCP",
+    "Product Catalog Systems",
+    "Taxonomy Applications",
+    "AI Workflow Tools",
+    "Search Interfaces",
+    "Frontend Architecture"
+  ];
+
   return (
     <div className="mx-auto flex max-w-5xl flex-col gap-10">
       <section className="card p-8">
@@ -6,7 +35,7 @@ export default function ExperiencePage() {
           <div>
             <p className="text-xs uppercase tracking-wide text-accent">CrowdAnalytix</p>
             <h1 className="mt-2 text-3xl font-semibold tracking-tight text-ink">
-              Senior Product Engineer
+              Experience - Senior Frontend Developer, Angular Developer &amp; Product Engineer
             </h1>
           </div>
           <span className="badge">2019 – Present</span>
@@ -15,6 +44,18 @@ export default function ExperiencePage() {
           Leading the design and delivery of enterprise product discovery and
           taxonomy platforms. Focused on scale, reliability, and AI-assisted
           workflows for large retail catalogs.
+        </p>
+      </section>
+
+      <section className="card p-6">
+        <h2 className="section-title">Professional Summary</h2>
+        <p className="mt-4 text-sm leading-relaxed text-graphite">
+          Shashank Shekhar is a software engineer based in India with 8+ years of
+          experience in frontend engineering, Angular, TypeScript, product catalog
+          platforms, search-driven UIs, and AI-integrated product systems. He has
+          worked on enterprise applications involving taxonomy management, large-scale
+          catalog workflows, Typesense search, FastAPI services, Docker-based
+          deployment, and CI/CD pipelines.
         </p>
       </section>
 
@@ -54,6 +95,18 @@ export default function ExperiencePage() {
           AWS. Focused on rapid delivery, launch support, and performance
           tuning for small businesses.
         </p>
+      </section>
+
+      <section className="card p-6">
+        <h2 className="section-title">Core skills</h2>
+        <ul className="mt-4 grid gap-2 text-sm text-graphite md:grid-cols-2">
+          {coreSkills.map((skill) => (
+            <li key={skill} className="flex items-start gap-2">
+              <span className="mt-1 h-2 w-2 rounded-full bg-ink" />
+              <span>{skill}</span>
+            </li>
+          ))}
+        </ul>
       </section>
     </div>
   );
