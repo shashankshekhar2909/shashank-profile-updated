@@ -36,41 +36,46 @@
 
 body {
   @apply bg-stone text-ink font-sans selection:bg-zinc-800 selection:text-white;
+  font-feature-settings: "ss01", "ss03", "cv02", "cv03", "cv04";
+  text-rendering: optimizeLegibility;
 }
 
 /* Typography styles for case studies / markdown content */
 .prose-content h2 {
-  @apply text-xl font-bold tracking-tight mt-10 mb-4 text-ink border-b border-mist pb-2;
+  @apply text-2xl font-semibold mt-12 mb-4 text-ink border-b border-mist pb-3;
+  letter-spacing: 0;
 }
 
 .prose-content h3 {
-  @apply text-lg font-semibold tracking-tight mt-6 mb-3 text-ink;
+  @apply text-xl font-semibold mt-8 mb-3 text-ink;
+  letter-spacing: 0;
 }
 
 .prose-content p {
-  @apply text-base leading-relaxed text-graphite mb-5;
+  @apply text-[15px] leading-7 text-graphite mb-5;
 }
 
 .prose-content ul {
-  @apply list-disc pl-5 mb-5 space-y-2 text-graphite;
+  @apply list-disc pl-5 mb-5 space-y-2 text-[15px] leading-7 text-graphite;
 }
 
 .prose-content li {
-  @apply leading-relaxed;
+  @apply leading-7;
 }
 
 .prose-content code {
-  @apply rounded px-1.5 py-0.5 font-mono text-sm text-ink;
+  @apply rounded px-1.5 py-0.5 font-mono text-[13px] text-ink;
   background-color: rgba(120, 120, 120, 0.15);
 }
 
 .prose-content pre {
-  @apply rounded-xl p-4 overflow-x-auto font-mono text-sm border border-mist my-6;
+  @apply rounded-xl p-4 overflow-x-auto font-mono text-[13px] leading-6 border border-mist my-6;
   background-color: rgba(120, 120, 120, 0.05);
 }
 
 .section-title {
-  @apply text-lg font-semibold tracking-tight text-ink uppercase tracking-wider text-xs;
+  @apply text-xs font-semibold uppercase text-ink;
+  letter-spacing: 0.08em;
 }
 
 /* Premium Card layout with interactive micro-animations */
@@ -83,12 +88,14 @@ body {
 }
 
 .badge {
-  @apply inline-flex items-center rounded-md border border-mist bg-card-bg px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wider text-graphite;
+  @apply inline-flex items-center rounded-md border border-mist bg-card-bg px-2.5 py-0.5 text-[10px] font-semibold uppercase text-graphite;
+  letter-spacing: 0.08em;
 }
 
 /* Buttons styling mimicking Vercel / Linear */
 .btn {
-  @apply inline-flex items-center justify-center rounded-lg px-4 py-2 text-xs font-semibold tracking-wide transition-all duration-200 shadow-sm;
+  @apply inline-flex items-center justify-center rounded-lg px-4 py-2 text-xs font-semibold transition-all duration-200 shadow-sm;
+  letter-spacing: 0.01em;
 }
 
 .btn-primary {
