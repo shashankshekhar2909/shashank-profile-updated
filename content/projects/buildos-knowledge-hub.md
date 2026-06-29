@@ -22,6 +22,11 @@ featured: true
 summary: "Knowledge management layer that indexes repositories, docs, architecture notes, prompts, and API specs into structured OKF engineering knowledge for AI agents."
 problem: "Engineering knowledge is scattered across repositories, READMEs, docs, prompts, API specs, and architecture notes, forcing developers to repeatedly rebuild context."
 outcome: "Created a structured project memory layer that extracts applications, modules, APIs, services, schemas, dependencies, decisions, and deployment workflows for AI retrieval."
+links:
+  - label: "Live"
+    url: "https://projects.buildwithshashank.com/"
+  - label: "GitHub"
+    url: "https://github.com/shashankshekhar2909/BuildOS-KB"
 ---
 
 ## Overview

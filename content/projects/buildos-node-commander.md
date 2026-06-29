@@ -20,6 +20,11 @@ featured: true
 summary: "AI-powered infrastructure management platform for self-hosted servers and cloud machines with fleet visibility, Docker operations, remote execution, and migration workflows."
 problem: "Managing multiple Linux servers requires switching between SSH, Docker CLI, Portainer, terminal sessions, and monitoring tools."
 outcome: "Built a unified infrastructure workspace for server discovery, Docker inspection, deployments, health monitoring, remote commands, and near-zero downtime Docker migrations."
+links:
+  - label: "Live"
+    url: "http://infra.buildwithshashank.com/"
+  - label: "GitHub"
+    url: "https://github.com/shashankshekhar2909/BuildOS-Node-Manager"
 ---
 
 ## Overview

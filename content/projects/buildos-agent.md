@@ -26,6 +26,9 @@ featured: true
 summary: "AI-native development workspace for project planning, knowledge management, architecture generation, AI-assisted coding, documentation, and execution."
 problem: "Modern AI coding tools lose project context, duplicate decisions, and struggle with long-running multi-repository software projects."
 outcome: "Designed a persistent engineering workspace where project architecture, decisions, docs, implementation status, prompts, and AI conversations become reusable project memory."
+links:
+  - label: "GitHub"
+    url: "https://github.com/shashankshekhar2909/buildOS_Agent"
 ---
 
 ## Overview

@@ -14,7 +14,7 @@ stack:
   - "PostgreSQL"
   - "Next.js"
   - "Docker"
-featured: true
+featured: false
 links:
   - label: "CrowdAnalytix"
     url: "https://www.crowdanalytix.com"

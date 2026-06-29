@@ -13,7 +13,7 @@ stack:
   - "PostgreSQL"
   - "Typesense"
   - "Angular"
-featured: true
+featured: false
 links:
   - label: "CrowdAnalytix"
     url: "https://www.crowdanalytix.com"
