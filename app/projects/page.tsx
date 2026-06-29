@@ -1,5 +1,6 @@
 import { getAllProjects, getAllTags } from "@/lib/projects";
 import type { Metadata } from "next";
+import Link from "next/link";
 import ProjectCard from "@/components/ProjectCard";
 import TagFilter from "@/components/TagFilter";
 
@@ -47,21 +48,33 @@ export default async function ProjectsPage({ searchParams }: ProjectsPageProps) 
         </h2>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           <div>
-            <h3 className="text-base font-semibold text-ink">Knowledge Hub</h3>
+            <h3 className="text-base font-semibold text-ink">
+              <Link href="/projects/buildos-knowledge-hub" className="link-hover">
+                Knowledge Hub
+              </Link>
+            </h3>
             <p className="mt-2 text-sm leading-relaxed text-graphite">
               Understands repositories, docs, architecture, APIs, and engineering
               notes to build long-term project memory.
             </p>
           </div>
           <div>
-            <h3 className="text-base font-semibold text-ink">BuildOS Agent</h3>
+            <h3 className="text-base font-semibold text-ink">
+              <Link href="/projects/buildos-agent" className="link-hover">
+                BuildOS Agent
+              </Link>
+            </h3>
             <p className="mt-2 text-sm leading-relaxed text-graphite">
               Uses that context to plan, reason, document, coordinate AI models,
               and assist software development.
             </p>
           </div>
           <div>
-            <h3 className="text-base font-semibold text-ink">Node Commander</h3>
+            <h3 className="text-base font-semibold text-ink">
+              <Link href="/projects/buildos-node-commander" className="link-hover">
+                Node Commander
+              </Link>
+            </h3>
             <p className="mt-2 text-sm leading-relaxed text-graphite">
               Executes infrastructure operations, Docker workflows, deployments,
               migrations, and server management.

@@ -32,11 +32,22 @@ export default function ProjectCard({ project }: { project: Project }) {
             <span className="font-medium text-ink">Outcome:</span> {project.outcome}
           </p>
         )}
-        <p className="mt-3 text-sm">
+        <div className="mt-4 flex flex-wrap gap-3 text-sm">
           <Link href={`/projects/${project.slug}`} className="link-hover underline underline-offset-4">
             View project details and related implementation
           </Link>
-        </p>
+          {project.links?.map((link) => (
+            <a
+              key={link.url}
+              href={link.url}
+              className="link-hover underline underline-offset-4"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
       </div>
       <div className="mt-6 flex flex-wrap gap-2">
         {project.tags.map((tag) => (

@@ -72,44 +72,44 @@ export default async function HomePage() {
 
       <section className="grid gap-6 md:grid-cols-2">
         <div className="card p-6">
-          <p className="badge">Featured app</p>
+          <p className="badge">Knowledge base</p>
           <h2 className="mt-4 text-2xl font-semibold tracking-tight text-ink">
-            AI Tools App
+            BuildOS Knowledge Hub
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-graphite">
-            A tool discovery and comparison platform for exploring AI products
-            with a focused, opinionated workflow.
+            Self-hosted AI memory for project repositories, docs, OKF files,
+            architecture context, search, and agent-ready knowledge retrieval.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
-              href="https://ai.buildwithshashank.com"
+              href="https://projects.buildwithshashank.com/"
               className="btn-secondary"
             >
-              Open app
+              Open Knowledge Hub
             </Link>
-            <Button href="/about" variant="secondary">
-              Product Lab
+            <Button href="/projects/buildos-knowledge-hub" variant="secondary">
+              View project
             </Button>
           </div>
         </div>
         <div className="card p-6">
-          <p className="badge">Homelab</p>
+          <p className="badge">Infrastructure</p>
           <h2 className="mt-4 text-2xl font-semibold tracking-tight text-ink">
-            How I build and run it
+            BuildOS Node Commander
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-graphite">
-            A living record of the homelab systems, workflows, and reliability
-            patterns I use to prototype and ship real products.
+            AI-powered infrastructure workspace for Linux nodes, Docker
+            discovery, remote operations, health checks, and migration workflows.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
-              href="https://homelab.buildwithshashank.com/"
+              href="http://infra.buildwithshashank.com/"
               className="btn-secondary"
             >
-              View homelab
+              Open Infra
             </Link>
-            <Button href="/about" variant="secondary">
-              Product Lab
+            <Button href="/projects/buildos-node-commander" variant="secondary">
+              View project
             </Button>
           </div>
         </div>
@@ -117,7 +117,7 @@ export default async function HomePage() {
 
       <section className="grid gap-6 md:grid-cols-2">
         <div className="card p-6">
-          <h2 className="section-title">What I do</h2>
+          <h2 className="section-title">Platform &amp; delivery</h2>
           <div className="mt-4 grid gap-4">
             <article>
               <h3 className="text-base font-semibold text-ink">Frontend Engineering</h3>
@@ -160,7 +160,7 @@ export default async function HomePage() {
         <h2 className="section-title">Explore my work</h2>
         <div className="mt-4 grid gap-2 text-sm text-graphite">
           <Link href="/projects" className="underline underline-offset-4 hover:text-ink">
-            View my Angular and AI product engineering projects
+            View my BuildOS, Angular, and AI product engineering projects
           </Link>
           <Link href="/experience" className="underline underline-offset-4 hover:text-ink">
             Explore my frontend engineering experience
@@ -226,8 +226,8 @@ export default async function HomePage() {
               Featured projects
             </h2>
             <p className="mt-2 text-sm text-graphite">
-              Selected work across enterprise search, AI workflows, and automation
-              systems.
+              Selected BuildOS work across AI engineering memory, development
+              agents, and infrastructure operations.
             </p>
           </div>
           <Button href="/projects" variant="secondary">
