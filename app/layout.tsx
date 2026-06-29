@@ -1,35 +1,21 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Space_Grotesk, Instrument_Serif } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import site from "@/content/site.json";
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap"
-});
-
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  variable: "--font-serif",
-  weight: ["400"],
-  display: "swap"
-});
-
 export const metadata: Metadata = {
-  title: "Shashank Shekhar | Senior Frontend Developer & AI-Integrated Product Engineer",
+  title: "Shashank Shekhar | AI-Native Product Engineer",
   description: site.description,
   metadataBase: new URL(site.siteUrl),
   alternates: {
     canonical: "/"
   },
   openGraph: {
-    title: "Shashank Shekhar | Senior Frontend Developer & AI-Integrated Product Engineer",
+    title: "Shashank Shekhar | AI-Native Product Engineer",
     description:
-      "Portfolio of Shashank Shekhar, a Senior Frontend Developer building Angular, React, Next.js, FastAPI, Typesense, Docker, and AI-integrated product systems.",
+      "Portfolio of Shashank Shekhar, an AI-Native Product Engineer building developer tools, AI systems, self-hosted infrastructure, and platforms.",
     url: site.siteUrl,
     siteName: site.name,
     type: "website",
@@ -37,9 +23,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shashank Shekhar | Senior Frontend Developer & AI-Integrated Product Engineer",
+    title: "Shashank Shekhar | AI-Native Product Engineer",
     description:
-      "Senior Frontend Developer and AI-Integrated Product Engineer building scalable frontend, search, automation, and AI-native systems.",
+      "AI-Native Product Engineer building developer tools, AI systems, and infrastructure.",
     images: ["/og.svg"]
   }
 };
@@ -50,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${instrumentSerif.variable}`}>
+    <html lang="en">
       <body>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-BCQQMMTVM2"

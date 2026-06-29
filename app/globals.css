@@ -3,48 +3,79 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: light;
-  --ring: 0 0 0 1px rgba(11, 15, 20, 0.1);
+  color-scheme: dark;
+  
+  /* Premium Dark Theme variables (default) */
+  --color-stone: #060608;
+  --color-ink: #f4f4f5;
+  --color-mist: #1f1f23;
+  --color-graphite: #a1a1aa;
+  --color-accent: #e4e4e7;
+  --card-bg: #0b0b0d;
+  --ring: 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    
+    /* Clean Light Theme variables */
+    --color-stone: #f8f8fa;
+    --color-ink: #09090b;
+    --color-mist: #e4e4e7;
+    --color-graphite: #4b5563;
+    --color-accent: #27272a;
+    --card-bg: #ffffff;
+    --ring: 0 0 0 1px rgba(0, 0, 0, 0.05);
+  }
 }
 
 * {
-  @apply antialiased;
+  @apply antialiased transition-colors duration-200;
 }
 
 body {
-  @apply bg-stone text-ink font-sans;
+  @apply bg-stone text-ink font-sans selection:bg-zinc-800 selection:text-white;
 }
 
-::selection {
-  background: #d9d3c7;
-}
-
+/* Typography styles for case studies / markdown content */
 .prose-content h2 {
-  @apply text-2xl font-semibold tracking-tight mt-8 mb-3;
+  @apply text-xl font-bold tracking-tight mt-10 mb-4 text-ink border-b border-mist pb-2;
 }
 
 .prose-content h3 {
-  @apply text-xl font-semibold tracking-tight mt-6 mb-2;
+  @apply text-lg font-semibold tracking-tight mt-6 mb-3 text-ink;
 }
 
 .prose-content p {
-  @apply text-base leading-relaxed text-graphite mb-4;
+  @apply text-base leading-relaxed text-graphite mb-5;
 }
 
 .prose-content ul {
-  @apply list-disc pl-5 mb-4 text-graphite;
+  @apply list-disc pl-5 mb-5 space-y-2 text-graphite;
 }
 
 .prose-content li {
-  @apply mb-1;
+  @apply leading-relaxed;
+}
+
+.prose-content code {
+  @apply rounded px-1.5 py-0.5 font-mono text-sm text-ink;
+  background-color: rgba(120, 120, 120, 0.15);
+}
+
+.prose-content pre {
+  @apply rounded-xl p-4 overflow-x-auto font-mono text-sm border border-mist my-6;
+  background-color: rgba(120, 120, 120, 0.05);
 }
 
 .section-title {
-  @apply text-xl font-semibold tracking-tight;
+  @apply text-lg font-semibold tracking-tight text-ink uppercase tracking-wider text-xs;
 }
 
+/* Premium Card layout with interactive micro-animations */
 .card {
-  @apply bg-white border border-mist rounded-2xl shadow-soft;
+  @apply bg-card-bg border border-mist rounded-xl shadow-soft transition-all duration-300 hover:translate-y-[-2px] hover:border-zinc-500/30;
 }
 
 .link-hover {
@@ -52,17 +83,43 @@ body {
 }
 
 .badge {
-  @apply inline-flex items-center rounded-full border border-mist bg-white px-3 py-1 text-xs uppercase tracking-wide text-accent;
+  @apply inline-flex items-center rounded-md border border-mist bg-card-bg px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wider text-graphite;
 }
 
+/* Buttons styling mimicking Vercel / Linear */
 .btn {
-  @apply inline-flex items-center justify-center rounded-full px-5 py-2 text-sm font-medium transition-colors;
+  @apply inline-flex items-center justify-center rounded-lg px-4 py-2 text-xs font-semibold tracking-wide transition-all duration-200 shadow-sm;
 }
 
 .btn-primary {
-  @apply btn bg-ink text-white hover:bg-graphite;
+  @apply btn bg-ink text-stone hover:opacity-90;
 }
 
 .btn-secondary {
-  @apply btn border border-ink text-ink hover:bg-ink hover:text-white;
+  @apply btn border border-mist bg-card-bg text-ink hover:bg-zinc-800/10;
+}
+
+/* Infrastructure Diagram & Flow lines animations */
+@keyframes flow {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+.flow-line {
+  stroke-dasharray: 5, 5;
+  animation: flow 1s linear infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+.pulse-slow {
+  animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }

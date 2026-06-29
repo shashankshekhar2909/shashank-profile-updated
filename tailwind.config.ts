@@ -10,19 +10,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#0b0f14",
-        stone: "#f6f5f2",
-        mist: "#e5e1da",
-        graphite: "#2a2f36",
-        accent: "#6b6f76"
+        ink: "var(--color-ink)",
+        stone: "var(--color-stone)",
+        mist: "var(--color-mist)",
+        graphite: "var(--color-graphite)",
+        accent: "var(--color-accent)",
+        "card-bg": "var(--card-bg)"
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
         serif: ["var(--font-serif)", "serif"]
       },
       boxShadow: {
-        soft: "0 12px 40px rgba(11, 15, 20, 0.08)",
-        outline: "0 0 0 1px rgba(11, 15, 20, 0.08)"
+        soft: "0 12px 40px rgba(0, 0, 0, 0.25)",
+        outline: "0 0 0 1px var(--color-mist)"
       }
     }
   },

@@ -32,59 +32,60 @@ links:
 ---
 
 ## Overview
-BuildOS Agent is an AI-native development workspace that combines planning, architecture, coding, documentation, and execution into a single engineering system.
+BuildOS Agent is a state-of-the-art, AI-native product engineering workspace that shifts the paradigm of AI-assisted coding from ephemeral chats to persistent, structured, and long-term project partnership. Instead of acting as a stateless assistant that loses context after every session, BuildOS Agent integrates seamlessly into your repositories to maintain the lifecycle of product goals, architecture maps, open issues, and code conventions.
 
-Instead of acting as another chatbot, it works as an engineering partner that understands projects, maintains context, coordinates multiple AI models, and helps ship production software with less repeated prompting.
+## The Problem
+Standard AI tools face severe limitations when dealing with medium-to-large production systems:
+- **Stateless Context:** Every prompt starts with zero context of prior engineering decisions, resulting in repetitive instruction overhead.
+- **Context Window Drift:** As chat history grows, key system constraints, APIs, and business rules get pushed out of the context window.
+- **Architectural Fragmentation:** AI code generators often output code that violates existing architecture patterns, creating technical debt.
+- **Lack of Multi-agent Execution:** Complex tasks (such as writing database migrations, updating schemas, writing API tests, and creating matching frontend components) cannot be handled reliably by a single LLM invocation.
 
-## Problem
-AI coding tools generate code quickly, but large projects become harder when every session starts from scratch.
-
-Common issues include:
-- Lost project context across sessions.
-- Weak reasoning across multiple repositories.
-- Inconsistent architecture decisions.
-- Duplicate code and repeated implementation work.
-- Forgotten decisions and coding conventions.
-
-## Solution
-BuildOS Agent creates persistent engineering context for every project.
-
-Each project maintains:
-- Architecture and implementation status.
-- Documentation and onboarding material.
-- API contracts and database schema.
-- Deployment information.
-- Decisions and coding conventions.
-- Prompt history and AI conversations.
-
-Every future interaction starts from this shared project memory.
+## The Solution
+BuildOS Agent provides a persistent, multi-layered workspace environment:
+- **Shared Project Memory:** Keeps a continuously updated record of the system's architecture, database schemas, and endpoints.
+- **Context Builder Engine:** Pre-compiles the relevant schema, dependencies, and code constraints before dispatching requests to LLMs, reducing tokens and ensuring correct code generation.
+- **Stateful Planning Logs:** Breaks complex feature requests into actionable sub-tasks, allocating specific agents (e.g., Database Architect, API developer, UI builder) to solve them sequentially.
 
 ## Architecture
-The frontend uses Next.js, React, TypeScript, and Tailwind.
+The system is built on a highly modular and secure stack:
+- **Frontend Layer:** Next.js (App Router), React, Tailwind CSS, providing a fast, real-time control plane.
+- **Execution & Orchestration Backend:** FastAPI, PostgreSQL for state management, Redis for rate limiting, locking, and task queueing.
+- **AI Router & Agent Layer:** Integrates with Claude (via Anthropic API) for reasoning, Gemini for context-heavy indexing, and Groq/Ollama for low-latency tasks.
 
-The backend uses FastAPI, PostgreSQL, Redis, and Docker.
+```
++-------------------------------------------------------------+
+|                     Next.js User Interface                  |
++-------------------------------------------------------------+
+                              | (SSE / WebSockets)
+                              v
++-------------------------------------------------------------+
+|                  FastAPI Orchestration Core                 |
++-------------------------------------------------------------+
+        |                     |                     |
+        v                     v                     v
++---------------+     +---------------+     +-----------------+
+|  PostgreSQL   |     |     Redis     |     |   Open Knowledge |
+| (State & Log) |     | (Job Queue)   |     |  Format (OKF)   |
++---------------+     +---------------+     +-----------------+
+        |                                           |
+        +-------------------+-----------------------+
+                            |
+                            v
++-------------------------------------------------------------+
+|                AI Broker & LLM Router                       |
+|        [ Claude-3.5-Sonnet / Gemini-1.5 / Ollama ]         |
++-------------------------------------------------------------+
+```
 
-The AI layer supports multi-model routing across Claude, GPT, Gemini, Groq, and local Ollama models.
+## Technical Decisions
+1. **Open Knowledge Format (OKF):** Rather than blindly embedding source code and relying purely on vector search (RAG), we parse files into a structured JSON representation outlining application boundaries, interfaces, and core schemas. This enables 100% deterministic context loading.
+2. **Event-driven Execution:** All agent steps are structured as jobs run via Celery/Redis, ensuring the UI remains highly responsive even during multi-minute execution cycles.
 
-The knowledge layer uses OKF knowledge files, markdown indexing, repository scanning, vector search, and structured project memory.
+## Interesting Challenges & Solutions
+- **Agent Loop Halting:** Agents occasionally get stuck in loops when encountering compilation or linting errors. To solve this, we implemented a custom state-verifier that halts execution and requests human feedback after 3 failed attempts, preventing model runaway.
+- **Token Optimization:** Running multiple agents can be expensive. We built a context-reduction pipeline that strips comments, imports, and boilerplate code from input contexts before sending them to the LLMs.
 
-## Core Features
-- Project knowledge indexing for repositories, docs, markdown, API specs, diagrams, and prompts.
-- Persistent memory for conversations, decisions, implementation progress, and architecture history.
-- AI project planning for architecture, milestones, modules, database schema, API contracts, and deployment plans.
-- Multi-agent collaboration across architecture, backend, frontend, documentation, testing, and deployment roles.
-- Prompt library for Codex, Claude Code, Gemini CLI, Cursor, and Windsurf.
-- Documentation generator for README files, API docs, architecture docs, deployment guides, and onboarding docs.
-- Context builder that extracts relevant project context before sending requests to AI.
-
-## Interesting Engineering Decisions
-Instead of vectorizing entire repositories, BuildOS Agent builds structured engineering knowledge objects.
-
-This keeps AI context smaller, deterministic, cheaper, and reusable.
-
-## Challenges
-- Maintaining project context over months.
-- Working within AI token limits.
-- Cross-project search.
-- Incremental indexing.
-- Architecture versioning.
+## Roadmap & Future Work
+- **MCP (Model Context Protocol) Server:** Build out native MCP endpoints to connect BuildOS Agent directly to other tools like Cursor or Claude Desktop.
+- **Self-hosted Sandboxes:** Execute generated code inside ephemeral Docker containers to verify compilation and run test suites before proposing code changes to the user.

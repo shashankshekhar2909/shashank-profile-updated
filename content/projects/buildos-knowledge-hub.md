@@ -30,47 +30,44 @@ links:
 ---
 
 ## Overview
-BuildOS Knowledge Hub automatically understands software projects by continuously indexing repositories, documentation, markdown files, architecture documents, prompts, API specifications, and engineering notes.
+BuildOS Knowledge Hub is the semantic repository and memory foundation of the BuildOS platform. It is designed to act as an automated "engineering memory," continuously scanning project workspaces, documentation repositories, design assets, and database schemas. It compiles these disparate pieces of information into a centralized, queryable, structured graph format known as OKF (Open Knowledge Format), ready to be consumed by both human engineers and autonomous AI agents.
 
-Rather than storing isolated embeddings, it builds a structured engineering knowledge graph using OKF, Open Knowledge Format, that AI agents can reason over.
+## The Problem
+As engineering systems scale, technical knowledge becomes heavily fragmented:
+- **Scattered Sources:** Documentation lives in wikis, Notion, Google Docs, and codebase READMEs, while the actual implementation lives in code.
+- **Outdated Docs:** Code evolves faster than documentation, causing the written material to drift and become inaccurate.
+- **RAG Noise:** Standard RAG (Retrieval-Augmented Generation) splits code files into arbitrary chunks, losing structural meaning (e.g., class structures, method scopes, import trees, and API boundaries).
 
-## Problem
-Engineering knowledge is scattered across Git repositories, README files, Notion, markdown docs, design documents, API specs, AI prompts, and architecture notes.
-
-Developers repeatedly answer the same questions because context is fragmented.
-
-## Solution
-Knowledge Hub continuously scans project folders and converts them into structured OKF documents.
-
-Instead of simply embedding files, it extracts engineering concepts such as:
-- Applications.
-- Modules.
-- APIs.
-- Services.
-- Database schemas.
-- Dependencies.
-- Deployment workflows.
-- Coding standards.
-- Architectural decisions.
-
-This structured representation becomes the shared memory layer for AI agents.
+## The Solution
+Knowledge Hub acts as a specialized parser and semantic router:
+- **Structural Code Parsing:** Using Tree-sitter, it parses codebases into abstract syntax trees (ASTs) rather than raw text chunks. This allows the system to map out exact classes, functions, calls, and dependencies.
+- **Automatic Schema Harvesting:** The hub connects to database instances and OpenAPI configurations to extract API structures, data schemas, and validation requirements.
+- **Semantic Syncing:** It tracks git branches and commits to run incremental document builds, updating the knowledge base on every push.
 
 ## Architecture
-Sources include Git repositories, markdown, documentation, OpenAPI specs, diagrams, Docker Compose files, and CI/CD configs.
+```
+[ Code Repos ] ---> ( Tree-sitter Parser )
+                               |
+[ OpenAPI Specs ] --> ( Metadata Harvester ) --> [ OKF Builder ] ---> [ PostgreSQL (Graph/Relational) ]
+                               |
+[ Database Schemas ] ----------+                                     [ Vector DB (Semantic Index) ]
+                                                                                   |
+                                                                                   v
+                                                                     [ AI Agents / API Endpoint ]
+```
 
-The pipeline runs through parser, knowledge extractor, OKF generator, vector and graph storage, AI retrieval, and multi-agent context stages.
+- **AST Parsing Engine:** Tree-sitter integration for multi-language syntax tree extraction.
+- **Storage Layer:** PostgreSQL for relational data and graph boundaries, paired with a Vector database (pgvector/Qdrant) for fast conceptual search.
+- **API Interfaces:** Highly optimized FastAPI routes that deliver structured context objects to AI tools.
 
-## Core Features
-- Repository scanner for project discovery and indexing.
-- OKF generator that converts repositories into structured engineering knowledge.
-- Dependency mapping across services, APIs, databases, frontend apps, backend services, and infrastructure.
-- AI context builder that assembles optimized prompts with only relevant context.
-- Architecture search for questions like which projects use Redis, where FastAPI services live, or which apps share a component.
-- Cross-repository search across an engineering organization.
-- Documentation generator for architecture docs, onboarding guides, dependency diagrams, and module docs.
-- Change tracking for architecture drift, outdated docs, missing documentation, and dependency changes.
+## Technical Decisions
+1. **Tree-sitter AST Over Regex/Strings:** Using real grammar parsers instead of regular expressions ensures class boundaries, parameters, and return types are captured with 100% precision.
+2. **Hybrid Search Model:** We combined graph-based relationship queries (e.g., "Find all API routes that call the user database") with vector-based semantic search ("Explain how authentication works") to achieve high relevance and accuracy.
 
-## Engineering Challenge
-The biggest challenge is avoiding vector-database-only architecture.
+## Interesting Challenges & Solutions
+- **Incremental Indexing Cost:** Reparsing an entire repository on every commit is computationally expensive and slow. We implemented a Git-diff watcher that parses only modified files, recalculating only affected graph dependencies.
+- **Token Overflow in Retrieval:** When agents request codebase context, they often ask for too much. We built a hierarchical summarize-and-drill-down engine that serves high-level system maps first and only reveals detailed function code when explicitly requested.
 
-Knowledge Hub creates structured engineering objects, allowing AI to reason about software architecture instead of only matching similar text.
+## Roadmap & Future Work
+- **Dependency Drift Alerts:** Automatic notification if a pull request modifies an API contract that breaks downstream microservices.
+- **Multi-repo Graph Linking:** Expand the dependency graph across separate git repositories, tracing data flows across microservice clusters.
