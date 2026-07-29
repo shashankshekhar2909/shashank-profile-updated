@@ -88,7 +88,10 @@ export default function HomePage() {
               location={site.location}
             />
             <p className="mt-3 text-center text-[11px] text-graphite font-mono">
-              live shell — click it, type <span className="text-brand">help</span>
+              live shell — click it, type <span className="text-brand">help</span> · or{" "}
+              <Link href="/os" className="text-brand hover:underline">
+                boot the full desktop →
+              </Link>
             </p>
           </div>
         </div>
