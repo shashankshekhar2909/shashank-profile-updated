@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import site from "@/content/site.json";
 
 export const metadata: Metadata = {
-  title: "Contact Shashank Shekhar",
+  title: "Contact — Agentic Development & AI Consulting",
   description:
     "Contact Shashank Shekhar for agentic development, AI system architecture, product engineering, and self-hosted infrastructure work.",
   alternates: {

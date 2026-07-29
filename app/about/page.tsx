@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Shashank Shekhar - AI-Native Product Engineer",
+  title: "About — AI-Native Product Engineer",
   description:
     "About Shashank Shekhar, an AI-Native Product Engineer building the BuildOS platform, developer tools, AI systems, and self-hosted infrastructure with Next.js, FastAPI, and Docker.",
   alternates: {

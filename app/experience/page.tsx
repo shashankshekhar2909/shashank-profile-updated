@@ -3,7 +3,7 @@ import Link from "next/link";
 import experienceData from "@/content/experience.json";
 
 export const metadata: Metadata = {
-  title: "Experience - Shashank Shekhar, AI-Native Product Engineer",
+  title: "Experience — 8+ Years in Product & AI Engineering",
   description:
     "Shashank Shekhar has 8+ years of experience across AI systems, developer tools, frontend engineering, product catalog platforms, search-driven UIs, and self-hosted infrastructure.",
   alternates: {

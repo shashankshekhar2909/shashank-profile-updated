@@ -120,19 +120,46 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         type="application/ld+json"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "CreativeWork",
-            name: project.title,
-            description: project.summary,
-            url: `https://buildwithshashank.com/projects/${project.slug}`,
-            author: {
-              "@type": "Person",
-              name: "Shashank Shekhar"
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "CreativeWork",
+              name: project.title,
+              description: project.summary,
+              url: `https://buildwithshashank.com/projects/${project.slug}`,
+              author: {
+                "@type": "Person",
+                "@id": "https://buildwithshashank.com/#person",
+                name: "Shashank Shekhar"
+              },
+              keywords: project.tags,
+              about: project.stack
             },
-            keywords: project.tags,
-            about: project.stack
-          })
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://buildwithshashank.com"
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Projects",
+                  item: "https://buildwithshashank.com/projects"
+                },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  name: project.title,
+                  item: `https://buildwithshashank.com/projects/${project.slug}`
+                }
+              ]
+            }
+          ])
         }}
       />
     </div>

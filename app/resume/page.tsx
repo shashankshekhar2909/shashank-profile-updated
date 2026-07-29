@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Resume - Shashank Shekhar | AI-Native Product Engineer",
+  title: "Resume — AI-Native Product Engineer",
   description:
     "Resume of Shashank Shekhar, AI-Native Product Engineer with experience across Angular, React, FastAPI, Typesense, Docker, AWS, and GCP.",
   alternates: {

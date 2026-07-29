@@ -6,7 +6,10 @@ import Footer from "@/components/Footer";
 import site from "@/content/site.json";
 
 export const metadata: Metadata = {
-  title: "Shashank Shekhar | AI-Native Product Engineer",
+  title: {
+    default: "Shashank Shekhar | AI-Native Product Engineer",
+    template: "%s | Shashank Shekhar"
+  },
   description: site.description,
   metadataBase: new URL(site.siteUrl),
   alternates: {
@@ -31,11 +34,47 @@ export const metadata: Metadata = {
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": `${site.siteUrl}/#person`,
   name: site.name,
   jobTitle: site.title,
   url: site.siteUrl,
   email: site.email,
-  sameAs: [site.links.github, site.links.linkedin]
+  sameAs: [site.links.github, site.links.linkedin],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Bengaluru",
+    addressCountry: "IN"
+  },
+  worksFor: {
+    "@type": "Organization",
+    name: "CrowdAnalytix"
+  },
+  alumniOf: [
+    { "@type": "CollegeOrUniversity", name: "BBAU University, Lucknow" },
+    { "@type": "CollegeOrUniversity", name: "Amity University, Lucknow" }
+  ],
+  knowsAbout: [
+    "Agentic development",
+    "AI agents",
+    "Angular",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "FastAPI",
+    "Typesense",
+    "Docker",
+    "Self-hosted infrastructure",
+    "Retrieval-augmented generation"
+  ]
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${site.siteUrl}/#website`,
+  url: site.siteUrl,
+  name: "Shashank Shekhar — AI-Native Product Engineer",
+  publisher: { "@id": `${site.siteUrl}/#person` }
 };
 
 export default function RootLayout({
@@ -59,7 +98,7 @@ gtag('config', 'G-BCQQMMTVM2');`}
         <script
           type="application/ld+json"
           suppressHydrationWarning
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify([personJsonLd, websiteJsonLd]) }}
         />
         <Header />
         <main className="min-h-screen px-6 pb-24 pt-28 sm:px-10">

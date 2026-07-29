@@ -9,7 +9,7 @@ interface ProjectsPageProps {
 }
 
 export const metadata: Metadata = {
-  title: "Projects by Shashank Shekhar - BuildOS, AI, Search & Product Systems",
+  title: "Projects — BuildOS, AI, Search & Product Systems",
   description:
     "Projects by Shashank Shekhar across the BuildOS AI engineering platform, Angular product catalog systems, Typesense search interfaces, FastAPI backends, Docker deployment, and frontend architecture.",
   alternates: {

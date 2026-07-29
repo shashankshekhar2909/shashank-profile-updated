@@ -10,7 +10,6 @@ import CountUpMetric from "@/components/CountUpMetric";
 import { getAllProjectMeta } from "@/lib/projects";
 
 export const metadata: Metadata = {
-  title: "Shashank Shekhar | AI-Native Product Engineer",
   description:
     "Shashank Shekhar is an AI-Native Product Engineer specializing in agentic development — AI agents that build, execute, diagnose, and modify whole applications — plus developer tools, AI systems, and self-hosted infrastructure.",
   alternates: {
@@ -44,6 +43,9 @@ export default function HomePage() {
               Currently building BuildOS
             </div>
             <h1 className="text-4xl font-extrabold tracking-tight text-ink sm:text-6xl font-sans leading-none">
+              <span className="mb-3 block text-base font-semibold tracking-wide text-graphite sm:text-lg">
+                Shashank Shekhar
+              </span>
               AI-Native <br />
               Product Engineer
             </h1>
