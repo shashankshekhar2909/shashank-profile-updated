@@ -1,0 +1,8 @@
+services:
+  portfolio:
+    build: .
+    image: shashank-portfolio
+    container_name: shashank-portfolio
+    restart: unless-stopped
+    ports:
+      - "4010:3000"

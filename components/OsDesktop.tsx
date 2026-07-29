@@ -21,8 +21,36 @@ interface OsWindow {
   appId: AppId;
   x: number;
   y: number;
+  w: number;
+  h: number;
   z: number;
   minimized: boolean;
+}
+
+const DEFAULT_W = 640;
+const DEFAULT_H = 420;
+
+function playChime() {
+  try {
+    const Ctx = window.AudioContext ?? (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+    if (!Ctx) return;
+    const ctx = new Ctx();
+    const now = ctx.currentTime;
+    [523.25, 783.99].forEach((freq, i) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = "sine";
+      osc.frequency.value = freq;
+      gain.gain.setValueAtTime(0, now + i * 0.12);
+      gain.gain.linearRampToValueAtTime(0.08, now + i * 0.12 + 0.03);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + i * 0.12 + 0.5);
+      osc.connect(gain).connect(ctx.destination);
+      osc.start(now + i * 0.12);
+      osc.stop(now + i * 0.12 + 0.55);
+    });
+  } catch {
+    // Audio not available or blocked by autoplay policy — boot silently.
+  }
 }
 
 const APPS: { id: AppId; title: string; icon: string }[] = [
@@ -49,11 +77,15 @@ export default function OsDesktop(props: OsDesktopProps) {
   const [clock, setClock] = useState("");
   const zRef = useRef(10);
   const dragRef = useRef<{ appId: AppId; dx: number; dy: number } | null>(null);
+  const resizeRef = useRef<{ appId: AppId; startX: number; startY: number; startW: number; startH: number } | null>(null);
   const desktopRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const t = setTimeout(() => setBooted(true), reduced ? 0 : 2300);
+    const t = setTimeout(() => {
+      setBooted(true);
+      if (!reduced) playChime();
+    }, reduced ? 0 : 2300);
     return () => clearTimeout(t);
   }, []);
 
@@ -91,6 +123,8 @@ export default function OsDesktop(props: OsDesktopProps) {
           appId,
           x: 60 + offset,
           y: 50 + offset,
+          w: DEFAULT_W,
+          h: DEFAULT_H,
           z: zRef.current,
           minimized: false
         }
@@ -123,8 +157,38 @@ export default function OsDesktop(props: OsDesktopProps) {
     (e.target as HTMLElement).setPointerCapture(e.pointerId);
   }
 
+  function onResizePointerDown(e: React.PointerEvent, appId: AppId) {
+    const win = windows.find((w) => w.appId === appId);
+    if (!win) return;
+    e.stopPropagation();
+    focusApp(appId);
+    resizeRef.current = {
+      appId,
+      startX: e.clientX,
+      startY: e.clientY,
+      startW: win.w,
+      startH: win.h
+    };
+    (e.target as HTMLElement).setPointerCapture(e.pointerId);
+  }
+
   function onPointerMove(e: React.PointerEvent) {
     const drag = dragRef.current;
+    const resize = resizeRef.current;
+    if (resize) {
+      setWindows((prev) =>
+        prev.map((w) =>
+          w.appId === resize.appId
+            ? {
+                ...w,
+                w: Math.max(340, Math.min(960, resize.startW + (e.clientX - resize.startX))),
+                h: Math.max(220, Math.min(window.innerHeight * 0.8, resize.startH + (e.clientY - resize.startY)))
+              }
+            : w
+        )
+      );
+      return;
+    }
     if (!drag) return;
     const bounds = desktopRef.current?.getBoundingClientRect();
     const maxX = (bounds?.width ?? 1200) - 120;
@@ -144,6 +208,7 @@ export default function OsDesktop(props: OsDesktopProps) {
 
   function onPointerUp() {
     dragRef.current = null;
+    resizeRef.current = null;
   }
 
   const activeWindow = [...windows]
@@ -204,6 +269,13 @@ export default function OsDesktop(props: OsDesktopProps) {
               linkedin={props.linkedin}
               location={props.location}
               className="border-0 rounded-none shadow-none"
+              launchableApps={APPS.map((a) => a.id)}
+              onLaunchApp={(app) => {
+                const match = APPS.find((a) => a.id === app);
+                if (!match) return false;
+                openApp(match.id);
+                return true;
+              }}
             />
           </div>
         );
@@ -343,10 +415,10 @@ export default function OsDesktop(props: OsDesktopProps) {
           return (
             <div
               key={w.appId}
-              className={`os-window absolute w-[min(640px,94vw)] rounded-xl border bg-zinc-950/95 shadow-2xl backdrop-blur ${
+              className={`os-window absolute rounded-xl border bg-zinc-950/95 shadow-2xl backdrop-blur ${
                 isActive ? "border-zinc-600" : "border-zinc-800"
               }`}
-              style={{ left: w.x, top: w.y, zIndex: w.z }}
+              style={{ left: w.x, top: w.y, zIndex: w.z, width: `min(${w.w}px, 94vw)` }}
               onPointerDown={() => focusApp(w.appId)}
             >
               <div
@@ -373,7 +445,18 @@ export default function OsDesktop(props: OsDesktopProps) {
                 </span>
                 <span className="w-14" />
               </div>
-              <div className="max-h-[62vh] overflow-y-auto p-4">{renderApp(w.appId)}</div>
+              <div className="overflow-y-auto p-4" style={{ height: w.h }}>
+                {renderApp(w.appId)}
+              </div>
+              <div
+                aria-hidden="true"
+                onPointerDown={(e) => onResizePointerDown(e, w.appId)}
+                className="absolute bottom-0 right-0 h-5 w-5 cursor-nwse-resize"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(135deg, transparent 55%, #3f3f46 55%, #3f3f46 62%, transparent 62%, transparent 72%, #3f3f46 72%, #3f3f46 79%, transparent 79%)"
+                }}
+              />
             </div>
           );
         })}

@@ -23,6 +23,10 @@ interface TerminalProps {
   /** Auto-types demo commands until the visitor interacts. */
   autoDemo?: boolean;
   className?: string;
+  /** BuildOS Desktop only: launch an OS app window. Returns false if the app id is unknown. */
+  onLaunchApp?: (app: string) => boolean;
+  /** App ids offered for `launch` tab completion. */
+  launchableApps?: string[];
 }
 
 interface OutputLine {
@@ -61,7 +65,9 @@ export default function Terminal({
   linkedin,
   location,
   autoDemo = false,
-  className
+  className,
+  onLaunchApp,
+  launchableApps = []
 }: TerminalProps) {
   const router = useRouter();
   const demoStopped = useRef(!autoDemo);
@@ -102,9 +108,29 @@ export default function Terminal({
           { text: "  stack                technologies in production" },
           { text: "  contact              email and socials" },
           { text: "  resume               open resume page" },
-          { text: "  clear                wipe the screen" }
+          { text: "  clear                wipe the screen" },
+          ...(onLaunchApp
+            ? [{ text: "  launch <app>         open a desktop app window", style: "accent" as const }]
+            : [])
         ]);
         break;
+
+      case "launch": {
+        if (!onLaunchApp) {
+          print([{ text: "launch: only available inside BuildOS Desktop — boot it at /os", style: "error" }]);
+          break;
+        }
+        if (!arg) {
+          print([{ text: `usage: launch <${launchableApps.join("|")}>`, style: "error" }]);
+          break;
+        }
+        if (onLaunchApp(arg)) {
+          print([{ text: `Launching ${arg}...`, style: "ok" }]);
+        } else {
+          print([{ text: `launch: no such app: ${arg} — try <${launchableApps.join("|")}>`, style: "error" }]);
+        }
+        break;
+      }
 
       case "whoami":
         print([
@@ -275,13 +301,18 @@ export default function Terminal({
     } else if (e.key === "Tab") {
       e.preventDefault();
       const parts = input.split(/\s+/);
+      const commandList = onLaunchApp ? [...COMMANDS, "launch"] : COMMANDS;
       if (parts.length <= 1) {
-        const match = COMMANDS.find((c) => c.startsWith(parts[0] ?? ""));
+        const match = commandList.find((c) => c.startsWith(parts[0] ?? ""));
         if (match) setInput(match + " ");
       } else if (["open", "cat"].includes(parts[0])) {
         const partial = parts[parts.length - 1];
         const match = projects.find((p) => p.slug.startsWith(partial));
         if (match) setInput(`${parts[0]} ${match.slug}`);
+      } else if (parts[0] === "launch") {
+        const partial = parts[parts.length - 1];
+        const match = launchableApps.find((a) => a.startsWith(partial));
+        if (match) setInput(`launch ${match}`);
       }
     }
   };
