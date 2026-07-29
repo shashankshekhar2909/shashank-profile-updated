@@ -9,9 +9,11 @@ const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Experience", href: "/experience" },
+  { label: "Showcase", href: "/showcase" },
   { label: "Projects", href: "/projects" },
   { label: "Blog", href: "/blog" },
   { label: "Playground", href: "/playground" },
+  { label: "OS", href: "/os" },
   { label: "Resume", href: "/resume" },
   { label: "Contact", href: "/contact" }
 ];
@@ -28,7 +30,7 @@ export default function Header() {
         <Link href="/" className="text-sm font-semibold tracking-wide text-ink">
           {site.name}
         </Link>
-        <nav className="hidden items-center gap-6 text-sm text-accent md:flex">
+        <nav className="hidden items-center gap-5 text-sm text-accent md:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}
