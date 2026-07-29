@@ -97,8 +97,18 @@ export default function ShowcaseStory({ metrics }: ShowcaseStoryProps) {
   const productsProgress = useScrollProgress(productsRef);
   const loopProgress = useScrollProgress(loopRef);
 
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
     setReduced(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    const mq = window.matchMedia("(max-width: 1023px)");
+    const onChange = () => setIsMobile(mq.matches);
+    onChange();
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  useEffect(() => {
     let raf = 0;
     const onScroll = () => {
       cancelAnimationFrame(raf);
@@ -114,15 +124,16 @@ export default function ShowcaseStory({ metrics }: ShowcaseStoryProps) {
   }, []);
 
   const words = STATEMENT.split(" ");
-  const activeProduct = reduced
+  const staticScene = reduced || isMobile;
+  const activeProduct = staticScene
     ? -1
     : Math.min(PRODUCTS.length - 1, Math.floor(productsProgress * PRODUCTS.length));
-  const activeStep = reduced
+  const activeStep = staticScene
     ? -1
     : Math.min(LOOP_STEPS.length - 1, Math.floor(loopProgress * LOOP_STEPS.length));
 
   return (
-    <div className="-mx-6 -mt-28 -mb-24 sm:-mx-10 bg-[#060608] text-zinc-100">
+    <div className="-mx-5 -mt-24 -mb-24 sm:-mx-10 sm:-mt-28 bg-[#060608] text-zinc-100">
       {/* 1. HERO */}
       <section className="relative flex h-[100svh] flex-col items-center justify-center overflow-hidden px-6">
         <div className="hero-grid absolute inset-0" aria-hidden="true" />
@@ -175,20 +186,20 @@ export default function ShowcaseStory({ metrics }: ShowcaseStoryProps) {
       </section>
 
       {/* 3. PRODUCT TRIO — sticky crossfade */}
-      <section ref={productsRef} className={reduced ? "px-6 pb-32" : "relative h-[320vh]"}>
-        <div className={reduced ? "flex flex-col gap-24" : "sticky top-0 flex h-screen items-center overflow-hidden"}>
+      <section ref={productsRef} className={staticScene ? "px-6 pb-32" : "relative h-[320vh]"}>
+        <div className={staticScene ? "flex flex-col gap-24" : "sticky top-0 flex h-screen items-center overflow-hidden"}>
           {PRODUCTS.map((product, i) => {
-            const visible = reduced || i === activeProduct;
+            const visible = staticScene || i === activeProduct;
             return (
               <div
                 key={product.name}
                 className={
-                  reduced
+                  staticScene
                     ? "mx-auto w-full max-w-5xl"
                     : "absolute inset-0 flex items-center justify-center px-6 transition-all duration-500"
                 }
                 style={
-                  reduced
+                  staticScene
                     ? undefined
                     : {
                         opacity: visible ? 1 : 0,
@@ -247,8 +258,8 @@ export default function ShowcaseStory({ metrics }: ShowcaseStoryProps) {
       </section>
 
       {/* 5. THE LOOP */}
-      <section ref={loopRef} className={reduced ? "px-6 py-32" : "relative h-[260vh]"}>
-        <div className={reduced ? "" : "sticky top-0 flex h-screen items-center"}>
+      <section ref={loopRef} className={staticScene ? "px-6 py-32" : "relative h-[260vh]"}>
+        <div className={staticScene ? "" : "sticky top-0 flex h-screen items-center"}>
           <div className="mx-auto w-full max-w-4xl px-6">
             <p className="font-mono text-xs uppercase tracking-[0.3em] text-emerald-400">The loop</p>
             <h2 className="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">
@@ -256,7 +267,7 @@ export default function ShowcaseStory({ metrics }: ShowcaseStoryProps) {
             </h2>
             <div className="mt-14 grid gap-8 sm:grid-cols-2">
               {LOOP_STEPS.map((step, i) => {
-                const on = reduced || i <= activeStep;
+                const on = staticScene || i <= activeStep;
                 return (
                   <div
                     key={step.name}

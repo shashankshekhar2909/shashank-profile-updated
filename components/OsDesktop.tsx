@@ -116,15 +116,16 @@ export default function OsDesktop(props: OsDesktopProps) {
           w.appId === appId ? { ...w, minimized: false, z: zRef.current } : w
         );
       }
-      const offset = prev.length * 28;
+      const small = typeof window !== "undefined" && window.innerWidth < 640;
+      const offset = small ? prev.length * 14 : prev.length * 28;
       return [
         ...prev,
         {
           appId,
-          x: 60 + offset,
-          y: 50 + offset,
-          w: DEFAULT_W,
-          h: DEFAULT_H,
+          x: small ? 8 : 60 + offset,
+          y: (small ? 44 : 50) + offset,
+          w: small ? window.innerWidth - 16 : DEFAULT_W,
+          h: small ? Math.min(DEFAULT_H, Math.round(window.innerHeight * 0.5)) : DEFAULT_H,
           z: zRef.current,
           minimized: false
         }

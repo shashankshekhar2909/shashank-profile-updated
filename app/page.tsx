@@ -31,7 +31,7 @@ export default function HomePage() {
   const articles = articlesData.articles.filter((a) => !a.placeholder);
 
   return (
-    <div className="mx-auto flex max-w-6xl flex-col gap-32">
+    <div className="mx-auto flex max-w-6xl flex-col gap-20 sm:gap-32">
       <ScrollReveal />
       {/* 1. HERO SECTION */}
       <section className="relative pt-16 pb-8 md:pt-20">

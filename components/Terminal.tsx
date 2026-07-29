@@ -352,7 +352,7 @@ export default function Terminal({
               stopDemo();
               onKeyDown(e);
             }}
-            className="w-full bg-transparent text-zinc-100 outline-none caret-emerald-400"
+            className="w-full bg-transparent text-[16px] text-zinc-100 outline-none caret-emerald-400 sm:text-xs"
             aria-label="Terminal command input"
             autoComplete="off"
             autoCapitalize="off"

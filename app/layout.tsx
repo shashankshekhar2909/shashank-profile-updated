@@ -101,7 +101,7 @@ gtag('config', 'G-BCQQMMTVM2');`}
           dangerouslySetInnerHTML={{ __html: JSON.stringify([personJsonLd, websiteJsonLd]) }}
         />
         <Header />
-        <main className="min-h-screen px-6 pb-24 pt-28 sm:px-10">
+        <main className="min-h-screen px-5 pb-24 pt-24 sm:px-10 sm:pt-28">
           {children}
         </main>
         <Footer />
