@@ -576,11 +576,9 @@ export default function HomePage() {
         </div>
         <div className="grid gap-6 md:grid-cols-3">
           {articles.map((article) => (
-            <a
+            <Link
               key={article.title}
               href={article.url}
-              target="_blank"
-              rel="noreferrer"
               className="card p-6 flex flex-col justify-between hover:-translate-y-1 group"
             >
               <div>
@@ -598,8 +596,13 @@ export default function HomePage() {
               <span className="mt-4 text-[11px] font-semibold text-ink group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
                 Read Article <span className="font-sans">→</span>
               </span>
-            </a>
+            </Link>
           ))}
+        </div>
+        <div>
+          <Link href="/blog" className="text-xs font-semibold text-brand hover:underline">
+            All articles →
+          </Link>
         </div>
       </section>
       )}

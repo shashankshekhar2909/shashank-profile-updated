@@ -1,29 +1,29 @@
 {
-  "_note": "Replace url with the real per-article link before publishing. Section is hidden for any entry with placeholder=true.",
+  "_note": "Articles now live on the main domain at /blog. Entries here drive the homepage Latest Articles section.",
   "articles": [
     {
       "title": "Building BuildOS: Reimagining the AI Agent Execution Loop",
       "summary": "How we implemented event-driven microservice orchestration and Paramiko SSH streaming to execute code safely across private fleets.",
       "date": "June 2026",
       "readTime": "8 min read",
-      "url": "https://blogmanager.buildwithshashank.com",
-      "placeholder": true
+      "url": "/blog/buildos-agent-execution-loop",
+      "placeholder": false
     },
     {
       "title": "Why AST-Parsing Trumps Raw Vector Embeddings for Code RAG",
       "summary": "An in-depth look at using Tree-sitter AST queries to build deterministic model context maps rather than relying purely on semantic vector chunking.",
       "date": "May 2026",
       "readTime": "12 min read",
-      "url": "https://blogmanager.buildwithshashank.com",
-      "placeholder": true
+      "url": "/blog/ast-parsing-vs-vector-embeddings",
+      "placeholder": false
     },
     {
       "title": "Zero-Downtime Docker Compose Migrations via Secure Relays",
       "summary": "Solving remote volume migration issues without direct host-to-host SSH trust configurations.",
       "date": "April 2026",
       "readTime": "6 min read",
-      "url": "https://blogmanager.buildwithshashank.com",
-      "placeholder": true
+      "url": "/blog/zero-downtime-docker-migrations",
+      "placeholder": false
     }
   ]
 }
