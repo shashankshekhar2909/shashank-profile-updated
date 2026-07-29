@@ -7,19 +7,19 @@ tags:
   - "Search"
   - "Workflow"
   - "AI"
-timeline: "2019 – Present"
+timeline: "2019 - Present"
 stack:
+  - "Angular"
   - "Typesense"
   - "FastAPI"
   - "PostgreSQL"
-  - "Next.js"
   - "Docker"
 featured: false
 links:
   - label: "CrowdAnalytix"
     url: "https://www.crowdanalytix.com"
 summary: "Enterprise-scale product discovery platform for 7.7M+ SKUs with schema-driven UI, faceted search, and bulk editorial workflows."
-problem: "Retail teams needed an Angular product catalog system to manage millions of SKUs with governed search and bulk updates."
+problem: "Retail teams had to search and curate millions of SKUs with tools that could not keep up — slow search, no governance, and risky bulk updates."
 outcome: "Delivered a high-scale Typesense search interface and product engineering workflow that improved discovery speed and editorial consistency."
 ---
 

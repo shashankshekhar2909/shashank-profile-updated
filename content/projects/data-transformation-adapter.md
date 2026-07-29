@@ -6,11 +6,10 @@ tags:
   - "Workflow"
   - "Automation"
   - "Data"
-timeline: "2026 – Present"
+timeline: "2026 - Present"
 stack:
   - "FastAPI"
   - "Python"
-  - "CSV"
 featured: false
 summary: "In-progress adapter to transform CSV/JSON into structured templates with export to JSON or CSV."
 ---

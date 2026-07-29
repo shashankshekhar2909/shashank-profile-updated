@@ -1,91 +1,93 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import site from "@/content/site.json";
+import articlesData from "@/content/articles.json";
+import experienceData from "@/content/experience.json";
 import Button from "@/components/Button";
-import { getAllProjects } from "@/lib/projects";
+import Terminal from "@/components/Terminal";
+import ScrollReveal from "@/components/ScrollReveal";
+import CountUpMetric from "@/components/CountUpMetric";
+import { getAllProjectMeta } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "Shashank Shekhar | AI-Native Product Engineer",
   description:
-    "Shashank Shekhar is an AI-Native Product Engineer building developer tools, AI systems, self-hosted infrastructure, and production platforms.",
-  keywords: [
-    "Shashank Shekhar",
-    "AI-Native Product Engineer",
-    "BuildOS",
-    "Node Commander",
-    "Knowledge Hub",
-    "DevOps",
-    "FastAPI",
-    "Next.js",
-    "Typesense",
-    "Frontend Architect"
-  ],
+    "Shashank Shekhar is an AI-Native Product Engineer specializing in agentic development — AI agents that build, execute, diagnose, and modify whole applications — plus developer tools, AI systems, and self-hosted infrastructure.",
   alternates: {
     canonical: "/"
   }
 };
 
-export default async function HomePage() {
-  const projects = await getAllProjects();
+const mockupLineStyles: Record<string, string> = {
+  muted: "text-zinc-500",
+  ok: "text-emerald-400",
+  info: "text-blue-400",
+  accent: "text-purple-400"
+};
+
+export default function HomePage() {
+  const projects = getAllProjectMeta();
   const featured = projects.filter((p) => p.featured);
   const regularCaseStudies = projects.filter((p) => !p.featured);
-
-  // Hardcoded articles since RSS parser requires external requests
-  const articles = [
-    {
-      title: "Building BuildOS: Reimagining the AI Agent Execution Loop",
-      summary: "How we implemented event-driven microservice orchestration and Paramiko SSH streaming to execute code safely across private fleets.",
-      date: "June 2026",
-      readTime: "8 min read",
-      url: "https://blogmanager.buildwithshashank.com"
-    },
-    {
-      title: "Why AST-Parsing Trumps Raw Vector Embeddings for Code RAG",
-      summary: "An in-depth look at using Tree-sitter AST queries to build deterministic model context maps rather than relying purely on semantic vector chunking.",
-      date: "May 2026",
-      readTime: "12 min read",
-      url: "https://blogmanager.buildwithshashank.com"
-    },
-    {
-      title: "Zero-Downtime Docker Compose Migrations via Secure Relays",
-      summary: "Solving remote volume migration issues without direct host-to-host SSH trust configurations.",
-      date: "April 2026",
-      readTime: "6 min read",
-      url: "https://blogmanager.buildwithshashank.com"
-    }
-  ];
+  const articles = articlesData.articles.filter((a) => !a.placeholder);
 
   return (
-    <div className="mx-auto flex max-w-5xl flex-col gap-32">
+    <div className="mx-auto flex max-w-6xl flex-col gap-32">
+      <ScrollReveal />
       {/* 1. HERO SECTION */}
-      <section className="pt-16 pb-8 md:pt-24">
-        <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-mist px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-graphite bg-card-bg mb-6">
-            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            Currently building BuildOS
+      <section className="relative pt-16 pb-8 md:pt-20">
+        <div className="hero-grid absolute inset-0 -z-10" aria-hidden="true" />
+        <div className="grid items-center gap-12 lg:grid-cols-[1fr_0.95fr]">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-mist px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-graphite bg-card-bg mb-6">
+              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              Currently building BuildOS
+            </div>
+            <h1 className="text-4xl font-extrabold tracking-tight text-ink sm:text-6xl font-sans leading-none">
+              AI-Native <br />
+              Product Engineer
+            </h1>
+            <p className="mt-8 text-xl leading-relaxed text-graphite max-w-2xl font-sans">
+              I build AI agents that <span className="text-ink font-semibold">build, execute, diagnose, and modify whole applications</span> — plus the developer tools, self-hosted infrastructure, and production platforms they run on.
+            </p>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Link href="/contact" className="btn-brand">
+                Book a call
+              </Link>
+              <Button href="#products" variant="secondary">
+                See Products
+              </Button>
+              <a
+                href={site.links.github}
+                target="_blank"
+                rel="noreferrer"
+                className="btn border border-mist bg-card-bg text-ink hover:bg-mist/35"
+              >
+                GitHub
+              </a>
+            </div>
           </div>
-          <h1 className="text-4xl font-extrabold tracking-tight text-ink sm:text-6xl md:text-7xl font-sans leading-none">
-            AI-Native <br />
-            Product Engineer
-          </h1>
-          <p className="mt-8 text-xl leading-relaxed text-graphite max-w-2xl font-sans">
-            I design and build developer tools, AI systems, self-hosted infrastructure, and production software.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Button href="#products" variant="primary">
-              See Products
-            </Button>
-            <Button href="#case-studies" variant="secondary">
-              Read Case Studies
-            </Button>
-            <a
-              href={site.links.github}
-              target="_blank"
-              rel="noreferrer"
-              className="btn border border-mist bg-card-bg text-ink hover:bg-mist/35"
-            >
-              GitHub
-            </a>
+          <div className="hidden lg:block">
+            <Terminal
+              autoDemo
+              projects={projects.map((p) => ({
+                slug: p.slug,
+                title: p.title,
+                type: p.type,
+                timeline: p.timeline,
+                summary: p.summary,
+                stack: p.stack
+              }))}
+              siteName={site.name}
+              siteTitle={site.title}
+              email={site.email}
+              github={site.links.github}
+              linkedin={site.links.linkedin}
+              location={site.location}
+            />
+            <p className="mt-3 text-center text-[11px] text-graphite font-mono">
+              live shell — click it, type <span className="text-brand">help</span>
+            </p>
           </div>
         </div>
       </section>
@@ -93,30 +95,76 @@ export default async function HomePage() {
       {/* 2. METRICS SECTION */}
       <section className="border-y border-mist py-12 bg-card-bg/30">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-6 text-center md:text-left">
-          <div>
-            <div className="text-3xl font-extrabold text-ink md:text-4xl">8+</div>
-            <div className="mt-1 text-xs uppercase tracking-wider text-graphite">Years</div>
-          </div>
-          <div>
-            <div className="text-3xl font-extrabold text-ink md:text-4xl">7.7M+</div>
-            <div className="mt-1 text-xs uppercase tracking-wider text-graphite">Products Indexed</div>
-          </div>
-          <div>
-            <div className="text-3xl font-extrabold text-ink md:text-4xl">20+</div>
-            <div className="mt-1 text-xs uppercase tracking-wider text-graphite">Self-Hosted Services</div>
-          </div>
-          <div>
-            <div className="text-3xl font-extrabold text-ink md:text-4xl">60+</div>
-            <div className="mt-1 text-xs uppercase tracking-wider text-graphite">Repositories</div>
-          </div>
-          <div>
-            <div className="text-3xl font-extrabold text-ink md:text-4xl">5+</div>
-            <div className="mt-1 text-xs uppercase tracking-wider text-graphite">Production Platforms</div>
-          </div>
-          <div>
-            <div className="text-3xl font-extrabold text-ink md:text-4xl">100+</div>
-            <div className="mt-1 text-xs uppercase tracking-wider text-graphite">AI Experiments</div>
-          </div>
+          {site.metrics.map((metric) => (
+            <CountUpMetric key={metric.label} value={metric.value} label={metric.label} />
+          ))}
+        </div>
+      </section>
+
+      {/* 2b. INTERACTIVE TERMINAL (mobile — desktop version lives in the hero) */}
+      <section className="flex flex-col gap-6 lg:hidden">
+        <div>
+          <h2 className="section-title">Explore via Terminal</h2>
+          <p className="mt-2 text-sm text-graphite">
+            This portfolio has a shell. Type <code className="font-mono text-ink">help</code> — every command runs on real project data.
+          </p>
+        </div>
+        <Terminal
+          projects={projects.map((p) => ({
+            slug: p.slug,
+            title: p.title,
+            type: p.type,
+            timeline: p.timeline,
+            summary: p.summary,
+            stack: p.stack
+          }))}
+          siteName={site.name}
+          siteTitle={site.title}
+          email={site.email}
+          github={site.links.github}
+          linkedin={site.links.linkedin}
+          location={site.location}
+        />
+      </section>
+
+      {/* 2c. WORK WITH ME (consulting offers) */}
+      <section id="services" className="flex flex-col gap-8">
+        <div>
+          <h2 className="section-title">Work With Me</h2>
+          <p className="mt-2 text-sm text-graphite">
+            Four ways I engage with teams and founders. Fixed scope, clear deliverables, no bench time.
+          </p>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {site.services.map((service) => (
+            <div key={service.title} className="card p-6 flex flex-col justify-between">
+              <div>
+                <h3 className="font-bold text-ink text-base">{service.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-graphite">{service.outcome}</p>
+                <ul className="mt-4 space-y-2 text-xs text-graphite">
+                  {service.deliverables.map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <span className="mt-1 h-1.5 w-1.5 rounded-full shrink-0" style={{ background: "var(--color-brand)" }} />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <Link href="/contact" className="mt-6 text-xs font-semibold text-brand hover:underline">
+                Start a conversation →
+              </Link>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 2d. PROOF STRIP */}
+      <section className="border-y border-mist py-8">
+        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-center">
+          <span className="text-xs uppercase tracking-wider text-graphite">Proven in production</span>
+          <span className="font-mono text-sm text-ink">CrowdAnalytix — 7.7M+ SKU search platform</span>
+          <span className="font-mono text-sm text-ink">BuildOS — 3-product AI platform</span>
+          <span className="font-mono text-sm text-ink">20+ self-hosted services in continuous operation</span>
         </div>
       </section>
 
@@ -176,7 +224,7 @@ export default async function HomePage() {
             <div>
               <div className="flex items-center justify-between">
                 <span className="font-bold text-ink text-sm">LayerOne</span>
-                <span className="text-[10px] font-semibold text-zinc-500 uppercase tracking-wider">Planning</span>
+                <span className="text-[10px] font-semibold text-zinc-500 uppercase tracking-wider">In Progress</span>
               </div>
               <p className="mt-2 text-xs text-graphite leading-relaxed">
                 Open-source cross-framework design tokens and core accessible web components.
@@ -199,56 +247,36 @@ export default async function HomePage() {
           {featured.map((product) => (
             <div key={product.slug} className="card overflow-hidden grid lg:grid-cols-[1fr_1.1fr] border border-mist bg-card-bg">
               {/* Product Visual Side */}
-              <div className="p-8 bg-zinc-950/40 border-b lg:border-b-0 lg:border-r border-mist flex flex-col justify-between min-h-[300px]">
+              <div className="p-8 bg-zinc-950 border-b lg:border-b-0 lg:border-r border-mist flex flex-col justify-between min-h-[300px]">
                 <div className="flex flex-col gap-4">
                   <div className="flex items-center gap-2">
                     <span className="badge">{product.type}</span>
-                    <span className="text-[10px] tracking-wide text-graphite font-mono">{product.timeline}</span>
+                    <span className="text-[10px] tracking-wide text-zinc-400 font-mono">{product.timeline}</span>
                   </div>
-                  <h3 className="text-2xl font-bold tracking-tight text-ink">{product.title}</h3>
-                  <p className="text-sm leading-relaxed text-graphite">{product.summary}</p>
+                  <h3 className="text-2xl font-bold tracking-tight text-zinc-100">{product.title}</h3>
+                  <p className="text-sm leading-relaxed text-zinc-400">{product.summary}</p>
                 </div>
-                
+
                 {/* CSS Generated Dashboard Layout Mockup */}
-                <div className="mt-8 rounded-lg border border-mist bg-zinc-900/60 p-4 font-mono text-[10px] text-zinc-400 select-none shadow-inner">
-                  <div className="flex items-center justify-between border-b border-mist pb-2 mb-3">
-                    <div className="flex items-center gap-1.5">
-                      <span className="h-2 w-2 rounded-full bg-red-500/80"></span>
-                      <span className="h-2 w-2 rounded-full bg-yellow-500/80"></span>
-                      <span className="h-2 w-2 rounded-full bg-green-500/80"></span>
-                    </div>
-                    <span className="text-[9px] text-zinc-500">session: {product.slug}</span>
-                  </div>
-                  {product.slug === "buildos-agent" && (
-                    <div className="space-y-1">
-                      <p className="text-zinc-500">{"// Initiating planner execution..."}</p>
-                      <p className="text-emerald-400">✓ Loaded repository structure in 12ms</p>
-                      <p className="text-emerald-400">✓ Compiled AST schema (Tree-sitter)</p>
-                      <p className="text-blue-400">→ Spawning Database Agent to verify migrations</p>
-                      <div className="mt-2 h-1.5 w-full bg-zinc-800 rounded overflow-hidden">
-                        <div className="h-full w-2/3 bg-zinc-400 pulse-slow"></div>
+                {product.mockup && (
+                  <div className="mt-8 rounded-lg border border-zinc-800 bg-zinc-900/60 p-4 font-mono text-[10px] text-zinc-400 select-none shadow-inner" aria-hidden="true">
+                    <div className="flex items-center justify-between border-b border-zinc-800 pb-2 mb-3">
+                      <div className="flex items-center gap-1.5">
+                        <span className="h-2 w-2 rounded-full bg-red-500/80"></span>
+                        <span className="h-2 w-2 rounded-full bg-yellow-500/80"></span>
+                        <span className="h-2 w-2 rounded-full bg-green-500/80"></span>
                       </div>
+                      <span className="text-[9px] text-zinc-500">session: {product.slug}</span>
                     </div>
-                  )}
-                  {product.slug === "buildos-node-commander" && (
                     <div className="space-y-1">
-                      <p className="text-zinc-500">$ node-commander status --fleet</p>
-                      <p className="text-emerald-400">● node-01 [SSH connected] - Docker: 18 Containers</p>
-                      <p className="text-emerald-400">● node-02 [SSH connected] - Docker: 12 Containers</p>
-                      <p className="text-blue-400">→ Syncing database volumes for node migration...</p>
-                      <p className="text-zinc-500">[||||||||||||||||||||        ] 72% transferred</p>
+                      {product.mockup.map((line) => (
+                        <p key={line.text} className={mockupLineStyles[line.style] ?? "text-zinc-400"}>
+                          {line.text}
+                        </p>
+                      ))}
                     </div>
-                  )}
-                  {product.slug === "buildos-knowledge-hub" && (
-                    <div className="space-y-1">
-                      <p className="text-zinc-500">{"// Indexing changed sources..."}</p>
-                      <p className="text-blue-400">→ Scanned 18 modules (Python, TypeScript)</p>
-                      <p className="text-emerald-400">✓ Exported OKF schema graph map</p>
-                      <p className="text-purple-400">✓ Synchronized 42 vector embeddings to store</p>
-                      <p className="text-zinc-500">{"Query semantic search: \"Auth callback flow\""}</p>
-                    </div>
-                  )}
-                </div>
+                  </div>
+                )}
               </div>
 
               {/* Product Details Side */}
@@ -267,32 +295,16 @@ export default async function HomePage() {
                     </div>
                   )}
                   
-                  <div>
-                    <h4 className="text-[11px] font-bold uppercase tracking-wider text-ink">Highlights</h4>
-                    <ul className="mt-2 grid gap-1.5 text-xs text-graphite">
-                      {product.slug === "buildos-agent" && (
-                        <>
-                          <li className="flex items-center gap-2">✔ High-relevance, AST-based dynamic prompts</li>
-                          <li className="flex items-center gap-2">✔ Stateful multi-agent planning queues</li>
-                          <li className="flex items-center gap-2">✔ Reusable, file-integrated project context</li>
-                        </>
-                      )}
-                      {product.slug === "buildos-node-commander" && (
-                        <>
-                          <li className="flex items-center gap-2">✔ 100% agentless server command streaming</li>
-                          <li className="flex items-center gap-2">✔ Safe volume migrations across remote nodes</li>
-                          <li className="flex items-center gap-2">✔ Browser-integrated terminal shell access</li>
-                        </>
-                      )}
-                      {product.slug === "buildos-knowledge-hub" && (
-                        <>
-                          <li className="flex items-center gap-2">✔ Tree-sitter code layout parsing</li>
-                          <li className="flex items-center gap-2">✔ Unified repository dependency graph</li>
-                          <li className="flex items-center gap-2">✔ Semantic and relationship hybrid search</li>
-                        </>
-                      )}
-                    </ul>
-                  </div>
+                  {product.highlights && product.highlights.length > 0 && (
+                    <div>
+                      <h4 className="text-[11px] font-bold uppercase tracking-wider text-ink">Highlights</h4>
+                      <ul className="mt-2 grid gap-1.5 text-xs text-graphite">
+                        {product.highlights.map((highlight) => (
+                          <li key={highlight} className="flex items-center gap-2">✔ {highlight}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
 
                   <div>
                     <h4 className="text-[11px] font-bold uppercase tracking-wider text-ink">Tech Stack</h4>
@@ -370,13 +382,13 @@ export default async function HomePage() {
           <h2 className="section-title">Self-Hosted Infrastructure</h2>
           <p className="mt-2 text-sm text-graphite">Centralized control and container routing across my private network.</p>
         </div>
-        <div className="card p-8 bg-zinc-950/60 overflow-hidden flex flex-col items-center">
+        <div className="card p-8 bg-zinc-950 overflow-hidden flex flex-col items-center">
           <div className="w-full max-w-2xl font-mono text-[10px] text-zinc-400">
             <div className="text-center text-zinc-500 mb-6 border border-zinc-800 rounded py-1 px-3">
               Infrastructure Routing Topology
             </div>
-            
-            <svg viewBox="0 0 800 220" className="w-full h-auto text-zinc-400" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+            <svg viewBox="0 0 800 220" className="w-full h-auto text-zinc-400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Network topology: internet traffic routed through Cloudflare and a cloud tunnel to a reverse proxy, which distributes to Node Commander, the Docker fleet, and monitoring, all serving apps">
               {/* Nodes */}
               <rect x="20" y="90" width="80" height="40" rx="4" className="stroke-zinc-700 fill-zinc-900" />
               <text x="60" y="115" textAnchor="middle" fill="#f4f4f5" fontSize="10" fontWeight="bold">Internet</text>
@@ -425,13 +437,13 @@ export default async function HomePage() {
           <h2 className="section-title">AI Processing Stack</h2>
           <p className="mt-2 text-sm text-graphite">Visualizing the orchestration pipelines that power my AI tools.</p>
         </div>
-        <div className="card p-8 bg-zinc-950/60 overflow-hidden flex flex-col items-center">
+        <div className="card p-8 bg-zinc-950 overflow-hidden flex flex-col items-center">
           <div className="w-full max-w-2xl font-mono text-[10px] text-zinc-400">
             <div className="text-center text-zinc-500 mb-6 border border-zinc-800 rounded py-1 px-3">
               Context-Aware Retrieval and Agent Execution Pipeline
             </div>
 
-            <svg viewBox="0 0 800 160" className="w-full h-auto text-zinc-400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 800 160" className="w-full h-auto text-zinc-400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI pipeline: raw models flow through a smart router, prompt builder, Knowledge Hub, and agent planner into an execution sandbox managed by Node Commander">
               {/* Nodes */}
               <rect x="15" y="60" width="85" height="40" rx="4" className="stroke-zinc-700 fill-zinc-900" />
               <text x="57" y="85" textAnchor="middle" fill="#f4f4f5" fontSize="10">Raw Models</text>
@@ -496,6 +508,11 @@ export default async function HomePage() {
             </div>
           ))}
         </div>
+        <div>
+          <Link href="/projects" className="text-xs font-semibold text-ink underline underline-offset-4">
+            View all projects →
+          </Link>
+        </div>
       </section>
 
       {/* 9. SKILLS (Categorized) */}
@@ -538,17 +555,18 @@ export default async function HomePage() {
           <div className="card p-6">
             <h3 className="font-bold text-ink text-sm border-b border-mist pb-2">AI Stack</h3>
             <ul className="mt-3 space-y-1.5 text-xs text-graphite">
+              <li>Agentic Development (build → run → diagnose → fix)</li>
               <li>AI Agents (LangChain, Custom)</li>
               <li>Tool Calling Architectures</li>
               <li>Structured Outputs</li>
-              <li>Prompt Engineering</li>
               <li>Context Engineering (AST RAG)</li>
             </ul>
           </div>
         </div>
       </section>
 
-      {/* 10. LATEST ARTICLES */}
+      {/* 10. LATEST ARTICLES (hidden until articles.json has real, non-placeholder links) */}
+      {articles.length > 0 && (
       <section className="flex flex-col gap-6">
         <div>
           <h2 className="section-title">Latest Articles</h2>
@@ -582,6 +600,7 @@ export default async function HomePage() {
           ))}
         </div>
       </section>
+      )}
 
       {/* 11. EXPERIENCE TIMELINE */}
       <section className="flex flex-col gap-6">
@@ -589,61 +608,26 @@ export default async function HomePage() {
           <h2 className="section-title">Experience Timeline</h2>
           <p className="mt-2 text-sm text-graphite">Chronological record of system ownership and delivery.</p>
         </div>
-        <div className="card p-8 bg-zinc-950/20">
+        <div className="card p-8">
           <div className="relative pl-6 border-l-2 border-mist space-y-10">
-            {/* 2026 */}
-            <div className="relative">
-              <span className="absolute -left-[31px] top-1.5 h-4 w-4 rounded-full border-2 border-zinc-500 bg-stone" />
-              <div className="flex items-center justify-between text-xs text-graphite font-mono">
-                <span className="font-bold text-ink text-sm">BuildOS & Node Commander</span>
-                <span>2025 - 2026</span>
+            {experienceData.timeline.map((entry) => (
+              <div key={entry.title} className="relative">
+                <span className="absolute -left-[31px] top-1.5 h-4 w-4 rounded-full border-2 border-zinc-500 bg-stone" />
+                <div className="flex items-center justify-between text-xs text-graphite font-mono">
+                  <span className="font-bold text-ink text-sm">{entry.title}</span>
+                  <span>{entry.period}</span>
+                </div>
+                <p className="mt-2 text-xs text-graphite leading-relaxed">
+                  {entry.description}
+                </p>
               </div>
-              <p className="mt-2 text-xs text-graphite leading-relaxed">
-                Designed and released BuildOS Node Commander agentless infrastructure tool. Integrated Tree-sitter code indexes and multi-agent systems to orchestrate container configurations.
-              </p>
-            </div>
-            
-            {/* 2024 */}
-            <div className="relative">
-              <span className="absolute -left-[31px] top-1.5 h-4 w-4 rounded-full border-2 border-zinc-500 bg-stone" />
-              <div className="flex items-center justify-between text-xs text-graphite font-mono">
-                <span className="font-bold text-ink text-sm">AI-Powered Systems & Automation</span>
-                <span>2023 - 2024</span>
-              </div>
-              <p className="mt-2 text-xs text-graphite leading-relaxed">
-                Authored visual workflow editor platforms utilizing NL-to-graph translation pipelines. Built automated microservices backed by FastAPI and PostgreSQL.
-              </p>
-            </div>
-
-            {/* 2022 */}
-            <div className="relative">
-              <span className="absolute -left-[31px] top-1.5 h-4 w-4 rounded-full border-2 border-zinc-500 bg-stone" />
-              <div className="flex items-center justify-between text-xs text-graphite font-mono">
-                <span className="font-bold text-ink text-sm">Product Discovery & Catalog Platforms</span>
-                <span>2021 - 2022</span>
-              </div>
-              <p className="mt-2 text-xs text-graphite leading-relaxed">
-                Scaled enterprise catalog systems for CrowdAnalytix indexing over 7.7M+ SKUs. Tuned search results, relevance boosting, and facets with Typesense clusters.
-              </p>
-            </div>
-
-            {/* 2020 */}
-            <div className="relative">
-              <span className="absolute -left-[31px] top-1.5 h-4 w-4 rounded-full border-2 border-zinc-500 bg-stone" />
-              <div className="flex items-center justify-between text-xs text-graphite font-mono">
-                <span className="font-bold text-ink text-sm">Enterprise Governance Systems</span>
-                <span>2019 - 2020</span>
-              </div>
-              <p className="mt-2 text-xs text-graphite leading-relaxed">
-                Constructed category classification trees and governed attribute dashboards. Interfaced layout boundaries using reusable component layers.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* 12. CONTACT SECTION */}
-      <section className="card p-8 bg-zinc-950/40 text-center">
+      <section className="card p-8 text-center">
         <h2 className="text-2xl font-bold tracking-tight text-ink">Ready to deploy?</h2>
         <p className="mt-3 text-sm text-graphite max-w-md mx-auto">
           Let&apos;s build reliable platforms, context-rich developer tools, and solid AI infrastructure.
@@ -661,9 +645,9 @@ export default async function HomePage() {
           </div>
 
           <div className="mt-4 flex flex-wrap justify-center gap-3">
-            <Button href={`mailto:${site.email}`} variant="primary">
+            <a href={`mailto:${site.email}`} className="btn-brand">
               Work with me
-            </Button>
+            </a>
             <Button href="/resume" variant="secondary">
               View Resume
             </Button>

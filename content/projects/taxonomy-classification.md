@@ -7,7 +7,7 @@ tags:
   - "Search"
   - "AI"
   - "Workflow"
-timeline: "2020 – Present"
+timeline: "2020 - Present"
 stack:
   - "FastAPI"
   - "PostgreSQL"
@@ -18,8 +18,8 @@ links:
   - label: "CrowdAnalytix"
     url: "https://www.crowdanalytix.com"
 summary: "Governed taxonomy and ML-assisted classification system to manage categories and attributes across enterprise catalogs."
-problem: "Catalog teams needed a consistent taxonomy workflow with a reliable search interface and frontend architecture for complex category rules."
-outcome: "Built an Angular-led taxonomy application with AI-assisted review queues and faster classification accuracy at enterprise scale."
+problem: "Catalog teams were classifying millions of products by hand, with inconsistent category rules and no reliable review process."
+outcome: "Built an Angular-led taxonomy application with ML-assisted review queues that improved classification accuracy and cut manual analyst effort at enterprise scale."
 ---
 
 ## Problem

@@ -6,7 +6,7 @@ tags:
   - "AI"
   - "Workflow"
   - "Automation"
-timeline: "2025 – Present"
+timeline: "2025 - Present"
 stack:
   - "Python"
   - "FastAPI"

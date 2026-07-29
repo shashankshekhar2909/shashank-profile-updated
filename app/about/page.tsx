@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Shashank Shekhar - Frontend and AI Product Engineer",
+  title: "About Shashank Shekhar - AI-Native Product Engineer",
   description:
-    "About Shashank Shekhar, a Senior Frontend Developer and AI-Integrated Product Engineer building Angular, React, Next.js, FastAPI, Typesense, and product workflow systems.",
+    "About Shashank Shekhar, an AI-Native Product Engineer building the BuildOS platform, developer tools, AI systems, and self-hosted infrastructure with Next.js, FastAPI, and Docker.",
   alternates: {
     canonical: "/about"
   }
@@ -26,6 +26,7 @@ const skills = {
     "Schema-driven validation and pipelines"
   ],
   "AI & Automation": [
+    "Agentic development: agents that build, run, diagnose, and patch apps",
     "Prompt + schema design for reliable extraction",
     "Cost/latency/fallback planning",
     "NL to workflow generation"
@@ -39,12 +40,10 @@ const skills = {
 
 export default function AboutPage() {
   const currentUpcomingProducts = [
-    "AIVario - AI tool discovery and comparison platform",
-    "KnowMyLab - Homelab learning and architecture guide",
-    "Workflow Builder - Visual automation and workflow design tool",
-    "Catalog AI Assistant - AI-powered product search and filtering system",
-    "Social Pulse - Social media planning and analytics dashboard",
-    "Docker Control Panel - Lightweight container management dashboard"
+    "BuildOS Agent - AI engineering workspace for planning, parsing, and multi-agent coordination",
+    "Node Commander - Agentless SSH fleet management for Docker deployments and migrations",
+    "Knowledge Hub - Tree-sitter AST parser compiling repositories into structured project memory",
+    "LayerOne - Open-source cross-framework design tokens and accessible web components"
   ];
 
   const contentAutomationSystems = [
@@ -60,27 +59,35 @@ export default function AboutPage() {
         </h1>
         <p className="mt-4 text-base leading-relaxed text-graphite">
           I am a product engineer who thinks in systems: how data moves, how teams
-          operate, and how every decision affects reliability at scale. My work
-          blends product intuition with pragmatic engineering, helping teams move
-          from ambiguity to aligned architecture and delivery.
+          operate, and how every decision affects reliability at scale. Today that
+          means agentic development — AI agents that do not stop at generating
+          code, but build whole applications, execute them, diagnose failures, and
+          apply fixes, with deterministic validation and human review where it
+          matters.
         </p>
         <p className="mt-4 text-base leading-relaxed text-graphite">
-          Over 8+ years, I have built enterprise search platforms, workflow
-          orchestration tools, and AI-integrated automation services. I bring an
-          AI-native mindset with strong guardrails: validation, fallback paths,
-          monitoring, and cost control.
+          Over 8+ years I have shipped enterprise search platforms (7.7M+ SKUs on
+          Typesense), Angular and React product systems, workflow orchestration
+          tools, and AI-integrated automation services. That experience now feeds
+          BuildOS: Knowledge Hub gives agents structured repository context, the
+          Agent plans and coordinates, and Node Commander executes on real
+          infrastructure. Guardrails stay non-negotiable — validation, fallback
+          paths, monitoring, and cost control.
         </p>
       </section>
 
       <section className="card p-8">
         <h2 className="section-title">Product Lab</h2>
         <p className="mt-4 text-base leading-relaxed text-graphite">
-          I do not just build portfolio projects. I build real systems around
-          problems I care about: AI, automation, search, and creator workflows.
+          I do not build portfolio pieces — I run real systems on my own
+          infrastructure. Every product below is deployed on a self-hosted Docker
+          fleet I operate: 20+ services behind Cloudflare tunnels, with
+          monitoring, backups, and CI/CD I maintain myself.
         </p>
         <p className="mt-4 text-base leading-relaxed text-graphite">
-          These start as experiments and evolve into usable products, including
-          the homelab systems I build and document end to end.
+          The lab exists because agentic development needs a proving ground.
+          Agents that build, execute, and repair applications have to do it on
+          real servers with real failure modes — so that is where mine run.
         </p>
 
         <h3 className="mt-6 text-lg font-semibold tracking-tight text-ink">

@@ -26,6 +26,28 @@ featured: true
 summary: "AI-native development workspace for project planning, knowledge management, architecture generation, AI-assisted coding, documentation, and execution."
 problem: "Modern AI coding tools lose project context, duplicate decisions, and struggle with long-running multi-repository software projects."
 outcome: "Designed a persistent engineering workspace where project architecture, decisions, docs, implementation status, prompts, and AI conversations become reusable project memory."
+stats:
+  - value: "Persistent"
+    label: "project memory across sessions"
+  - value: "Multi-agent"
+    label: "stateful planning queues"
+  - value: "AST-based"
+    label: "context, not raw chunking"
+highlights:
+  - "High-relevance, AST-based dynamic prompts"
+  - "Stateful multi-agent planning queues"
+  - "Reusable, file-integrated project context"
+mockup:
+  - text: "// Initiating planner execution..."
+    style: "muted"
+  - text: "✓ Loaded repository structure in 12ms"
+    style: "ok"
+  - text: "✓ Compiled AST schema (Tree-sitter)"
+    style: "ok"
+  - text: "→ Spawning Database Agent to verify migrations"
+    style: "info"
+  - text: "[████████████████░░░░░░░░] planning 66%"
+    style: "muted"
 links:
   - label: "GitHub"
     url: "https://github.com/shashankshekhar2909/buildOS_Agent"

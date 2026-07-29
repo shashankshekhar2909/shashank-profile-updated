@@ -6,31 +6,29 @@ tags:
   - "Design System"
   - "Frontend"
   - "Platform"
-timeline: "2026 – Present"
+timeline: "2026 - Present"
 stack:
   - "Angular"
   - "Next.js"
   - "Tailwind"
   - "Storybook"
 featured: false
-summary: "Design system with shared tokens and reusable components across Angular and Next.js apps."
+summary: "In-progress design system with shared tokens and reusable components across Angular and Next.js apps."
 ---
 
 ## Problem
-Teams needed consistent UI patterns across multiple frontend stacks without duplicating styles or interaction logic.
+Teams need consistent UI patterns across multiple frontend stacks without duplicating styles or interaction logic. After years of building Angular and Next.js products side by side, the duplication cost is obvious.
 
 ## Solution / Approach
-Built a design system with shared theme tokens and reusable components. Focused on accessibility, consistency, and fast adoption.
+Building a framework-agnostic design system with shared theme tokens and reusable, accessible components — one source of truth that both Angular and Next.js apps consume.
 
 ## Architecture
 - Theme tokens shared across Angular and Next.js builds.
-- Component library with documented usage.
+- Scalable component architecture with documented usage.
 - Design governance for updates and releases.
 
-## Key Features
-- Token-based theming and typography.
-- Component catalog for data-heavy UI.
-- Documentation for consistent adoption.
+## Current Status
+In progress. Token architecture and core component patterns are being developed; the goal is an open-source release once the cross-framework foundation is stable.
 
-## What I Learned
+## What I'm Learning
 Design systems succeed when tokens, usage patterns, and release discipline are simple and clear.

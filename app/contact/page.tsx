@@ -5,7 +5,7 @@ import site from "@/content/site.json";
 export const metadata: Metadata = {
   title: "Contact Shashank Shekhar",
   description:
-    "Contact Shashank Shekhar for Senior Frontend Developer, Angular development, and AI-integrated product engineering work.",
+    "Contact Shashank Shekhar for agentic development, AI system architecture, product engineering, and self-hosted infrastructure work.",
   alternates: {
     canonical: "/contact"
   }
@@ -19,18 +19,23 @@ export default function ContactPage() {
           Contact Shashank Shekhar
         </h1>
         <p className="mt-4 text-base leading-relaxed text-graphite">
-          If you are building AI-integrated products, enterprise search, or
-          workflow automation systems, I would love to help. I am open to EU/Remote
-          roles and product engineering partnerships.
+          If you are building AI-integrated products, agentic systems, enterprise
+          search, or workflow automation, I would love to help. I take on
+          consulting engagements and product engineering partnerships, and I am
+          open to EU/Remote roles.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
-          <Link href={`mailto:${site.email}`} className="btn-primary">
+          <Link href={`mailto:${site.email}`} className="btn-brand">
             Email me
           </Link>
           <Link href={site.links.linkedin} className="btn-secondary">
             LinkedIn
           </Link>
         </div>
+        <p className="mt-4 text-xs text-graphite">
+          Tell me what you are building and where it is stuck — I reply with a
+          concrete next step, not a sales pitch.
+        </p>
       </section>
 
       <section className="card p-6">
@@ -39,8 +44,8 @@ export default function ContactPage() {
           Location: {site.location}
         </p>
         <p className="mt-2 text-sm text-graphite">
-          Preferred roles: AI-integrated product engineering, platform
-          engineering, workflow automation.
+          Engagements: agentic development, AI-integrated product engineering,
+          platform engineering, workflow automation.
         </p>
       </section>
     </div>

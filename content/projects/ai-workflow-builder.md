@@ -6,7 +6,7 @@ tags:
   - "AI"
   - "Workflow"
   - "Platform"
-timeline: "2023 – Present"
+timeline: "2023 - Present"
 stack:
   - "FastAPI"
   - "SQLite"

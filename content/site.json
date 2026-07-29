@@ -1,11 +1,10 @@
 {
   "name": "Shashank Shekhar",
   "title": "AI-Native Product Engineer",
-  "tagline": "I design and build developer tools, AI systems, self-hosted infrastructure, and production software.",
-  "description": "Shashank Shekhar is an AI-Native Product Engineer based in India. He builds developer tools, AI systems, self-hosted infrastructure, and production software using React, Next.js, FastAPI, Docker, and AWS/GCP.",
+  "description": "Shashank Shekhar is an AI-Native Product Engineer based in India with 8+ years across Angular, React, and Next.js. He specializes in agentic development — AI agents that build, execute, diagnose, and modify whole applications — plus developer tools, self-hosted infrastructure, and production software using FastAPI, Docker, and AWS/GCP.",
   "location": "Bengaluru, India • Open to EU/Remote",
   "siteUrl": "https://buildwithshashank.com",
-  "footerLine": "Shashank Shekhar — AI-Native Product Engineer building developer tools, AI systems, and platforms.",
+  "footerLine": "Shashank Shekhar — AI-Native Product Engineer building agentic systems, developer tools, and platforms.",
   "email": "hello@buildwithshashank.com",
   "links": {
     "linkedin": "https://linkedin.com/in/shashankshekhar2k15",
@@ -13,17 +12,34 @@
     "resume": "/resume-shashank-shekhar.pdf",
     "v2": "https://me.buildwithshashank.com/"
   },
-  "proofBar": [
-    "8+ years experience",
-    "7.7M+ SKU search platform",
-    "AI-integrated workflow systems",
-    "FastAPI + Docker + CI/CD",
-    "AWS/GCP deployments"
+  "services": [
+    {
+      "title": "Agentic App Development",
+      "outcome": "AI agent pipelines that go beyond code generation — agents that build whole applications, execute them, diagnose failures, and apply fixes in a closed loop, with human review gates where it matters.",
+      "deliverables": ["Multi-agent build → execute → diagnose → modify loops", "Sandboxed execution over Docker and SSH fleets", "Deterministic validation and human-in-the-loop gates"]
+    },
+    {
+      "title": "AI System Architecture & Audit",
+      "outcome": "A working blueprint for agents, RAG pipelines, and LLM integrations — with cost, latency, and fallback strategy mapped before a line of code is written.",
+      "deliverables": ["Architecture review or greenfield design", "Model routing and cost plan", "Prompt + context engineering strategy"]
+    },
+    {
+      "title": "MVP → Production Build",
+      "outcome": "Your product idea shipped as a production platform: frontend, API, database, CI/CD — owned end to end by one engineer.",
+      "deliverables": ["Next.js / FastAPI implementation", "Deployment pipeline and observability", "Handover docs your team can run with"]
+    },
+    {
+      "title": "Self-Hosted Infrastructure Setup",
+      "outcome": "Escape per-seat SaaS pricing. A hardened Docker fleet on your own hardware or cloud, with tunnels, monitoring, and zero-downtime deploys.",
+      "deliverables": ["Docker Compose fleet + reverse proxy", "Cloudflare tunnel and access control", "Monitoring, backups, migration runbooks"]
+    }
   ],
-  "whatIBring": [
-    "Translate ambiguity into architecture and delivery plans",
-    "Own end-to-end product delivery across UI, API, and infra",
-    "Responsible AI integration with validation, fallback, and cost controls",
-    "Production support mindset with observability and reliability"
+  "metrics": [
+    { "value": "8+", "label": "Years" },
+    { "value": "7.7M+", "label": "Products Indexed" },
+    { "value": "20+", "label": "Self-Hosted Services" },
+    { "value": "60+", "label": "Repositories" },
+    { "value": "5+", "label": "Production Platforms" },
+    { "value": "100+", "label": "AI Experiments" }
   ]
 }

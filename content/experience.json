@@ -1,0 +1,24 @@
+{
+  "timeline": [
+    {
+      "title": "BuildOS & Node Commander",
+      "period": "2025 - 2026",
+      "description": "Designed and released BuildOS Node Commander agentless infrastructure tool. Integrated Tree-sitter code indexes and multi-agent systems to orchestrate container configurations."
+    },
+    {
+      "title": "AI-Powered Systems & Automation",
+      "period": "2023 - 2024",
+      "description": "Authored visual workflow editor platforms utilizing NL-to-graph translation pipelines. Built automated microservices backed by FastAPI and PostgreSQL."
+    },
+    {
+      "title": "Product Discovery & Catalog Platforms",
+      "period": "2021 - 2022",
+      "description": "Scaled enterprise catalog systems for CrowdAnalytix indexing over 7.7M+ SKUs. Tuned search results, relevance boosting, and facets with Typesense clusters."
+    },
+    {
+      "title": "Enterprise Governance Systems",
+      "period": "2019 - 2020",
+      "description": "Constructed category classification trees and governed attribute dashboards. Interfaced layout boundaries using reusable component layers."
+    }
+  ]
+}

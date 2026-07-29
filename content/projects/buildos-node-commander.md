@@ -20,6 +20,28 @@ featured: true
 summary: "AI-powered infrastructure management platform for self-hosted servers and cloud machines with fleet visibility, Docker operations, remote execution, and migration workflows."
 problem: "Managing multiple Linux servers requires switching between SSH, Docker CLI, Portainer, terminal sessions, and monitoring tools."
 outcome: "Built a unified infrastructure workspace for server discovery, Docker inspection, deployments, health monitoring, remote commands, and near-zero downtime Docker migrations."
+stats:
+  - value: "100% agentless"
+    label: "no daemons on target servers"
+  - value: "Near-zero"
+    label: "downtime Docker migrations"
+  - value: "SSH-only"
+    label: "transport, nothing else exposed"
+highlights:
+  - "100% agentless server command streaming"
+  - "Safe volume migrations across remote nodes"
+  - "Browser-integrated terminal shell access"
+mockup:
+  - text: "$ node-commander status --fleet"
+    style: "muted"
+  - text: "● node-01 [SSH connected] - Docker: 18 Containers"
+    style: "ok"
+  - text: "● node-02 [SSH connected] - Docker: 12 Containers"
+    style: "ok"
+  - text: "→ Syncing database volumes for node migration..."
+    style: "info"
+  - text: "[||||||||||||||||||||        ] 72% transferred"
+    style: "muted"
 links:
   - label: "Live"
     url: "http://infra.buildwithshashank.com/"

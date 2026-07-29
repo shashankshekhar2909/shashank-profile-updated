@@ -22,6 +22,28 @@ featured: true
 summary: "Knowledge management layer that indexes repositories, docs, architecture notes, prompts, and API specs into structured OKF engineering knowledge for AI agents."
 problem: "Engineering knowledge is scattered across repositories, READMEs, docs, prompts, API specs, and architecture notes, forcing developers to repeatedly rebuild context."
 outcome: "Created a structured project memory layer that extracts applications, modules, APIs, services, schemas, dependencies, decisions, and deployment workflows for AI retrieval."
+stats:
+  - value: "OKF graph"
+    label: "structured knowledge format"
+  - value: "Tree-sitter"
+    label: "AST parsing, not text chunks"
+  - value: "Hybrid"
+    label: "semantic + relationship search"
+highlights:
+  - "Tree-sitter code layout parsing"
+  - "Unified repository dependency graph"
+  - "Semantic and relationship hybrid search"
+mockup:
+  - text: "// Indexing changed sources..."
+    style: "muted"
+  - text: "→ Scanned 18 modules (Python, TypeScript)"
+    style: "info"
+  - text: "✓ Exported OKF schema graph map"
+    style: "ok"
+  - text: "✓ Synchronized 42 vector embeddings to store"
+    style: "accent"
+  - text: "Query semantic search: \"Auth callback flow\""
+    style: "muted"
 links:
   - label: "Live"
     url: "https://projects.buildwithshashank.com/"

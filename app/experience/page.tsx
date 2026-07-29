@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import experienceData from "@/content/experience.json";
 
 export const metadata: Metadata = {
-  title: "Experience - Senior Frontend Developer, Angular Developer & Product Engineer",
+  title: "Experience - Shashank Shekhar, AI-Native Product Engineer",
   description:
-    "Shashank Shekhar is a software engineer based in India with 8+ years of experience in frontend engineering, Angular, TypeScript, product catalog platforms, search-driven UIs, and AI-integrated product systems.",
+    "Shashank Shekhar has 8+ years of experience across AI systems, developer tools, frontend engineering, product catalog platforms, search-driven UIs, and self-hosted infrastructure.",
   alternates: {
     canonical: "/experience"
   }
@@ -11,14 +13,14 @@ export const metadata: Metadata = {
 
 export default function ExperiencePage() {
   const coreSkills = [
+    "Agentic Development",
     "Angular",
-    "React",
-    "Next.js",
+    "React / Next.js",
     "TypeScript",
     "FastAPI",
     "Typesense",
     "Docker",
-    "CI/CD",
+    "CI/CD (GitLab)",
     "AWS",
     "GCP",
     "Product Catalog Systems",
@@ -33,80 +35,129 @@ export default function ExperiencePage() {
       <section className="card p-8">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <p className="text-xs uppercase tracking-wide text-accent">CrowdAnalytix</p>
+            <p className="text-xs uppercase tracking-wide text-accent">8+ years shipping production systems</p>
             <h1 className="mt-2 text-3xl font-semibold tracking-tight text-ink">
-              Experience - Senior Frontend Developer, Angular Developer &amp; Product Engineer
+              Experience
             </h1>
           </div>
-          <span className="badge">2019 – Present</span>
+          <span className="badge">2017 – Present</span>
         </div>
         <p className="mt-4 text-base leading-relaxed text-graphite">
-          Leading the design and delivery of enterprise product discovery and
-          taxonomy platforms. Focused on scale, reliability, and AI-assisted
-          workflows for large retail catalogs.
+          Product-oriented software engineer who owns systems end to end:
+          architecture design, implementation, deployment, and production
+          support. Currently focused on agentic development — AI agents that
+          build, execute, diagnose, and modify applications — built on eight
+          years of enterprise frontend, search, and platform engineering.
         </p>
       </section>
 
-      <section className="card p-6">
-        <h2 className="section-title">Professional Summary</h2>
+      <section className="card p-8">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h2 className="text-xl font-semibold tracking-tight text-ink">CrowdAnalytix</h2>
+            <p className="mt-1 text-sm text-graphite">Software Engineer II (Product Systems)</p>
+          </div>
+          <span className="text-xs uppercase tracking-wide text-accent">Aug 2019 – Present · Bengaluru</span>
+        </div>
         <p className="mt-4 text-sm leading-relaxed text-graphite">
-          Shashank Shekhar is a software engineer based in India with 8+ years of
-          experience in frontend engineering, Angular, TypeScript, product catalog
-          platforms, search-driven UIs, and AI-integrated product systems. He has
-          worked on enterprise applications involving taxonomy management, large-scale
-          catalog workflows, Typesense search, FastAPI services, Docker-based
-          deployment, and CI/CD pipelines.
+          Designed and delivered scalable enterprise systems supporting
+          large-scale catalog and taxonomy platforms.
         </p>
+        <div className="mt-6 grid gap-6 md:grid-cols-2">
+          <div>
+            <h3 className="section-title">High-Scale Product Discovery</h3>
+            <ul className="mt-3 grid gap-2 text-sm text-graphite">
+              <li>Built search-driven product system supporting 7.7M+ SKUs.</li>
+              <li>Implemented millisecond-level faceted search using Typesense.</li>
+              <li>Designed schema-driven product views and bulk-edit workflows.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="section-title">Taxonomy & Classification</h3>
+            <ul className="mt-3 grid gap-2 text-sm text-graphite">
+              <li>Built hierarchical category management and attribute governance tools.</li>
+              <li>Integrated ML classification predictions into operational dashboards.</li>
+              <li>Reduced manual analyst effort through workflow improvements.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="section-title">Modernization & Tooling</h3>
+            <ul className="mt-3 grid gap-2 text-sm text-graphite">
+              <li>Re-architected legacy UI into modular, reusable component structures.</li>
+              <li>Built reusable SVG tooling (zoom/pan/coordinate export) used across internal tools.</li>
+              <li>Established Docker-based CI/CD pipelines with GitLab Runner, deploying to AWS and GCP.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="section-title">Environment</h3>
+            <p className="mt-3 text-sm leading-relaxed text-graphite">
+              Angular, TypeScript, Typesense, FastAPI, Docker, GitLab CI/CD, AWS, GCP
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="card p-8">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h2 className="text-xl font-semibold tracking-tight text-ink">Independent Systems & Applied Engineering</h2>
+            <p className="mt-1 text-sm text-graphite">The BuildOS platform and applied AI services</p>
+          </div>
+          <span className="text-xs uppercase tracking-wide text-accent">Ongoing</span>
+        </div>
+        <div className="mt-6 relative pl-6 border-l-2 border-mist space-y-8">
+          {experienceData.timeline.map((entry) => (
+            <div key={entry.title} className="relative">
+              <span className="absolute -left-[31px] top-1.5 h-4 w-4 rounded-full border-2 border-zinc-500 bg-stone" />
+              <div className="flex items-center justify-between text-xs text-graphite font-mono">
+                <span className="font-bold text-ink text-sm">{entry.title}</span>
+                <span>{entry.period}</span>
+              </div>
+              <p className="mt-2 text-xs text-graphite leading-relaxed">{entry.description}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-6">
+          <Link href="/projects" className="text-xs font-semibold text-brand hover:underline">
+            Full case studies →
+          </Link>
+        </div>
+      </section>
+
+      <section className="card p-6">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <h2 className="section-title">Freelance Developer</h2>
+          <span className="text-xs uppercase tracking-wide text-accent">Jul 2017 – Jul 2019 · Remote</span>
+        </div>
+        <ul className="mt-4 grid gap-2 text-sm text-graphite">
+          <li>Delivered 15+ web applications end-to-end, including ecommerce builds on WooCommerce, WordPress, and PHP.</li>
+          <li>Managed AWS EC2 deployments and production maintenance.</li>
+          <li>Owned planning, client communication, delivery, and fixes.</li>
+        </ul>
       </section>
 
       <section className="grid gap-6 md:grid-cols-2">
         <div className="card p-6">
-          <h2 className="section-title">High-Scale Product Discovery Platform</h2>
-          <ul className="mt-4 grid gap-3 text-sm text-graphite">
-            <li>Scaled to 7.7M+ SKUs with Typesense faceting and schema-driven UI.</li>
-            <li>Designed bulk edit, auditing, and review workflows for retail teams.</li>
-            <li>Improved search latency and relevance with tuned indexing pipelines.</li>
+          <h2 className="section-title">Core skills</h2>
+          <ul className="mt-4 grid gap-2 text-sm text-graphite md:grid-cols-2">
+            {coreSkills.map((skill) => (
+              <li key={skill} className="flex items-start gap-2">
+                <span className="mt-1 h-2 w-2 rounded-full bg-ink" />
+                <span>{skill}</span>
+              </li>
+            ))}
           </ul>
         </div>
         <div className="card p-6">
-          <h2 className="section-title">Taxonomy & Classification Management</h2>
-          <ul className="mt-4 grid gap-3 text-sm text-graphite">
-            <li>Built hierarchical governance for category and attribute updates.</li>
-            <li>Integrated ML-assisted classification suggestions into dashboards.</li>
-            <li>Reduced manual effort with curated review queues and validation.</li>
+          <h2 className="section-title">Education & Certifications</h2>
+          <ul className="mt-4 grid gap-2 text-sm text-graphite">
+            <li>MCA — BBAU University, Lucknow (2014 – 2017)</li>
+            <li>B.Sc. IT — Amity University, Lucknow (2011 – 2014)</li>
+            <li className="pt-2">Architecting with Google Kubernetes Engine: Foundations (2021)</li>
+            <li>Google Cloud Fundamentals: Core Infrastructure (2021)</li>
+            <li>Getting Started With Docker (2019)</li>
           </ul>
         </div>
-      </section>
-
-      <section className="card p-6">
-        <h2 className="section-title">Modernization & DevOps</h2>
-        <ul className="mt-4 grid gap-3 text-sm text-graphite">
-          <li>Replatformed services with FastAPI, Docker, and CI/CD pipelines.</li>
-          <li>Improved deployment reliability with IaC and monitoring routines.</li>
-          <li>Partnered with cross-functional teams on roadmap and delivery.</li>
-        </ul>
-      </section>
-
-      <section className="card p-6">
-        <h2 className="section-title">Independent / Freelance</h2>
-        <p className="mt-4 text-sm leading-relaxed text-graphite">
-          Before 2019, I worked as a freelance engineer preparing and
-          customizing ecommerce websites using WooCommerce, WordPress, PHP, and
-          AWS. Focused on rapid delivery, launch support, and performance
-          tuning for small businesses.
-        </p>
-      </section>
-
-      <section className="card p-6">
-        <h2 className="section-title">Core skills</h2>
-        <ul className="mt-4 grid gap-2 text-sm text-graphite md:grid-cols-2">
-          {coreSkills.map((skill) => (
-            <li key={skill} className="flex items-start gap-2">
-              <span className="mt-1 h-2 w-2 rounded-full bg-ink" />
-              <span>{skill}</span>
-            </li>
-          ))}
-        </ul>
       </section>
     </div>
   );

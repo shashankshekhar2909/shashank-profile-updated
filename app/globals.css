@@ -4,13 +4,15 @@
 
 :root {
   color-scheme: dark;
-  
+
   /* Premium Dark Theme variables (default) */
   --color-stone: #060608;
   --color-ink: #f4f4f5;
   --color-mist: #1f1f23;
   --color-graphite: #a1a1aa;
   --color-accent: #e4e4e7;
+  --color-brand: #10b981;
+  --color-brand-dim: rgba(16, 185, 129, 0.12);
   --card-bg: #0b0b0d;
   --ring: 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
@@ -18,26 +20,32 @@
 @media (prefers-color-scheme: light) {
   :root {
     color-scheme: light;
-    
+
     /* Clean Light Theme variables */
     --color-stone: #f8f8fa;
     --color-ink: #09090b;
     --color-mist: #e4e4e7;
     --color-graphite: #4b5563;
     --color-accent: #27272a;
+    --color-brand: #059669;
+    --color-brand-dim: rgba(5, 150, 105, 0.1);
     --card-bg: #ffffff;
     --ring: 0 0 0 1px rgba(0, 0, 0, 0.05);
   }
 }
 
-* {
-  @apply antialiased transition-colors duration-200;
-}
-
 body {
-  @apply bg-stone text-ink font-sans selection:bg-zinc-800 selection:text-white;
+  @apply antialiased bg-stone text-ink font-sans selection:bg-ink selection:text-stone transition-colors duration-200;
   font-feature-settings: "ss01", "ss03", "cv02", "cv03", "cv04";
   text-rendering: optimizeLegibility;
+}
+
+a,
+button,
+.card,
+.badge,
+.btn {
+  @apply transition-colors duration-200;
 }
 
 /* Typography styles for case studies / markdown content */
@@ -129,4 +137,53 @@ body {
 
 .pulse-slow {
   animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Brand accent utilities */
+.text-brand {
+  color: var(--color-brand);
+}
+
+.btn-brand {
+  @apply btn;
+  background-color: var(--color-brand);
+  color: #04120c;
+}
+
+.btn-brand:hover {
+  opacity: 0.9;
+}
+
+/* Hero dot-grid backdrop */
+.hero-grid {
+  background-image: radial-gradient(var(--color-mist) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, black 30%, transparent 75%);
+}
+
+/* Scroll-reveal (opt-in via .reveal, activated by ScrollReveal component) */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.reveal.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .flow-line,
+  .pulse-slow,
+  .animate-pulse {
+    animation: none;
+  }
 }

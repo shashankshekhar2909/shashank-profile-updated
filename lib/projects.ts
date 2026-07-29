@@ -4,6 +4,11 @@ import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
 
+export interface MockupLine {
+  text: string;
+  style: "muted" | "ok" | "info" | "accent";
+}
+
 export interface ProjectFrontmatter {
   title: string;
   slug: string;
@@ -16,6 +21,9 @@ export interface ProjectFrontmatter {
   summary: string;
   problem?: string;
   outcome?: string;
+  highlights?: string[];
+  mockup?: MockupLine[];
+  stats?: { value: string; label: string }[];
 }
 
 export interface Project extends ProjectFrontmatter {
@@ -28,6 +36,24 @@ function getProjectFiles() {
   return fs
     .readdirSync(projectsDirectory)
     .filter((file) => file.endsWith(".md") || file.endsWith(".mdx"));
+}
+
+function sortProjects<T extends ProjectFrontmatter>(projects: T[]): T[] {
+  return projects.sort((a, b) => {
+    if (a.featured !== b.featured) {
+      return a.featured ? -1 : 1;
+    }
+    return a.title.localeCompare(b.title);
+  });
+}
+
+export function getAllProjectMeta(): ProjectFrontmatter[] {
+  const projects = getProjectFiles().map((file) => {
+    const fileContents = fs.readFileSync(path.join(projectsDirectory, file), "utf8");
+    return matter(fileContents).data as ProjectFrontmatter;
+  });
+
+  return sortProjects(projects);
 }
 
 export async function getAllProjects(): Promise<Project[]> {
@@ -47,12 +73,7 @@ export async function getAllProjects(): Promise<Project[]> {
     })
   );
 
-  return projects.sort((a, b) => {
-    if (a.featured !== b.featured) {
-      return a.featured ? -1 : 1;
-    }
-    return a.title.localeCompare(b.title);
-  });
+  return sortProjects(projects);
 }
 
 export async function getFeaturedProjects(): Promise<Project[]> {
@@ -61,8 +82,17 @@ export async function getFeaturedProjects(): Promise<Project[]> {
 }
 
 export async function getProjectBySlug(slug: string): Promise<Project | undefined> {
-  const projects = await getAllProjects();
-  return projects.find((project) => project.slug === slug);
+  const file = getProjectFiles().find((f) => f.replace(/\.mdx?$/, "") === slug);
+  if (!file) return undefined;
+
+  const fileContents = fs.readFileSync(path.join(projectsDirectory, file), "utf8");
+  const { data, content } = matter(fileContents);
+  const processed = await remark().use(html).process(content);
+
+  return {
+    ...(data as ProjectFrontmatter),
+    content: processed.toString()
+  };
 }
 
 export function getProjectSlugs(): string[] {

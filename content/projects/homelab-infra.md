@@ -6,12 +6,13 @@ tags:
   - "Infra"
   - "Automation"
   - "Platform"
-timeline: "2024 – Present"
+timeline: "2024 - Present"
 stack:
   - "Docker"
   - "Linux"
-  - "CI"
-  - "Backups"
+  - "Proxmox VE"
+  - "Cloudflare Tunnels"
+  - "CI/CD"
 featured: false
 summary: "Self-hosted infrastructure experiments to support rapid iteration, reliability, and safe deployments."
 ---

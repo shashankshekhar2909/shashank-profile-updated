@@ -85,6 +85,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         )}
       </section>
 
+      {/* Key Stats */}
+      {project.stats && project.stats.length > 0 && (
+        <section className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+          {project.stats.map((stat) => (
+            <div key={stat.label} className="card p-5">
+              <div className="text-xl font-extrabold text-brand">{stat.value}</div>
+              <div className="mt-1 text-xs uppercase tracking-wider text-graphite">{stat.label}</div>
+            </div>
+          ))}
+        </section>
+      )}
+
       {/* Main Prose Content */}
       <section className="prose-content">
         <div dangerouslySetInnerHTML={{ __html: project.content }} />
