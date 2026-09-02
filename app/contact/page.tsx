@@ -8,6 +8,28 @@ export const metadata: Metadata = {
     "Contact Shashank Shekhar for agentic development, AI system architecture, product engineering, and self-hosted infrastructure work.",
   alternates: {
     canonical: "/contact"
+  },
+  openGraph: {
+    title: "Contact — Agentic Development & AI Consulting | Shashank Shekhar",
+    description:
+      "Contact Shashank Shekhar for agentic development, AI system architecture, product engineering, and self-hosted infrastructure work.",
+    url: "/contact",
+    type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Shashank Shekhar — AI-Native Product Engineer"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact — Agentic Development & AI Consulting | Shashank Shekhar",
+    description:
+      "Contact Shashank Shekhar for agentic development, AI system architecture, product engineering, and self-hosted infrastructure work.",
+    images: ["/opengraph-image"]
   }
 };
 

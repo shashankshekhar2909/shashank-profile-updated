@@ -3,11 +3,33 @@ import Link from "next/link";
 import experienceData from "@/content/experience.json";
 
 export const metadata: Metadata = {
-  title: "Experience — 8+ Years in Product & AI Engineering",
+  title: "Experience — 8+ Years in AI Engineering",
   description:
-    "Shashank Shekhar has 8+ years of experience across AI systems, developer tools, frontend engineering, product catalog platforms, search-driven UIs, and self-hosted infrastructure.",
+    "Shashank Shekhar has 8+ years across AI systems, developer tools, frontend engineering, product catalog platforms, and search-driven UIs.",
   alternates: {
     canonical: "/experience"
+  },
+  openGraph: {
+    title: "Experience — 8+ Years in AI Engineering | Shashank Shekhar",
+    description:
+      "Shashank Shekhar has 8+ years across AI systems, developer tools, frontend engineering, product catalog platforms, and search-driven UIs.",
+    url: "/experience",
+    type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Shashank Shekhar — AI-Native Product Engineer"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Experience — 8+ Years in AI Engineering | Shashank Shekhar",
+    description:
+      "Shashank Shekhar has 8+ years across AI systems, developer tools, frontend engineering, product catalog platforms, and search-driven UIs.",
+    images: ["/opengraph-image"]
   }
 };
 

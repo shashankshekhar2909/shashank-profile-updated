@@ -16,7 +16,8 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 
   if (!project) {
     return {
-      title: "Project"
+      title: "Project Not Found",
+      robots: { index: false, follow: false }
     };
   }
 
@@ -30,7 +31,21 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
       title: `${project.title} Case Study | Shashank Shekhar`,
       description: project.summary,
       url: `/projects/${project.slug}`,
-      type: "article"
+      type: "article",
+      images: [
+        {
+          url: `/projects/${project.slug}/opengraph-image`,
+          width: 1200,
+          height: 630,
+          alt: `${project.title} — Case Study by Shashank Shekhar`
+        }
+      ]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} Case Study | Shashank Shekhar`,
+      description: project.summary,
+      images: [`/projects/${project.slug}/opengraph-image`]
     }
   };
 }

@@ -11,7 +11,7 @@ import { getAllProjectMeta } from "@/lib/projects";
 
 export const metadata: Metadata = {
   description:
-    "Shashank Shekhar is an AI-Native Product Engineer specializing in agentic development — AI agents that build, execute, diagnose, and modify whole applications — plus developer tools, AI systems, and self-hosted infrastructure.",
+    "Shashank Shekhar, AI-Native Product Engineer, builds AI agents that plan, execute, diagnose, and modify applications, plus developer tools and infrastructure.",
   alternates: {
     canonical: "/"
   }

@@ -3,11 +3,33 @@ import Link from "next/link";
 import { getAllPostMeta } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Blog — Agentic Development, AI Systems & Infrastructure",
+  title: "Blog — Agentic Development & AI Systems",
   description:
     "Technical deep-dives by Shashank Shekhar on agentic development, AI agent architecture, code RAG, Docker infrastructure, and the BuildOS platform.",
   alternates: {
     canonical: "/blog"
+  },
+  openGraph: {
+    title: "Blog — Agentic Development & AI Systems | Shashank Shekhar",
+    description:
+      "Technical deep-dives by Shashank Shekhar on agentic development, AI agent architecture, code RAG, Docker infrastructure, and the BuildOS platform.",
+    url: "/blog",
+    type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Shashank Shekhar — AI-Native Product Engineer"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog — Agentic Development & AI Systems | Shashank Shekhar",
+    description:
+      "Technical deep-dives by Shashank Shekhar on agentic development, AI agent architecture, code RAG, Docker infrastructure, and the BuildOS platform.",
+    images: ["/opengraph-image"]
   }
 };
 

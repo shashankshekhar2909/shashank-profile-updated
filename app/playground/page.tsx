@@ -8,6 +8,28 @@ export const metadata: Metadata = {
     "Interactive 3D knowledge graph of the BuildOS platform: how Knowledge Hub, BuildOS Agent, and Node Commander connect into one agentic development loop.",
   alternates: {
     canonical: "/playground"
+  },
+  openGraph: {
+    title: "Playground — 3D Map of the BuildOS Platform | Shashank Shekhar",
+    description:
+      "Interactive 3D knowledge graph of the BuildOS platform: how Knowledge Hub, BuildOS Agent, and Node Commander connect into one agentic development loop.",
+    url: "/playground",
+    type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Shashank Shekhar — AI-Native Product Engineer"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Playground — 3D Map of the BuildOS Platform | Shashank Shekhar",
+    description:
+      "Interactive 3D knowledge graph of the BuildOS platform: how Knowledge Hub, BuildOS Agent, and Node Commander connect into one agentic development loop.",
+    images: ["/opengraph-image"]
   }
 };
 

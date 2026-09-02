@@ -3,9 +3,31 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About — AI-Native Product Engineer",
   description:
-    "About Shashank Shekhar, an AI-Native Product Engineer building the BuildOS platform, developer tools, AI systems, and self-hosted infrastructure with Next.js, FastAPI, and Docker.",
+    "About Shashank Shekhar, an AI-Native Product Engineer building the BuildOS platform and self-hosted infrastructure with Next.js, FastAPI, and Docker.",
   alternates: {
     canonical: "/about"
+  },
+  openGraph: {
+    title: "About Shashank Shekhar — AI-Native Product Engineer",
+    description:
+      "About Shashank Shekhar, an AI-Native Product Engineer building the BuildOS platform and self-hosted infrastructure with Next.js, FastAPI, and Docker.",
+    url: "/about",
+    type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Shashank Shekhar — AI-Native Product Engineer"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Shashank Shekhar — AI-Native Product Engineer",
+    description:
+      "About Shashank Shekhar, an AI-Native Product Engineer building the BuildOS platform and self-hosted infrastructure with Next.js, FastAPI, and Docker.",
+    images: ["/opengraph-image"]
   }
 };
 
