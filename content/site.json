@@ -1,7 +1,7 @@
 {
   "name": "Shashank Shekhar",
   "title": "AI-Native Product Engineer",
-  "description": "Shashank Shekhar is an AI-Native Product Engineer with 8+ years across Angular, React, and Next.js, building AI agents, dev tools, and self-hosted infra.",
+  "description": "Shashank Shekhar is an AI-Native Product Engineer with 8+ years across Angular, React, and Next.js, building agentic AI platforms, dev tools, and self-hosted infra.",
   "location": "Bengaluru, India • Open to EU/Remote",
   "siteUrl": "https://buildwithshashank.com",
   "footerLine": "Shashank Shekhar — AI-Native Product Engineer building agentic systems, developer tools, and platforms.",
@@ -37,9 +37,9 @@
   "metrics": [
     { "value": "8+", "label": "Years" },
     { "value": "7.7M+", "label": "Products Indexed" },
-    { "value": "20+", "label": "Self-Hosted Services" },
-    { "value": "60+", "label": "Repositories" },
-    { "value": "5+", "label": "Production Platforms" },
+    { "value": "15+", "label": "Self-Hosted Services" },
+    { "value": "25+", "label": "Repositories" },
+    { "value": "8+", "label": "Production Platforms" },
     { "value": "100+", "label": "AI Experiments" }
   ]
 }
