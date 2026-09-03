@@ -61,6 +61,18 @@ export default function BlogPage() {
               {post.title}
             </h2>
             <p className="mt-2 text-sm text-graphite leading-relaxed">{post.summary}</p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <a
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://buildwithshashank.com/blog/${post.slug}`)}`}
+                target="_blank"
+                rel="noreferrer"
+                className="text-xs font-semibold text-brand hover:underline"
+              >
+                Share on LinkedIn
+              </a>
+              <span className="text-xs text-graphite mx-2">•</span>
+              <span className="text-xs text-graphite">SEO-ready</span>
+            </div>
             <div className="mt-4 flex flex-wrap gap-1.5">
               {post.tags.map((tag) => (
                 <span key={tag} className="badge">
