@@ -1,6 +1,29 @@
 {
-  "_note": "Articles now live on the main domain at /blog. Entries here drive the homepage Latest Articles section.",
   "articles": [
+    {
+      "title": "How I Built a Self-Hosted AI Operations Dashboard on a $16 VPS",
+      "summary": "A practical blueprint for turning a small Hetzner box into a reliable operations dashboard with health checks, auth, history, and alerting \u2014 the exact stack I would ship again.",
+      "date": "September 2026",
+      "readTime": "9 min read",
+      "url": "/blog/self-hosted-ai-operations-dashboard-on-a-16-vps",
+      "placeholder": false
+    },
+    {
+      "title": "From Git Commit to LinkedIn Post: A Repeatable Content Workflow for Engineers",
+      "summary": "A simple system for turning shipped work into SEO-friendly blog posts, LinkedIn-ready summaries, and portfolio updates without sounding generic.",
+      "date": "September 2026",
+      "readTime": "7 min read",
+      "url": "/blog/git-commit-to-linkedin-post-workflow",
+      "placeholder": false
+    },
+    {
+      "title": "Why BuildOS Uses Agent Loops Instead of One-Off Prompts",
+      "summary": "The engineering case for persistent agent execution: planning, verification, recovery, and human approval gates inside a real product workflow.",
+      "date": "August 2026",
+      "readTime": "10 min read",
+      "url": "/blog/why-buildos-uses-agent-loops",
+      "placeholder": false
+    },
     {
       "title": "Building BuildOS: Reimagining the AI Agent Execution Loop",
       "summary": "How we implemented event-driven microservice orchestration and Paramiko SSH streaming to execute code safely across private fleets.",
