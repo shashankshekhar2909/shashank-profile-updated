@@ -242,6 +242,7 @@ export default function Terminal({
   useEffect(() => {
     if (!autoDemo) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!window.matchMedia("(min-width: 1024px)").matches) return;
 
     let cancelled = false;
     const timers: number[] = [];
@@ -331,9 +332,9 @@ export default function Terminal({
           <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/80"></span>
           <span className="h-2.5 w-2.5 rounded-full bg-green-500/80"></span>
         </div>
-        <span className="text-[10px] text-zinc-500">visitor@buildwithshashank — zsh</span>
+        <span className="text-[10px] text-zinc-400">visitor@buildwithshashank — zsh</span>
       </div>
-      <div ref={scrollRef} className="h-72 overflow-y-auto px-4 py-3 space-y-0.5" role="log" aria-live="polite">
+      <div ref={scrollRef} className="h-72 overflow-y-auto px-4 py-3 space-y-0.5" role="log" aria-live={autoDemo ? "off" : "polite"}>
         {lines.map((line, i) => (
           <p key={i} className={`whitespace-pre-wrap leading-5 ${lineStyles[line.style ?? ""] ?? "text-zinc-400"}`}>
             {line.text}

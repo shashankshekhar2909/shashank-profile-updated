@@ -158,9 +158,9 @@ export default function ShowcaseStory({ metrics }: ShowcaseStoryProps) {
             I make AI agents build, execute, diagnose, and modify whole applications.
           </p>
         </div>
-        <div className="absolute bottom-10 flex flex-col items-center gap-2 text-zinc-600">
+        <div className="absolute bottom-10 flex flex-col items-center gap-2 text-zinc-400">
           <span className="text-[10px] uppercase tracking-widest">Scroll</span>
-          <span className="block h-8 w-px animate-pulse bg-zinc-600" />
+          <span className="block h-8 w-px animate-pulse bg-zinc-500" />
         </div>
       </section>
 
@@ -175,7 +175,7 @@ export default function ShowcaseStory({ metrics }: ShowcaseStoryProps) {
                 <span
                   key={i}
                   className="transition-opacity duration-200"
-                  style={{ opacity: on ? 1 : 0.12 }}
+                  style={{ opacity: on ? 1 : 0.35 }}
                 >
                   {word}{" "}
                 </span>
@@ -210,7 +210,7 @@ export default function ShowcaseStory({ metrics }: ShowcaseStoryProps) {
               >
                 <div className="grid w-full max-w-5xl items-center gap-10 lg:grid-cols-2">
                   <div>
-                    <p className="font-mono text-sm text-zinc-600">{product.index}</p>
+                    <p className="font-mono text-sm text-zinc-400">{product.index}</p>
                     <p className="mt-2 font-mono text-xs uppercase tracking-[0.3em] text-emerald-400">
                       {product.tag}
                     </p>

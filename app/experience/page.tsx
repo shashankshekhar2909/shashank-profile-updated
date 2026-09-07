@@ -122,8 +122,8 @@ export default function ExperiencePage() {
       <section className="card p-8">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div>
-            <h2 className="text-xl font-semibold tracking-tight text-ink">Independent Systems & Applied Engineering</h2>
-            <p className="mt-1 text-sm text-graphite">The BuildOS platform and applied AI services</p>
+            <h2 className="text-xl font-semibold tracking-tight text-ink">Engineering Timeline</h2>
+            <p className="mt-1 text-sm text-graphite">The BuildOS platform, applied AI services, and enterprise systems work</p>
           </div>
           <span className="text-xs uppercase tracking-wide text-accent">Ongoing</span>
         </div>

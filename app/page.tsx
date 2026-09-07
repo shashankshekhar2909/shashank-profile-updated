@@ -168,7 +168,7 @@ export default function HomePage() {
         <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-center">
           <span className="text-xs uppercase tracking-wider text-graphite">Proven in production</span>
           <span className="font-mono text-sm text-ink">CrowdAnalytix — 7.7M+ SKU search platform</span>
-          <span className="font-mono text-sm text-ink">BuildOS — 3-product AI platform</span>
+          <span className="font-mono text-sm text-ink">BuildOS — agentic AI platform</span>
           <span className="font-mono text-sm text-ink">20+ self-hosted services in continuous operation</span>
         </div>
       </section>

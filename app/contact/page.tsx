@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import site from "@/content/site.json";
 
@@ -47,12 +46,12 @@ export default function ContactPage() {
           open to EU/Remote roles.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
-          <Link href={`mailto:${site.email}`} className="btn-brand">
+          <a href={`mailto:${site.email}`} className="btn-brand">
             Email me
-          </Link>
-          <Link href={site.links.linkedin} className="btn-secondary">
+          </a>
+          <a href={site.links.linkedin} target="_blank" rel="noreferrer" className="btn-secondary">
             LinkedIn
-          </Link>
+          </a>
         </div>
         <p className="mt-4 text-xs text-graphite">
           Tell me what you are building and where it is stuck — I reply with a

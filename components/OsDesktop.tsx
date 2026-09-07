@@ -224,14 +224,14 @@ export default function OsDesktop(props: OsDesktopProps) {
             <div>
               <p className="text-lg font-bold text-zinc-100">{props.siteName}</p>
               <p className="text-emerald-400 text-xs font-semibold">{props.siteTitle}</p>
-              <p className="text-zinc-500 text-xs mt-1">{props.location}</p>
+              <p className="text-zinc-400 text-xs mt-1">{props.location}</p>
             </div>
             <p className="leading-relaxed">
               I build AI agents that build, execute, diagnose, and modify whole
               applications — plus the developer tools and self-hosted
               infrastructure they run on.
             </p>
-            <p className="text-xs text-zinc-500">
+            <p className="text-xs text-zinc-400">
               8+ years: enterprise search (7.7M+ SKUs), Angular/React systems,
               FastAPI services, Docker fleets.
             </p>
@@ -251,7 +251,7 @@ export default function OsDesktop(props: OsDesktopProps) {
               >
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-semibold text-zinc-100">{p.title}</span>
-                  <span className="text-[10px] font-mono text-zinc-500">{p.timeline}</span>
+                  <span className="text-[10px] font-mono text-zinc-400">{p.timeline}</span>
                 </div>
                 <p className="mt-1 text-xs text-zinc-400 leading-relaxed line-clamp-2">{p.summary}</p>
               </Link>
@@ -286,7 +286,7 @@ export default function OsDesktop(props: OsDesktopProps) {
             {props.metrics.map((m, i) => (
               <div key={m.label} className="rounded-lg border border-zinc-800 p-3">
                 <div className="text-xl font-extrabold text-zinc-100">{m.value}</div>
-                <div className="mt-0.5 text-[10px] uppercase tracking-wider text-zinc-500">{m.label}</div>
+                <div className="mt-0.5 text-[10px] uppercase tracking-wider text-zinc-400">{m.label}</div>
                 <div className="mt-2 h-1 w-full overflow-hidden rounded bg-zinc-800">
                   <div
                     className="h-full bg-emerald-500/70 pulse-slow"
