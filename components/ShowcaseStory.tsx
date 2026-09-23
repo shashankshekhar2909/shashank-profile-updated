@@ -9,7 +9,7 @@ interface ShowcaseStoryProps {
 }
 
 const STATEMENT =
-  "I am a product engineer with 8+ years across Angular, React, and FastAPI. Today I build AI agents that build whole applications, execute them on real infrastructure, diagnose what breaks, and ship the fix.";
+  "I am a product engineer with 8+ years across Angular, React, FastAPI, search systems, and AI-assisted workflows. Today I build practical systems that connect product delivery, validation, and infrastructure.";
 
 const PRODUCTS = [
   {
@@ -147,7 +147,7 @@ export default function ShowcaseStory({ metrics }: ShowcaseStoryProps) {
           }
         >
           <p className="font-mono text-xs uppercase tracking-[0.3em] text-emerald-400">
-            AI-Native Product Engineer
+            AI-Augmented Product Engineer
           </p>
           <h1 className="mt-6 text-6xl font-extrabold tracking-tighter sm:text-8xl">
             Shashank
@@ -155,7 +155,7 @@ export default function ShowcaseStory({ metrics }: ShowcaseStoryProps) {
             Shekhar<span className="text-emerald-400">.</span>
           </h1>
           <p className="mx-auto mt-8 max-w-xl text-lg text-zinc-400 sm:text-2xl">
-            I make AI agents build, execute, diagnose, and modify whole applications.
+            I build AI-assisted workflows that turn product goals into validated implementation steps.
           </p>
         </div>
         <div className="absolute bottom-10 flex flex-col items-center gap-2 text-zinc-400">

@@ -7,14 +7,9 @@ import clsx from "clsx";
 import site from "@/content/site.json";
 
 const navItems = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
+  { label: "Work", href: "/projects" },
   { label: "Experience", href: "/experience" },
-  { label: "Showcase", href: "/showcase" },
-  { label: "Projects", href: "/projects" },
-  { label: "Blog", href: "/blog" },
-  { label: "Playground", href: "/playground" },
-  { label: "OS", href: "/os" },
+  { label: "Writing", href: "/blog" },
   { label: "Resume", href: "/resume" },
   { label: "Contact", href: "/contact" }
 ];
@@ -46,7 +41,7 @@ export default function Header() {
         </nav>
         <div className="flex items-center gap-3">
           <Link href="/contact" className="btn-brand !px-3 !py-1.5 !text-[11px]" onClick={() => setOpen(false)}>
-            Book a call
+            Contact
           </Link>
           <button
             type="button"

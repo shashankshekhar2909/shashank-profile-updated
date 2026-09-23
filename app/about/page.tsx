@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About — AI-Native Product Engineer",
+  title: "About — AI-Augmented Product Engineer",
   description:
-    "About Shashank Shekhar, an AI-Native Product Engineer building the BuildOS platform and self-hosted infrastructure with Next.js, FastAPI, and Docker.",
+    "About Shashank Shekhar, an AI-Augmented Product Engineer building the BuildOS platform and self-hosted infrastructure with Next.js, FastAPI, and Docker.",
   alternates: {
     canonical: "/about"
   },
   openGraph: {
-    title: "About Shashank Shekhar — AI-Native Product Engineer",
+    title: "About Shashank Shekhar - AI-Augmented Product Engineer",
     description:
-      "About Shashank Shekhar, an AI-Native Product Engineer building the BuildOS platform and self-hosted infrastructure with Next.js, FastAPI, and Docker.",
+      "About Shashank Shekhar, an AI-Augmented Product Engineer building the BuildOS platform and self-hosted infrastructure with Next.js, FastAPI, and Docker.",
     url: "/about",
     type: "website",
     images: [
@@ -18,15 +18,15 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Shashank Shekhar — AI-Native Product Engineer"
+        alt: "Shashank Shekhar - AI-Augmented Product Engineer"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Shashank Shekhar — AI-Native Product Engineer",
+    title: "About Shashank Shekhar - AI-Augmented Product Engineer",
     description:
-      "About Shashank Shekhar, an AI-Native Product Engineer building the BuildOS platform and self-hosted infrastructure with Next.js, FastAPI, and Docker.",
+      "About Shashank Shekhar, an AI-Augmented Product Engineer building the BuildOS platform and self-hosted infrastructure with Next.js, FastAPI, and Docker.",
     images: ["/opengraph-image"]
   }
 };
@@ -83,7 +83,7 @@ export default function AboutPage() {
           I am a product engineer who thinks in systems: how data moves, how teams
           operate, and how every decision affects reliability at scale. Today that
           means agentic development — AI agents that do not stop at generating
-          code, but build whole applications, execute them, diagnose failures, and
+          code, but support product development, run checks, diagnose failures, and
           apply fixes, with deterministic validation and human review where it
           matters.
         </p>

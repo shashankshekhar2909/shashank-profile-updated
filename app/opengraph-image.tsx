@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import site from "@/content/site.json";
 
 export const runtime = "nodejs";
-export const alt = "Shashank Shekhar — AI-Native Product Engineer";
+export const alt = "Shashank Shekhar - AI-Augmented Product Engineer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

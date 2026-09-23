@@ -7,7 +7,7 @@ import site from "@/content/site.json";
 
 export const metadata: Metadata = {
   title: {
-    default: "Shashank Shekhar | AI-Native Product Engineer",
+    default: "Shashank Shekhar | AI-Augmented Product Engineer",
     template: "%s | Shashank Shekhar"
   },
   description: site.description,
@@ -16,18 +16,18 @@ export const metadata: Metadata = {
     canonical: "/"
   },
   openGraph: {
-    title: "Shashank Shekhar | AI-Native Product Engineer",
+    title: "Shashank Shekhar | AI-Augmented Product Engineer",
     description:
-      "Portfolio of Shashank Shekhar, an AI-Native Product Engineer building developer tools, AI systems, self-hosted infrastructure, and platforms.",
+      "Portfolio of Shashank Shekhar, an AI-Augmented Product Engineer building search-heavy products, AI workflows, frontend architecture, and production-ready full-stack systems.",
     url: site.siteUrl,
     siteName: site.name,
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shashank Shekhar | AI-Native Product Engineer",
+    title: "Shashank Shekhar | AI-Augmented Product Engineer",
     description:
-      "AI-Native Product Engineer building developer tools, AI systems, and infrastructure."
+      "AI-Augmented Product Engineer building search-heavy products, AI workflows, and full-stack systems."
   }
 };
 
@@ -54,8 +54,12 @@ const personJsonLd = {
     { "@type": "CollegeOrUniversity", name: "Amity University, Lucknow" }
   ],
   knowsAbout: [
-    "Agentic development",
-    "AI agents",
+    "AI-assisted development",
+    "AI workflows",
+    "Product discovery",
+    "Frontend architecture",
+    "Faceted search",
+    "Product catalogue systems",
     "Angular",
     "React",
     "Next.js",
@@ -73,7 +77,7 @@ const websiteJsonLd = {
   "@type": "WebSite",
   "@id": `${site.siteUrl}/#website`,
   url: site.siteUrl,
-  name: "Shashank Shekhar — AI-Native Product Engineer",
+  name: "Shashank Shekhar - AI-Augmented Product Engineer",
   publisher: { "@id": `${site.siteUrl}/#person` }
 };
 

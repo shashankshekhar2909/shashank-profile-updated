@@ -11,7 +11,7 @@ import { getAllProjectMeta } from "@/lib/projects";
 
 export const metadata: Metadata = {
   description:
-    "Shashank Shekhar, AI-Native Product Engineer, builds AI agents that plan, execute, diagnose, and modify applications, plus developer tools and infrastructure.",
+    "Shashank Shekhar is an AI-Augmented Product Engineer with 8+ years across Angular, React, Next.js, FastAPI, Typesense, Docker and AI-assisted development.",
   alternates: {
     canonical: "/"
   }
@@ -46,18 +46,18 @@ export default function HomePage() {
               <span className="mb-3 block text-base font-semibold tracking-wide text-graphite sm:text-lg">
                 Shashank Shekhar
               </span>
-              AI-Native <br />
+              AI-Augmented <br />
               Product Engineer
             </h1>
             <p className="mt-8 text-xl leading-relaxed text-graphite max-w-2xl font-sans">
-              I build AI agents that <span className="text-ink font-semibold">build, execute, diagnose, and modify whole applications</span> — plus the developer tools, self-hosted infrastructure, and production platforms they run on.
+              I build <span className="text-ink font-semibold">AI-assisted products, search-heavy interfaces, and full-stack systems</span> that move from prototype to production without losing engineering discipline.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link href="/contact" className="btn-brand">
-                Book a call
+                Contact Me
               </Link>
               <Button href="#products" variant="secondary">
-                See Products
+                View Work
               </Button>
               <a
                 href={site.links.github}
@@ -88,7 +88,7 @@ export default function HomePage() {
               location={site.location}
             />
             <p className="mt-3 text-center text-[11px] text-graphite font-mono">
-              live shell — click it, type <span className="text-brand">help</span> · or{" "}
+              live shell - click it, type <span className="text-brand">help</span> · or{" "}
               <Link href="/os" className="text-brand hover:underline">
                 boot the full desktop →
               </Link>
@@ -106,7 +106,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2b. INTERACTIVE TERMINAL (mobile — desktop version lives in the hero) */}
+      {/* 2b. INTERACTIVE TERMINAL (mobile - desktop version lives in the hero) */}
       <section className="flex flex-col gap-6 lg:hidden">
         <div>
           <h2 className="section-title">Explore via Terminal</h2>
@@ -135,9 +135,9 @@ export default function HomePage() {
       {/* 2c. WORK WITH ME (consulting offers) */}
       <section id="services" className="flex flex-col gap-8">
         <div>
-          <h2 className="section-title">Work With Me</h2>
+          <h2 className="section-title">How I Help Teams</h2>
           <p className="mt-2 text-sm text-graphite">
-            Four ways I engage with teams and founders. Fixed scope, clear deliverables, no bench time.
+            Practical engineering support for teams building AI-assisted products, search-heavy interfaces, and maintainable full-stack platforms.
           </p>
         </div>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -156,7 +156,7 @@ export default function HomePage() {
                 </ul>
               </div>
               <Link href="/contact" className="mt-6 text-xs font-semibold text-brand hover:underline">
-                Start a conversation →
+                Start a conversation
               </Link>
             </div>
           ))}
@@ -167,8 +167,8 @@ export default function HomePage() {
       <section className="border-y border-mist py-8">
         <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-center">
           <span className="text-xs uppercase tracking-wider text-graphite">Proven in production</span>
-          <span className="font-mono text-sm text-ink">CrowdAnalytix — 7.7M+ SKU search platform</span>
-          <span className="font-mono text-sm text-ink">BuildOS — agentic AI platform</span>
+          <span className="font-mono text-sm text-ink">CrowdAnalytix - 7.7M+ SKU search platform</span>
+          <span className="font-mono text-sm text-ink">BuildOS - agent workflow platform</span>
           <span className="font-mono text-sm text-ink">20+ self-hosted services in continuous operation</span>
         </div>
       </section>
@@ -636,9 +636,9 @@ export default function HomePage() {
 
       {/* 12. CONTACT SECTION */}
       <section className="card p-8 text-center">
-        <h2 className="text-2xl font-bold tracking-tight text-ink">Ready to deploy?</h2>
+        <h2 className="text-2xl font-bold tracking-tight text-ink">Ready for the right engineering challenge?</h2>
         <p className="mt-3 text-sm text-graphite max-w-md mx-auto">
-          Let&apos;s build reliable platforms, context-rich developer tools, and solid AI infrastructure.
+          I am strongest in remote teams building AI-assisted products, internal tools, search-heavy platforms, or workflow automation systems.
         </p>
         
         <div className="mt-8 flex flex-col items-center gap-4">
@@ -654,7 +654,7 @@ export default function HomePage() {
 
           <div className="mt-4 flex flex-wrap justify-center gap-3">
             <a href={`mailto:${site.email}`} className="btn-brand">
-              Work with me
+              Contact Me
             </a>
             <Button href="/resume" variant="secondary">
               View Resume

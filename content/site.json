@@ -1,10 +1,10 @@
 {
   "name": "Shashank Shekhar",
-  "title": "AI-Native Product Engineer",
-  "description": "Shashank Shekhar is an AI-Native Product Engineer with 8+ years across Angular, React, and Next.js, building agentic AI platforms, dev tools, and self-hosted infra.",
+  "title": "AI-Augmented Product Engineer",
+  "description": "Shashank Shekhar is an AI-Augmented Product Engineer with 8+ years across Angular, React, Next.js, FastAPI, Typesense, Docker and AI-assisted development. He builds search-heavy products, AI workflows and production-ready full-stack systems.",
   "location": "Bengaluru, India • Open to EU/Remote",
   "siteUrl": "https://buildwithshashank.com",
-  "footerLine": "Shashank Shekhar — AI-Native Product Engineer building agentic systems, developer tools, and platforms.",
+  "footerLine": "Shashank Shekhar - AI-Augmented Product Engineer building search-heavy products, AI workflows, and full-stack systems.",
   "email": "hello@buildwithshashank.com",
   "links": {
     "linkedin": "https://linkedin.com/in/shashankshekhar2k15",
@@ -14,32 +14,32 @@
   },
   "services": [
     {
-      "title": "Agentic App Development",
-      "outcome": "AI agent pipelines that go beyond code generation — agents that build whole applications, execute them, diagnose failures, and apply fixes in a closed loop, with human review gates where it matters.",
-      "deliverables": ["Multi-agent build → execute → diagnose → modify loops", "Sandboxed execution over Docker and SSH fleets", "Deterministic validation and human-in-the-loop gates"]
+      "title": "AI-Augmented Product Engineering",
+      "outcome": "I help teams design and ship AI-assisted product workflows with clear architecture, approval boundaries, validation, and production safeguards.",
+      "deliverables": ["Agent workflow design with human review gates", "Structured LLM outputs and validation paths", "Prototype-to-production implementation plan"]
     },
     {
-      "title": "AI System Architecture & Audit",
-      "outcome": "A working blueprint for agents, RAG pipelines, and LLM integrations — with cost, latency, and fallback strategy mapped before a line of code is written.",
-      "deliverables": ["Architecture review or greenfield design", "Model routing and cost plan", "Prompt + context engineering strategy"]
+      "title": "Frontend Architecture",
+      "outcome": "Scalable Angular, React and Next.js interfaces for complex products, with reusable components, schema-driven screens, and maintainable state boundaries.",
+      "deliverables": ["Component and design-system architecture", "Performance and maintainability review", "Frontend delivery plan for product teams"]
     },
     {
-      "title": "MVP → Production Build",
-      "outcome": "Your product idea shipped as a production platform: frontend, API, database, CI/CD — owned end to end by one engineer.",
-      "deliverables": ["Next.js / FastAPI implementation", "Deployment pipeline and observability", "Handover docs your team can run with"]
+      "title": "Search & Catalogue Systems",
+      "outcome": "Product discovery and data-heavy interfaces built around faceted search, taxonomies, schema-driven UI and low-latency user experience.",
+      "deliverables": ["Typesense-backed faceted search UI", "Catalogue taxonomy and schema modelling", "Search UX and relevance improvement plan"]
     },
     {
-      "title": "Self-Hosted Infrastructure Setup",
-      "outcome": "Escape per-seat SaaS pricing. A hardened Docker fleet on your own hardware or cloud, with tunnels, monitoring, and zero-downtime deploys.",
-      "deliverables": ["Docker Compose fleet + reverse proxy", "Cloudflare tunnel and access control", "Monitoring, backups, migration runbooks"]
+      "title": "MVP to Production Delivery",
+      "outcome": "End-to-end product delivery across frontend, API, database, deployment and handover, focused on working systems rather than throwaway prototypes.",
+      "deliverables": ["Next.js / FastAPI implementation", "Dockerized deployment and handover docs", "Testing, observability and operational checklist"]
     }
   ],
   "metrics": [
     { "value": "8+", "label": "Years" },
     { "value": "7.7M+", "label": "Products Indexed" },
-    { "value": "15+", "label": "Self-Hosted Services" },
+    { "value": "20+", "label": "Self-Hosted Services" },
     { "value": "25+", "label": "Repositories" },
-    { "value": "8+", "label": "Production Platforms" },
-    { "value": "100+", "label": "AI Experiments" }
+    { "value": "10+", "label": "Production-Grade Projects" },
+    { "value": "3", "label": "Core Domains" }
   ]
 }

@@ -15,7 +15,7 @@ function parseValue(value: string) {
 
 export default function CountUpMetric({ value, label }: CountUpMetricProps) {
   const parsed = parseValue(value);
-  const [display, setDisplay] = useState(parsed ? `0${parsed.suffix}` : value);
+  const [display, setDisplay] = useState(value);
   const ref = useRef<HTMLDivElement>(null);
   const started = useRef(false);
 

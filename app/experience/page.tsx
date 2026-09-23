@@ -20,7 +20,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Shashank Shekhar — AI-Native Product Engineer"
+        alt: "Shashank Shekhar - AI-Augmented Product Engineer"
       }
     ]
   },
@@ -68,7 +68,7 @@ export default function ExperiencePage() {
           Product-oriented software engineer who owns systems end to end:
           architecture design, implementation, deployment, and production
           support. Currently focused on agentic development — AI agents that
-          build, execute, diagnose, and modify applications — built on eight
+          plan, execute, validate, and improve AI-assisted workflows — built on eight
           years of enterprise frontend, search, and platform engineering.
         </p>
       </section>

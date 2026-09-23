@@ -227,7 +227,7 @@ export default function OsDesktop(props: OsDesktopProps) {
               <p className="text-zinc-400 text-xs mt-1">{props.location}</p>
             </div>
             <p className="leading-relaxed">
-              I build AI agents that build, execute, diagnose, and modify whole
+              I build AI-assisted workflows that plan, validate, and improve
               applications — plus the developer tools and self-hosted
               infrastructure they run on.
             </p>

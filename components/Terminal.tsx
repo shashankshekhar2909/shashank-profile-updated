@@ -137,7 +137,7 @@ export default function Terminal({
           { text: siteName, style: "ink" },
           { text: siteTitle, style: "accent" },
           { text: location, style: "muted" },
-          { text: "Builds AI agents that build, execute, diagnose, and modify whole apps." },
+          { text: "Builds AI-assisted workflows with validation and human approval gates." },
           { text: "Also: developer tools, AI systems, self-hosted infrastructure." }
         ]);
         break;
