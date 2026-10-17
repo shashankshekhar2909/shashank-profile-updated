@@ -34,7 +34,7 @@ export default async function OpengraphImage({ params }: { params: { slug: strin
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", color: "#94a3b8", fontSize: 28 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <div style={{ width: 14, height: 14, borderRadius: 9999, background: "#10b981" }} />
-            buildwithshashank.com/blog
+            www.buildwithshashank.com/blog
           </div>
           <div style={{ fontSize: 22, border: "1px solid #334155", borderRadius: 9999, padding: "10px 18px" }}>SEO-ready</div>
         </div>

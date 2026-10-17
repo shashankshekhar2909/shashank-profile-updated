@@ -11,15 +11,16 @@ interface ProjectsPageProps {
 export const metadata: Metadata = {
   title: "Projects — AI, Search & Product Systems",
   description:
-    "Projects by Shashank Shekhar across the BuildOS AI engineering platform, Angular product catalog systems, Typesense search, and FastAPI backends.",
+    "Projects by Shashank Shekhar: BuildOS, Alpha, Angular product catalog systems, Typesense search, FastAPI backends and self-hosted infrastructure case studies.",
   alternates: {
     canonical: "/projects"
   },
   openGraph: {
     title: "Projects — AI, Search & Product Systems | Shashank Shekhar",
     description:
-      "Projects by Shashank Shekhar across the BuildOS AI engineering platform, Angular product catalog systems, Typesense search, and FastAPI backends.",
+      "Projects by Shashank Shekhar: BuildOS, Alpha, Angular product catalog systems, Typesense search, FastAPI backends and self-hosted infrastructure case studies.",
     url: "/projects",
+    siteName: "Shashank Shekhar",
     type: "website",
     images: [
       {
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Projects — AI, Search & Product Systems | Shashank Shekhar",
     description:
-      "Projects by Shashank Shekhar across the BuildOS AI engineering platform, Angular product catalog systems, Typesense search, and FastAPI backends.",
+      "Projects by Shashank Shekhar: BuildOS, Alpha, Angular product catalog systems, Typesense search, FastAPI backends and self-hosted infrastructure case studies.",
     images: ["/opengraph-image"]
   }
 };

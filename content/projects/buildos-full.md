@@ -20,6 +20,7 @@ stack:
   - "Node.js Runtime"
 featured: true
 summary: "Full agentic AI platform tying together a Next.js dashboard, FastAPI backend, vector-search knowledge layer, and a Node.js runtime for orchestrating agent-driven infrastructure tasks."
+metaDescription: "Case study: BuildOS, an agentic AI platform with a Next.js dashboard, FastAPI API, pgvector knowledge search and a Node.js runtime for infrastructure agents."
 problem: "Running AI agents against real infrastructure needs more than a chat window — it needs a real backend, persistent state, vector search over knowledge, and a runtime that can safely execute and report back on agent actions."
 outcome: "Built a production platform: a Next.js dashboard, a FastAPI + SQLAlchemy2 API layer backed by Postgres with pgvector for semantic search, Redis for queuing/caching, and a dedicated Node.js runtime service that executes agent-issued operations over WebSockets."
 stats:

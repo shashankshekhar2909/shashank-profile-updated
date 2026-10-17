@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     description:
       "Explore Shashank Shekhar's portfolio as a full desktop operating system: boot sequence, draggable app windows, live terminal, and project explorer.",
     url: "/os",
+    siteName: "Shashank Shekhar",
     type: "website",
     images: [
       {

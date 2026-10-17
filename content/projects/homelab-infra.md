@@ -14,7 +14,13 @@ stack:
   - "Cloudflare Tunnels"
   - "CI/CD"
 featured: false
+links:
+  - label: "KnowMyLab: the documented homelab"
+    url: "https://homelab.buildwithshashank.com"
+  - label: "Alpha, the local AI assistant"
+    url: "https://homelab.buildwithshashank.com/alpha"
 summary: "Self-hosted infrastructure experiments to support rapid iteration, reliability, and safe deployments."
+metaDescription: "Case study: homelab and infrastructure experiments for fast iteration, with dockerized stacks, tested backup and restore paths, and safe deployment habits."
 ---
 
 ## Problem
@@ -35,3 +41,6 @@ Built dockerized environments with CI-like practices, SMB permissions, and backu
 
 ## What I Learned
 Reliability habits grow faster when infrastructure experiments mirror production workflows.
+
+## See it
+The lab is documented publicly at [KnowMyLab](https://homelab.buildwithshashank.com), and its local AI assistant has a [case study](/projects/alpha).

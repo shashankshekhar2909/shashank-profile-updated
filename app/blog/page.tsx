@@ -5,15 +5,16 @@ import { getAllPostMeta } from "@/lib/blog";
 export const metadata: Metadata = {
   title: "Blog — Agentic Development & AI Systems",
   description:
-    "Technical deep-dives by Shashank Shekhar on agentic development, AI agent architecture, code RAG, Docker infrastructure, and the BuildOS platform.",
+    "Technical deep-dives by Shashank Shekhar on agentic development, AI agent architecture, code RAG, Docker infrastructure, self-hosting and the BuildOS platform.",
   alternates: {
     canonical: "/blog"
   },
   openGraph: {
     title: "Blog — Agentic Development & AI Systems | Shashank Shekhar",
     description:
-      "Technical deep-dives by Shashank Shekhar on agentic development, AI agent architecture, code RAG, Docker infrastructure, and the BuildOS platform.",
+      "Technical deep-dives by Shashank Shekhar on agentic development, AI agent architecture, code RAG, Docker infrastructure, self-hosting and the BuildOS platform.",
     url: "/blog",
+    siteName: "Shashank Shekhar",
     type: "website",
     images: [
       {
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Blog — Agentic Development & AI Systems | Shashank Shekhar",
     description:
-      "Technical deep-dives by Shashank Shekhar on agentic development, AI agent architecture, code RAG, Docker infrastructure, and the BuildOS platform.",
+      "Technical deep-dives by Shashank Shekhar on agentic development, AI agent architecture, code RAG, Docker infrastructure, self-hosting and the BuildOS platform.",
     images: ["/opengraph-image"]
   }
 };
@@ -63,7 +64,7 @@ export default function BlogPage() {
             <p className="mt-2 text-sm text-graphite leading-relaxed">{post.summary}</p>
             <div className="mt-4 flex flex-wrap gap-3">
               <a
-                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://buildwithshashank.com/blog/${post.slug}`)}`}
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://www.buildwithshashank.com/blog/${post.slug}`)}`}
                 target="_blank"
                 rel="noreferrer"
                 className="text-xs font-semibold text-brand hover:underline"

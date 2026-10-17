@@ -18,6 +18,7 @@ links:
   - label: "CrowdAnalytix"
     url: "https://www.crowdanalytix.com"
 summary: "Governed taxonomy and ML-assisted classification system to manage categories and attributes across enterprise catalogs."
+metaDescription: "Case study: a governed taxonomy and ML-assisted classification system that manages categories and attributes across large enterprise product catalogs."
 problem: "Catalog teams were classifying millions of products by hand, with inconsistent category rules and no reliable review process."
 outcome: "Built an Angular-led taxonomy application with ML-assisted review queues that improved classification accuracy and cut manual analyst effort at enterprise scale."
 ---

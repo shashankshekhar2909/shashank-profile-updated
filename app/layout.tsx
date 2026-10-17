@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AskAlpha from "@/components/AskAlpha";
 import site from "@/content/site.json";
 
 export const metadata: Metadata = {
@@ -31,6 +32,8 @@ export const metadata: Metadata = {
   }
 };
 
+const homelabUrl = "https://homelab.buildwithshashank.com";
+
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -39,7 +42,7 @@ const personJsonLd = {
   jobTitle: site.title,
   url: site.siteUrl,
   email: site.email,
-  sameAs: [site.links.github, site.links.linkedin],
+  sameAs: [site.links.github, site.links.linkedin, homelabUrl],
   address: {
     "@type": "PostalAddress",
     addressLocality: "Bengaluru",
@@ -81,6 +84,18 @@ const websiteJsonLd = {
   publisher: { "@id": `${site.siteUrl}/#person` }
 };
 
+const homelabWebsiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${homelabUrl}/#website`,
+  url: homelabUrl,
+  name: "KnowMyLab - a real homelab, local AI and the Alpha assistant",
+  description:
+    "Shashank Shekhar's documented homelab and Alpha, a local AI ops console and assistant that runs on open-weight models.",
+  author: { "@id": `${site.siteUrl}/#person` },
+  publisher: { "@id": `${site.siteUrl}/#person` }
+};
+
 export default function RootLayout({
   children
 }: {
@@ -102,13 +117,14 @@ gtag('config', 'G-BCQQMMTVM2');`}
         <script
           type="application/ld+json"
           suppressHydrationWarning
-          dangerouslySetInnerHTML={{ __html: JSON.stringify([personJsonLd, websiteJsonLd]) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify([personJsonLd, websiteJsonLd, homelabWebsiteJsonLd]) }}
         />
         <Header />
         <main className="min-h-screen px-5 pb-24 pt-24 sm:px-10 sm:pt-28">
           {children}
         </main>
         <Footer />
+        <AskAlpha />
       </body>
     </html>
   );

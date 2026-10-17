@@ -5,6 +5,7 @@ date: "2026-05-10"
 displayDate: "May 2026"
 readTime: "12 min read"
 summary: "An in-depth look at using Tree-sitter AST queries to build deterministic model context maps rather than relying purely on semantic vector chunking."
+metaDescription: "A deep look at using Tree-sitter AST queries to build deterministic model context maps for coding agents, instead of relying purely on semantic vector chunking."
 tags:
   - "RAG"
   - "Tree-sitter"

@@ -19,6 +19,7 @@ links:
   - label: "CrowdAnalytix"
     url: "https://www.crowdanalytix.com"
 summary: "Enterprise-scale product discovery platform for 7.7M+ SKUs with schema-driven UI, faceted search, and bulk editorial workflows."
+metaDescription: "Case study: an enterprise product discovery platform for 7.7M+ SKUs, with a schema-driven UI, faceted search and bulk editorial workflows built on Typesense."
 problem: "Retail teams had to search and curate millions of SKUs with tools that could not keep up — slow search, no governance, and risky bulk updates."
 outcome: "Delivered a high-scale Typesense search interface and product engineering workflow that improved discovery speed and editorial consistency."
 ---

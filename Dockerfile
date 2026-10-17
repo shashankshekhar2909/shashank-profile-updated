@@ -7,6 +7,11 @@ FROM node:22-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+# Public build-time flags (inlined into the client bundle). Set NEXT_PUBLIC_ASK_ALPHA=false to remove the chat button.
+ARG NEXT_PUBLIC_ASK_ALPHA=true
+ARG NEXT_PUBLIC_ASK_ALPHA_URL=
+ENV NEXT_PUBLIC_ASK_ALPHA=$NEXT_PUBLIC_ASK_ALPHA
+ENV NEXT_PUBLIC_ASK_ALPHA_URL=$NEXT_PUBLIC_ASK_ALPHA_URL
 RUN npm run build
 
 FROM node:22-alpine AS runner

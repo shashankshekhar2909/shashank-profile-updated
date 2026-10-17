@@ -10,6 +10,7 @@ const navItems = [
   { label: "Work", href: "/projects" },
   { label: "Experience", href: "/experience" },
   { label: "Writing", href: "/blog" },
+  { label: "Homelab", href: "https://homelab.buildwithshashank.com" },
   { label: "Resume", href: "/resume" },
   { label: "Contact", href: "/contact" }
 ];
@@ -19,7 +20,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname.startsWith(href);
+    href.startsWith("http") ? false : href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-mist bg-stone/90 backdrop-blur">

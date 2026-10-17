@@ -21,16 +21,19 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     };
   }
 
+  const description = project.metaDescription ?? project.summary;
+
   return {
     title: `${project.title} - Case Study`,
-    description: project.summary,
+    description,
     alternates: {
       canonical: `/projects/${project.slug}`
     },
     openGraph: {
       title: `${project.title} Case Study | Shashank Shekhar`,
-      description: project.summary,
+      description,
       url: `/projects/${project.slug}`,
+      siteName: "Shashank Shekhar",
       type: "article",
       images: [
         {
@@ -44,7 +47,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     twitter: {
       card: "summary_large_image",
       title: `${project.title} Case Study | Shashank Shekhar`,
-      description: project.summary,
+      description,
       images: [`/projects/${project.slug}/opengraph-image`]
     }
   };
@@ -141,10 +144,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               "@type": "CreativeWork",
               name: project.title,
               description: project.summary,
-              url: `https://buildwithshashank.com/projects/${project.slug}`,
+              url: `https://www.buildwithshashank.com/projects/${project.slug}`,
               author: {
                 "@type": "Person",
-                "@id": "https://buildwithshashank.com/#person",
+                "@id": "https://www.buildwithshashank.com/#person",
                 name: "Shashank Shekhar"
               },
               keywords: project.tags,
@@ -158,19 +161,19 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   "@type": "ListItem",
                   position: 1,
                   name: "Home",
-                  item: "https://buildwithshashank.com"
+                  item: "https://www.buildwithshashank.com"
                 },
                 {
                   "@type": "ListItem",
                   position: 2,
                   name: "Projects",
-                  item: "https://buildwithshashank.com/projects"
+                  item: "https://www.buildwithshashank.com/projects"
                 },
                 {
                   "@type": "ListItem",
                   position: 3,
                   name: project.title,
-                  item: `https://buildwithshashank.com/projects/${project.slug}`
+                  item: `https://www.buildwithshashank.com/projects/${project.slug}`
                 }
               ]
             }

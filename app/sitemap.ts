@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import site from "@/content/site.json";
 import { getProjectSlugs } from "@/lib/projects";
 import { getAllPostMeta } from "@/lib/blog";
+import { sourceLastModified } from "@/lib/lastmod";
 
 const staticRoutes: { path: string; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]; priority: number }[] = [
   { path: "/", changeFrequency: "monthly", priority: 1 },
@@ -19,12 +20,14 @@ const staticRoutes: { path: string; changeFrequency: MetadataRoute.Sitemap[numbe
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries = staticRoutes.map(({ path: routePath, changeFrequency, priority }) => ({
     url: `${site.siteUrl}${routePath}`,
+    lastModified: sourceLastModified(routePath === "/" ? "app/page.tsx" : `app${routePath}/page.tsx`),
     changeFrequency,
     priority
   }));
 
   const projectEntries = getProjectSlugs().map((slug) => ({
     url: `${site.siteUrl}/projects/${slug}`,
+    lastModified: sourceLastModified(`content/projects/${slug}.md`),
     changeFrequency: "monthly" as const,
     priority: 0.7
   }));

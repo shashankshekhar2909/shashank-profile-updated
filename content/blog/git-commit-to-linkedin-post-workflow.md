@@ -5,6 +5,7 @@ date: "2026-09-02"
 displayDate: "September 2026"
 readTime: "7 min read"
 summary: "A simple system for turning shipped work into SEO-friendly blog posts, LinkedIn-ready summaries, and portfolio updates without sounding generic."
+metaDescription: "A repeatable system for turning shipped work into SEO-friendly blog posts, LinkedIn-ready summaries and portfolio updates, without sounding generic or bland."
 tags:
   - "Personal Branding"
   - "LinkedIn"

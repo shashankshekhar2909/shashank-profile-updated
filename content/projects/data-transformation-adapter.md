@@ -12,6 +12,7 @@ stack:
   - "Python"
 featured: false
 summary: "In-progress adapter to transform CSV/JSON into structured templates with export to JSON or CSV."
+metaDescription: "Case study: an in-progress data transformation adapter that maps CSV and JSON into structured templates, with export to JSON or CSV for repeatable data cleanup."
 ---
 
 ## Problem

@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     description:
       "About Shashank Shekhar, an AI-Augmented Product Engineer building the BuildOS platform and self-hosted infrastructure with Next.js, FastAPI, and Docker.",
     url: "/about",
+    siteName: "Shashank Shekhar",
     type: "website",
     images: [
       {

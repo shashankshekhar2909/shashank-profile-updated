@@ -22,18 +22,19 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   }
 
   const url = `${site.siteUrl}/blog/${post.slug}`;
+  const description = post.metaDescription ?? post.summary;
   const imageUrl = `${site.siteUrl}/blog/${post.slug}/opengraph-image`;
 
   return {
     metadataBase: new URL(site.siteUrl),
     title: post.title,
-    description: post.summary,
+    description,
     alternates: {
       canonical: url
     },
     openGraph: {
       title: post.title,
-      description: post.summary,
+      description,
       url,
       siteName: site.name,
       type: "article",
@@ -52,7 +53,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     twitter: {
       card: "summary_large_image",
       title: post.title,
-      description: post.summary,
+      description,
       images: [imageUrl]
     }
   };

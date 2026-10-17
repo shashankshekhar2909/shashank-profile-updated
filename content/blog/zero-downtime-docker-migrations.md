@@ -5,6 +5,7 @@ date: "2026-04-05"
 displayDate: "April 2026"
 readTime: "6 min read"
 summary: "Solving remote volume migration issues without direct host-to-host SSH trust configurations."
+metaDescription: "How to migrate Docker Compose volumes between remote hosts with near-zero downtime and no direct host-to-host SSH trust, using a secure relay pattern."
 tags:
   - "Docker"
   - "Infrastructure"

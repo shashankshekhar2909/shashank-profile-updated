@@ -14,6 +14,7 @@ stack:
   - "Storybook"
 featured: false
 summary: "In-progress design system with shared tokens and reusable components across Angular and Next.js apps."
+metaDescription: "Case study: LayerOne, an in-progress design system with shared tokens and reusable components that keep Angular and Next.js applications visually consistent."
 ---
 
 ## Problem

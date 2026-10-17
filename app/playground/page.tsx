@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     description:
       "Interactive 3D knowledge graph of the BuildOS platform: how Knowledge Hub, BuildOS Agent, and Node Commander connect into one agentic development loop.",
     url: "/playground",
+    siteName: "Shashank Shekhar",
     type: "website",
     images: [
       {

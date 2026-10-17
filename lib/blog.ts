@@ -11,6 +11,7 @@ export interface BlogFrontmatter {
   displayDate: string; // e.g. "June 2026"
   readTime: string;
   summary: string;
+  metaDescription?: string;
   tags: string[];
 }
 

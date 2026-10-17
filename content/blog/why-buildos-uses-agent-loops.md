@@ -5,6 +5,7 @@ date: "2026-08-20"
 displayDate: "August 2026"
 readTime: "10 min read"
 summary: "The engineering case for persistent agent execution: planning, verification, recovery, and human approval gates inside a real product workflow."
+metaDescription: "The case for persistent agent execution: planning, verification, recovery and human approval gates inside a real product workflow, with lessons from BuildOS."
 tags:
   - "AI Agents"
   - "BuildOS"

@@ -5,15 +5,16 @@ import experienceData from "@/content/experience.json";
 export const metadata: Metadata = {
   title: "Experience — 8+ Years in AI Engineering",
   description:
-    "Shashank Shekhar has 8+ years across AI systems, developer tools, frontend engineering, product catalog platforms, and search-driven UIs.",
+    "Shashank Shekhar has 8+ years across AI systems, developer tools, frontend engineering, product catalog platforms and search-driven UIs. See roles and results.",
   alternates: {
     canonical: "/experience"
   },
   openGraph: {
     title: "Experience — 8+ Years in AI Engineering | Shashank Shekhar",
     description:
-      "Shashank Shekhar has 8+ years across AI systems, developer tools, frontend engineering, product catalog platforms, and search-driven UIs.",
+      "Shashank Shekhar has 8+ years across AI systems, developer tools, frontend engineering, product catalog platforms and search-driven UIs. See roles and results.",
     url: "/experience",
+    siteName: "Shashank Shekhar",
     type: "website",
     images: [
       {
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Experience — 8+ Years in AI Engineering | Shashank Shekhar",
     description:
-      "Shashank Shekhar has 8+ years across AI systems, developer tools, frontend engineering, product catalog platforms, and search-driven UIs.",
+      "Shashank Shekhar has 8+ years across AI systems, developer tools, frontend engineering, product catalog platforms and search-driven UIs. See roles and results.",
     images: ["/opengraph-image"]
   }
 };

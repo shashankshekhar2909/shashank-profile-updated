@@ -41,7 +41,7 @@ export default function OpengraphImage() {
               background: "#10b981"
             }}
           />
-          buildwithshashank.com
+          www.buildwithshashank.com
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 84, fontWeight: 800, letterSpacing: -2 }}>

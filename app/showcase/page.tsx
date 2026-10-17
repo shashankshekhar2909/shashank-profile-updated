@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     description:
       "The scroll-driven, cinematic edition of Shashank Shekhar's portfolio: agentic development, the BuildOS platform, and 8+ years of product engineering.",
     url: "/showcase",
+    siteName: "Shashank Shekhar",
     type: "website",
     images: [
       {

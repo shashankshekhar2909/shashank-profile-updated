@@ -1,6 +1,9 @@
 services:
   portfolio:
-    build: .
+    build:
+      context: .
+      args:
+        NEXT_PUBLIC_ASK_ALPHA: ${NEXT_PUBLIC_ASK_ALPHA:-true}
     image: shashank-portfolio
     container_name: shashank-portfolio
     restart: unless-stopped

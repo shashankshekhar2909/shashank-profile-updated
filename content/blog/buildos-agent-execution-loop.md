@@ -5,6 +5,7 @@ date: "2026-06-15"
 displayDate: "June 2026"
 readTime: "8 min read"
 summary: "How we implemented event-driven microservice orchestration and Paramiko SSH streaming to execute code safely across private fleets."
+metaDescription: "How BuildOS implemented event-driven microservice orchestration and Paramiko SSH streaming so AI agents can execute code safely across private server fleets."
 tags:
   - "AI Agents"
   - "Architecture"

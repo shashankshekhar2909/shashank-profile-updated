@@ -4,15 +4,16 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Resume — AI-Augmented Product Engineer",
   description:
-    "Resume of Shashank Shekhar, AI-Augmented Product Engineer with experience across Angular, React, FastAPI, Typesense, Docker, AWS, and GCP.",
+    "Resume of Shashank Shekhar, an AI-Augmented Product Engineer with 8+ years across Angular, React, Next.js, FastAPI, Typesense, Docker, AWS and GCP. See the PDF.",
   alternates: {
     canonical: "/resume"
   },
   openGraph: {
     title: "Resume — AI-Augmented Product Engineer | Shashank Shekhar",
     description:
-      "Resume of Shashank Shekhar, AI-Augmented Product Engineer with experience across Angular, React, FastAPI, Typesense, Docker, AWS, and GCP.",
+      "Resume of Shashank Shekhar, an AI-Augmented Product Engineer with 8+ years across Angular, React, Next.js, FastAPI, Typesense, Docker, AWS and GCP. See the PDF.",
     url: "/resume",
+    siteName: "Shashank Shekhar",
     type: "website",
     images: [
       {
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Resume — AI-Augmented Product Engineer | Shashank Shekhar",
     description:
-      "Resume of Shashank Shekhar, AI-Augmented Product Engineer with experience across Angular, React, FastAPI, Typesense, Docker, AWS, and GCP.",
+      "Resume of Shashank Shekhar, an AI-Augmented Product Engineer with 8+ years across Angular, React, Next.js, FastAPI, Typesense, Docker, AWS and GCP. See the PDF.",
     images: ["/opengraph-image"]
   }
 };

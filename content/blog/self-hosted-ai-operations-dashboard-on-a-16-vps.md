@@ -5,6 +5,7 @@ date: "2026-09-03"
 displayDate: "September 2026"
 readTime: "9 min read"
 summary: "A practical blueprint for turning a small Hetzner box into a reliable operations dashboard with health checks, auth, history, and alerting — the exact stack I would ship again."
+metaDescription: "A practical blueprint for turning a small VPS into a reliable AI operations dashboard with health checks, auth, history and alerting. The stack I reuse."
 tags:
   - "Self-Hosting"
   - "DevOps"

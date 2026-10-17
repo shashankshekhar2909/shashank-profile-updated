@@ -13,6 +13,12 @@ export default function Footer() {
           <Link href={site.links.v2} className="link-hover underline underline-offset-4">
             Profile v2 (beta)
           </Link>
+          <Link href="https://homelab.buildwithshashank.com" className="link-hover">
+            Homelab
+          </Link>
+          <Link href="https://homelab.buildwithshashank.com/alpha" className="link-hover">
+            Alpha
+          </Link>
           <Link href={site.links.linkedin} className="link-hover">
             LinkedIn
           </Link>

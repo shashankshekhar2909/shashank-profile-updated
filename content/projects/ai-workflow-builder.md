@@ -15,6 +15,7 @@ stack:
   - "Docker"
 featured: false
 summary: "Visual workflow builder with NL-to-graph generation, versioning, and separation between definition and execution layers."
+metaDescription: "Case study: a visual AI workflow builder that generates graphs from natural language, with versioning and a clean split between definition and execution layers."
 problem: "Operations teams needed AI workflow automation with clear controls, reusable templates, and auditable execution paths."
 outcome: "Shipped a production-ready workflow platform with FastAPI backend services, Docker deployment, and versioned workflow governance."
 ---

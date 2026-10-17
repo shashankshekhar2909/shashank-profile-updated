@@ -4,15 +4,16 @@ import site from "@/content/site.json";
 export const metadata: Metadata = {
   title: "Contact — Agentic Development & AI Consulting",
   description:
-    "Contact Shashank Shekhar for agentic development, AI system architecture, product engineering, and self-hosted infrastructure work.",
+    "Contact Shashank Shekhar for agentic development, AI system architecture, product engineering and self-hosted infrastructure work. Open to EU and remote roles.",
   alternates: {
     canonical: "/contact"
   },
   openGraph: {
     title: "Contact — Agentic Development & AI Consulting | Shashank Shekhar",
     description:
-      "Contact Shashank Shekhar for agentic development, AI system architecture, product engineering, and self-hosted infrastructure work.",
+      "Contact Shashank Shekhar for agentic development, AI system architecture, product engineering and self-hosted infrastructure work. Open to EU and remote roles.",
     url: "/contact",
+    siteName: "Shashank Shekhar",
     type: "website",
     images: [
       {
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Contact — Agentic Development & AI Consulting | Shashank Shekhar",
     description:
-      "Contact Shashank Shekhar for agentic development, AI system architecture, product engineering, and self-hosted infrastructure work.",
+      "Contact Shashank Shekhar for agentic development, AI system architecture, product engineering and self-hosted infrastructure work. Open to EU and remote roles.",
     images: ["/opengraph-image"]
   }
 };
