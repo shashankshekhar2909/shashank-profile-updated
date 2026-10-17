@@ -8,4 +8,4 @@ services:
     container_name: shashank-portfolio
     restart: unless-stopped
     ports:
-      - "4010:3000"
+      - "${PORTFOLIO_BIND:-127.0.0.1}:${PORTFOLIO_PORT:-4010}:3000"

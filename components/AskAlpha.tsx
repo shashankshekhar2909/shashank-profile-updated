@@ -7,6 +7,8 @@ const CHAT_URL =
   process.env.NEXT_PUBLIC_ASK_ALPHA_URL ||
   "https://homelab.buildwithshashank.com/alpha/talk?embed=1&from=portfolio";
 const ALPHA_HOME = "https://homelab.buildwithshashank.com/alpha";
+// Only show the button when the homelab chat is open and its model is reachable (homelab may be offline).
+const HEALTH_URL = `${new URL(CHAT_URL).origin}/api/chat/health`;
 
 export default function AskAlpha() {
   const [open, setOpen] = useState(false);
@@ -16,6 +18,27 @@ export default function AskAlpha() {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const wasOpen = useRef(false);
+  const [healthy, setHealthy] = useState(false);
+
+  useEffect(() => {
+    if (!ENABLED) return;
+    let alive = true;
+    const check = async () => {
+      try {
+        const r = await fetch(HEALTH_URL, { cache: "no-store", signal: AbortSignal.timeout(4000) });
+        const d = r.ok ? await r.json() : null;
+        if (alive) setHealthy(Boolean(d && d.ok));
+      } catch {
+        if (alive) setHealthy(false);
+      }
+    };
+    check();
+    const t = setInterval(check, 120_000);
+    return () => {
+      alive = false;
+      clearInterval(t);
+    };
+  }, []);
 
   useEffect(() => {
     if (open) {
@@ -46,7 +69,8 @@ export default function AskAlpha() {
     };
   }, [open]);
 
-  if (!ENABLED) return null;
+  // Keep an open panel visible even if a later check fails; only hide the launcher.
+  if (!ENABLED || (!healthy && !open)) return null;
 
   return (
     <div className="print:hidden">
