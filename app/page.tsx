@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import site from "@/content/site.json";
 import articlesData from "@/content/articles.json";
@@ -262,8 +263,16 @@ export default function HomePage() {
                   <p className="text-sm leading-relaxed text-zinc-400">{product.summary}</p>
                 </div>
 
+                {product.image && (
+                  <figure className="mt-8">
+                    <Link href={`/projects/${product.slug}`}>
+                      <Image src={product.image.src} alt={product.image.alt} width={product.image.width} height={product.image.height} unoptimized className="h-auto w-full rounded-lg border border-zinc-800" />
+                    </Link>
+                    {product.image.caption && <figcaption className="mt-2 text-xs leading-relaxed text-zinc-400">{product.image.caption}</figcaption>}
+                  </figure>
+                )}
                 {/* CSS Generated Dashboard Layout Mockup */}
-                {product.mockup && (
+                {!product.image && product.mockup && (
                   <div className="mt-8 rounded-lg border border-zinc-800 bg-zinc-900/60 p-4 font-mono text-[10px] text-zinc-400 select-none shadow-inner" aria-hidden="true">
                     <div className="flex items-center justify-between border-b border-zinc-800 pb-2 mb-3">
                       <div className="flex items-center gap-1.5">

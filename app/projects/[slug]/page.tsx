@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getProjectBySlug, getProjectSlugs } from "@/lib/projects";
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 interface ProjectPageProps {
   params: { slug: string };
@@ -102,6 +103,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         )}
       </section>
+
+      {project.image && (
+        <figure>
+          <Image src={project.image.src} alt={project.image.alt} width={project.image.width} height={project.image.height} unoptimized className="h-auto w-full rounded-xl border border-mist" />
+          {project.image.caption && <figcaption className="mt-3 text-sm leading-relaxed text-graphite">{project.image.caption}</figcaption>}
+        </figure>
+      )}
 
       {/* Key Stats */}
       {project.stats && project.stats.length > 0 && (

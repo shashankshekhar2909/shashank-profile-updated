@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Project } from "@/lib/projects";
 
 export default function ProjectCard({ project }: { project: Project }) {
@@ -18,6 +19,11 @@ export default function ProjectCard({ project }: { project: Project }) {
         <p className="mt-3 text-sm leading-relaxed text-graphite">
           {project.summary}
         </p>
+        {project.image && (
+          <Link href={`/projects/${project.slug}`} className="mt-4 block">
+            <Image src={project.image.src} alt={project.image.alt} width={project.image.width} height={project.image.height} unoptimized className="h-auto w-full rounded-lg border border-mist" />
+          </Link>
+        )}
         {project.problem && (
           <p className="mt-3 text-sm leading-relaxed text-graphite">
             <span className="font-medium text-ink">Problem:</span> {project.problem}

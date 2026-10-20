@@ -24,6 +24,7 @@ export interface ProjectFrontmatter {
   outcome?: string;
   highlights?: string[];
   mockup?: MockupLine[];
+  image?: { src: string; alt: string; width: number; height: number; caption?: string };
   stats?: { value: string; label: string }[];
 }
 
