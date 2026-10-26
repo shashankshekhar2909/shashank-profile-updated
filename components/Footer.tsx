@@ -19,6 +19,12 @@ export default function Footer() {
           <Link href="https://homelab.buildwithshashank.com/alpha" className="link-hover">
             Alpha
           </Link>
+          <Link href="https://blog.buildwithshashank.com" className="link-hover">
+            Blog
+          </Link>
+          <Link href="https://www.instagram.com/buildwithshashanks/" className="link-hover">
+            Instagram
+          </Link>
           <Link href={site.links.linkedin} className="link-hover">
             LinkedIn
           </Link>

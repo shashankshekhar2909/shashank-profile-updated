@@ -9,7 +9,7 @@ import site from "@/content/site.json";
 const navItems = [
   { label: "Work", href: "/projects" },
   { label: "Experience", href: "/experience" },
-  { label: "Writing", href: "/blog" },
+  { label: "Blog", href: "https://blog.buildwithshashank.com" },
   { label: "Homelab", href: "https://homelab.buildwithshashank.com" },
   { label: "Resume", href: "/resume" },
   { label: "Contact", href: "/contact" }

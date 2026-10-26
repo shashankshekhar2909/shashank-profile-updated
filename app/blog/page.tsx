@@ -47,6 +47,17 @@ export default function BlogPage() {
         </p>
       </section>
 
+      <a
+        href="https://blog.buildwithshashank.com"
+        className="card p-5 flex items-center justify-between gap-4 group"
+      >
+        <span className="text-sm text-ink">
+          New posts are published on{" "}
+          <span className="font-semibold text-brand">blog.buildwithshashank.com</span>
+        </span>
+        <span className="text-xs font-semibold text-graphite group-hover:text-brand">Read the blog →</span>
+      </a>
+
       <section className="flex flex-col gap-6">
         {posts.map((post) => (
           <Link
