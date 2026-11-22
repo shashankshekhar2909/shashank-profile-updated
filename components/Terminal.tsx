@@ -35,12 +35,12 @@ interface OutputLine {
 }
 
 const lineStyles: Record<string, string> = {
-  muted: "text-zinc-500",
-  ok: "text-emerald-400",
-  info: "text-blue-400",
-  accent: "text-purple-400",
-  error: "text-red-400",
-  ink: "text-zinc-100"
+  muted: "text-graphite",
+  ok: "text-[var(--kalaa-success)]",
+  info: "text-[var(--kalaa-chart-1)]",
+  accent: "text-brand",
+  error: "text-[var(--kalaa-danger)]",
+  ink: "text-ink"
 };
 
 const COMMANDS = [
@@ -320,28 +320,28 @@ export default function Terminal({
 
   return (
     <div
-      className={`rounded-xl border border-zinc-800 bg-zinc-950 shadow-soft overflow-hidden font-mono text-xs ${className ?? ""}`}
+      className={`rounded-xl border border-mist bg-card-bg shadow-soft overflow-hidden font-mono text-xs ${className ?? ""}`}
       onClick={() => {
         stopDemo();
         inputRef.current?.focus();
       }}
     >
-      <div className="flex items-center justify-between border-b border-zinc-800 px-4 py-2.5 bg-zinc-900/60">
+      <div className="flex items-center justify-between border-b border-mist px-4 py-2.5 bg-surface-alt">
         <div className="flex items-center gap-1.5">
-          <span className="h-2.5 w-2.5 rounded-full bg-red-500/80"></span>
-          <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/80"></span>
-          <span className="h-2.5 w-2.5 rounded-full bg-green-500/80"></span>
+          <span className="h-2.5 w-2.5 rounded-full bg-[var(--kalaa-danger)]"></span>
+          <span className="h-2.5 w-2.5 rounded-full bg-[var(--kalaa-warning)]"></span>
+          <span className="h-2.5 w-2.5 rounded-full bg-[var(--kalaa-success)]"></span>
         </div>
-        <span className="text-[10px] text-zinc-400">visitor@buildwithshashank — zsh</span>
+        <span className="text-[10px] text-graphite">visitor@buildwithshashank — zsh</span>
       </div>
       <div ref={scrollRef} className="h-72 overflow-y-auto px-4 py-3 space-y-0.5" role="log" aria-live={autoDemo ? "off" : "polite"}>
         {lines.map((line, i) => (
-          <p key={i} className={`whitespace-pre-wrap leading-5 ${lineStyles[line.style ?? ""] ?? "text-zinc-400"}`}>
+          <p key={i} className={`whitespace-pre-wrap leading-5 ${lineStyles[line.style ?? ""] ?? "text-graphite"}`}>
             {line.text}
           </p>
         ))}
         <div className="flex items-center gap-2 pt-1">
-          <span className="text-emerald-400 shrink-0">visitor@buildwithshashank:~$</span>
+          <span className="text-brand shrink-0">visitor@buildwithshashank:~$</span>
           <input
             ref={inputRef}
             value={input}
@@ -353,7 +353,7 @@ export default function Terminal({
               stopDemo();
               onKeyDown(e);
             }}
-            className="w-full bg-transparent text-[16px] text-zinc-100 outline-none caret-emerald-400 sm:text-xs"
+            className="w-full bg-transparent text-[16px] text-ink outline-none caret-[var(--color-brand)] sm:text-xs"
             aria-label="Terminal command input"
             autoComplete="off"
             autoCapitalize="off"

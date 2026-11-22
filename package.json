@@ -8,6 +8,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@kalaa/react": "file:vendor/kalaa-react-0.3.1.tgz",
+    "@kalaa/tokens": "file:vendor/kalaa-tokens-0.3.1.tgz",
     "clsx": "2.1.1",
     "gray-matter": "4.0.3",
     "next": "14.2.5",
@@ -25,5 +27,11 @@
     "postcss": "8.4.38",
     "tailwindcss": "3.4.4",
     "typescript": "5.4.5"
+  },
+  "overrides": {
+    "@kalaa/react": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    }
   }
 }

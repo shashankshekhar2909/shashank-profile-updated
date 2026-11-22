@@ -25,11 +25,11 @@ interface SimNode extends GraphNode {
   depth: number;
 }
 
-const TYPE_STYLES: Record<NodeType, { dark: string; light: string; shape: "circle" | "diamond" | "square" | "triangle"; label: string }> = {
-  application: { dark: "#34d399", light: "#059669", shape: "circle", label: "Application" },
-  service: { dark: "#60a5fa", light: "#2563eb", shape: "diamond", label: "Service" },
-  datastore: { dark: "#fbbf24", light: "#b45309", shape: "square", label: "Datastore" },
-  concept: { dark: "#c084fc", light: "#7e22ce", shape: "triangle", label: "Concept" }
+const TYPE_STYLES: Record<NodeType, { token: string; dark: string; light: string; shape: "circle" | "diamond" | "square" | "triangle"; label: string }> = {
+  application: { token: "var(--kalaa-chart-3)", dark: "#3CC7B4", light: "#0C7468", shape: "circle", label: "Application" },
+  service: { token: "var(--kalaa-chart-1)", dark: "#6CA0FF", light: "#2456B3", shape: "diamond", label: "Service" },
+  datastore: { token: "var(--kalaa-chart-5)", dark: "#E6B84A", light: "#8F6800", shape: "square", label: "Datastore" },
+  concept: { token: "var(--kalaa-chart-4)", dark: "#C888E8", light: "#7A338C", shape: "triangle", label: "Concept" }
 };
 
 const BASE_RADIUS: Record<NodeType, number> = {
@@ -55,8 +55,30 @@ export default function OkfGraph() {
     if (!ctx) return;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const isDark = () =>
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const darkMedia = window.matchMedia("(prefers-color-scheme: dark)");
+    const isDark = () => {
+      const themeAttr = document.documentElement.getAttribute("data-theme");
+      if (themeAttr === "dark") return true;
+      if (themeAttr === "light") return false;
+      return darkMedia.matches;
+    };
+    const readPalette = () => {
+      const cs = getComputedStyle(document.documentElement);
+      const get = (name: string, fallback: string) => cs.getPropertyValue(name).trim() || fallback;
+      const dark = isDark();
+      return {
+        dark,
+        accent: get("--kalaa-accent", dark ? "#62C3C4" : "#0E676D"),
+        text: get("--kalaa-text", dark ? "#E2EDEC" : "#13262A"),
+        nodeColors: {
+          application: get("--kalaa-chart-3", dark ? TYPE_STYLES.application.dark : TYPE_STYLES.application.light),
+          service: get("--kalaa-chart-1", dark ? TYPE_STYLES.service.dark : TYPE_STYLES.service.light),
+          datastore: get("--kalaa-chart-5", dark ? TYPE_STYLES.datastore.dark : TYPE_STYLES.datastore.light),
+          concept: get("--kalaa-chart-4", dark ? TYPE_STYLES.concept.dark : TYPE_STYLES.concept.light)
+        } as Record<NodeType, string>
+      };
+    };
+    let palette = readPalette();
 
     const nodes: SimNode[] = graphData.nodes.map((n, i) => {
       const phi = Math.acos(1 - (2 * (i + 0.5)) / graphData.nodes.length);
@@ -209,7 +231,7 @@ export default function OkfGraph() {
       const w = canvas.width / dpr;
       const h = canvas.height / dpr;
       ctx.clearRect(0, 0, w, h);
-      const dark = isDark();
+      const { dark, accent, text, nodeColors } = palette;
       const sel = selectedRef.current;
       const selNeighbors = sel ? neighbors.get(sel) : null;
 
@@ -218,8 +240,9 @@ export default function OkfGraph() {
         const active = sel && (a.id === sel || b.id === sel);
         const dimmed = sel && !active;
         const depthAlpha = Math.max(0.12, 0.55 - ((a.depth + b.depth) / 2 + 200) / 900);
+        ctx.globalAlpha = active ? 0.9 : 1;
         ctx.strokeStyle = active
-          ? dark ? "rgba(52, 211, 153, 0.9)" : "rgba(5, 150, 105, 0.9)"
+          ? accent
           : `rgba(${linkBase}, ${dimmed ? 0.06 : depthAlpha})`;
         ctx.lineWidth = active ? 1.6 : 1;
         ctx.beginPath();
@@ -227,11 +250,12 @@ export default function OkfGraph() {
         ctx.lineTo(b.px, b.py);
         ctx.stroke();
       }
+      ctx.globalAlpha = 1;
 
       const sorted = [...nodes].sort((a, b) => b.depth - a.depth);
       for (const n of sorted) {
         const style = TYPE_STYLES[n.type];
-        const color = dark ? style.dark : style.light;
+        const color = nodeColors[n.type];
         const isSel = n.id === sel;
         const isNeighbor = selNeighbors?.has(n.id);
         const dimmed = sel && !isSel && !isNeighbor;
@@ -242,7 +266,7 @@ export default function OkfGraph() {
         ctx.fill();
         if (isSel || isNeighbor) {
           ctx.globalAlpha = 1;
-          ctx.strokeStyle = dark ? "#f4f4f5" : "#09090b";
+          ctx.strokeStyle = text;
           ctx.lineWidth = 1.5;
           drawShape(n.px, n.py, n.pr + 2, style.shape);
           ctx.stroke();
@@ -251,7 +275,7 @@ export default function OkfGraph() {
           isSel || isNeighbor || (!sel && (n.type === "application" || n.type === "concept"));
         if (showLabel && !dimmed) {
           ctx.globalAlpha = Math.max(0.6, depthAlpha);
-          ctx.fillStyle = dark ? "#e4e4e7" : "#18181b";
+          ctx.fillStyle = text;
           ctx.font = "11px ui-monospace, monospace";
           ctx.textAlign = "center";
           ctx.fillText(n.label, n.px, n.py - n.pr - 7);
@@ -333,9 +357,25 @@ export default function OkfGraph() {
     canvas.addEventListener("pointerup", onPointerUp);
     canvas.addEventListener("wheel", onWheel, { passive: false });
 
+    const onThemeChange = () => {
+      palette = readPalette();
+      if (reducedMotion) {
+        project();
+        draw();
+      }
+    };
+    const mo = new MutationObserver(onThemeChange);
+    mo.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme", "data-accent", "data-shape"]
+    });
+    darkMedia.addEventListener("change", onThemeChange);
+
     return () => {
       cancelAnimationFrame(raf);
       ro.disconnect();
+      mo.disconnect();
+      darkMedia.removeEventListener("change", onThemeChange);
       canvas.removeEventListener("pointerdown", onPointerDown);
       canvas.removeEventListener("pointermove", onPointerMove);
       canvas.removeEventListener("pointerup", onPointerUp);
@@ -362,10 +402,10 @@ export default function OkfGraph() {
           {Object.entries(TYPE_STYLES).map(([type, style]) => (
             <span key={type} className="inline-flex items-center gap-1.5">
               <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
-                {style.shape === "circle" && <circle cx="6" cy="6" r="5" fill={style.dark} />}
-                {style.shape === "square" && <rect x="1" y="1" width="10" height="10" fill={style.dark} />}
-                {style.shape === "diamond" && <path d="M6 0 L12 6 L6 12 L0 6 Z" fill={style.dark} />}
-                {style.shape === "triangle" && <path d="M6 0.5 L11.5 11 L0.5 11 Z" fill={style.dark} />}
+                {style.shape === "circle" && <circle cx="6" cy="6" r="5" fill={style.token} />}
+                {style.shape === "square" && <rect x="1" y="1" width="10" height="10" fill={style.token} />}
+                {style.shape === "diamond" && <path d="M6 0 L12 6 L6 12 L0 6 Z" fill={style.token} />}
+                {style.shape === "triangle" && <path d="M6 0.5 L11.5 11 L0.5 11 Z" fill={style.token} />}
               </svg>
               {style.label}
             </span>

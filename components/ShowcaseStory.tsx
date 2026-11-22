@@ -19,10 +19,10 @@ const PRODUCTS = [
     copy: "Tree-sitter parses every repository into a structural knowledge graph — classes, APIs, schemas, dependencies. Agents navigate architecture, not text chunks.",
     href: "/projects/buildos-knowledge-hub",
     lines: [
-      { text: "// Indexing changed sources...", cls: "text-zinc-500" },
-      { text: "→ Scanned 18 modules (Python, TypeScript)", cls: "text-blue-400" },
-      { text: "✓ Exported OKF schema graph map", cls: "text-emerald-400" },
-      { text: "✓ Synchronized 42 vector embeddings", cls: "text-purple-400" }
+      { text: "// Indexing changed sources...", cls: "text-graphite" },
+      { text: "→ Scanned 18 modules (Python, TypeScript)", cls: "text-[var(--kalaa-chart-1)]" },
+      { text: "✓ Exported OKF schema graph map", cls: "text-[var(--kalaa-success)]" },
+      { text: "✓ Synchronized 42 vector embeddings", cls: "text-[var(--kalaa-chart-4)]" }
     ]
   },
   {
@@ -32,10 +32,10 @@ const PRODUCTS = [
     copy: "Feature requests become stateful planning queues. Specialized agents — database, API, UI — execute sequentially with deterministic context and a circuit breaker watching every loop.",
     href: "/projects/buildos-agent",
     lines: [
-      { text: "// Initiating planner execution...", cls: "text-zinc-500" },
-      { text: "✓ Loaded repository structure in 12ms", cls: "text-emerald-400" },
-      { text: "✓ Compiled AST schema (Tree-sitter)", cls: "text-emerald-400" },
-      { text: "→ Spawning Database Agent for migrations", cls: "text-blue-400" }
+      { text: "// Initiating planner execution...", cls: "text-graphite" },
+      { text: "✓ Loaded repository structure in 12ms", cls: "text-[var(--kalaa-success)]" },
+      { text: "✓ Compiled AST schema (Tree-sitter)", cls: "text-[var(--kalaa-success)]" },
+      { text: "→ Spawning Database Agent for migrations", cls: "text-[var(--kalaa-chart-1)]" }
     ]
   },
   {
@@ -45,10 +45,10 @@ const PRODUCTS = [
     copy: "Agentless SSH control of the whole Docker fleet. Deployments, live metrics, browser terminals, and near-zero-downtime migrations — no daemons installed anywhere.",
     href: "/projects/buildos-node-commander",
     lines: [
-      { text: "$ node-commander status --fleet", cls: "text-zinc-500" },
-      { text: "● node-01 [SSH connected] - 18 containers", cls: "text-emerald-400" },
-      { text: "● node-02 [SSH connected] - 12 containers", cls: "text-emerald-400" },
-      { text: "→ Syncing volumes for migration... 72%", cls: "text-blue-400" }
+      { text: "$ node-commander status --fleet", cls: "text-graphite" },
+      { text: "● node-01 [SSH connected] - 18 containers", cls: "text-[var(--kalaa-success)]" },
+      { text: "● node-02 [SSH connected] - 12 containers", cls: "text-[var(--kalaa-success)]" },
+      { text: "→ Syncing volumes for migration... 72%", cls: "text-[var(--kalaa-chart-1)]" }
     ]
   }
 ];
@@ -133,7 +133,7 @@ export default function ShowcaseStory({ metrics }: ShowcaseStoryProps) {
     : Math.min(LOOP_STEPS.length - 1, Math.floor(loopProgress * LOOP_STEPS.length));
 
   return (
-    <div className="-mx-5 -mt-24 -mb-24 sm:-mx-10 sm:-mt-28 bg-[#060608] text-zinc-100">
+    <div className="-mx-5 -mt-24 -mb-24 sm:-mx-10 sm:-mt-28 bg-stone text-ink">
       {/* 1. HERO */}
       <section className="relative flex h-[100svh] flex-col items-center justify-center overflow-hidden px-6">
         <div className="hero-grid absolute inset-0" aria-hidden="true" />
@@ -146,21 +146,21 @@ export default function ShowcaseStory({ metrics }: ShowcaseStoryProps) {
               : { opacity: 1 - heroFade, transform: `scale(${1 - heroFade * 0.08}) translateY(${heroFade * -30}px)` }
           }
         >
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-emerald-400">
+          <p className="font-mono text-xs uppercase tracking-[0.3em] text-brand">
             AI-Augmented Product Engineer
           </p>
           <h1 className="mt-6 text-6xl font-extrabold tracking-tighter sm:text-8xl">
             Shashank
             <br />
-            Shekhar<span className="text-emerald-400">.</span>
+            Shekhar<span className="text-brand">.</span>
           </h1>
-          <p className="mx-auto mt-8 max-w-xl text-lg text-zinc-400 sm:text-2xl">
+          <p className="mx-auto mt-8 max-w-xl text-lg text-graphite sm:text-2xl">
             I build AI-assisted workflows that turn product goals into validated implementation steps.
           </p>
         </div>
-        <div className="absolute bottom-10 flex flex-col items-center gap-2 text-zinc-400">
+        <div className="absolute bottom-10 flex flex-col items-center gap-2 text-graphite">
           <span className="text-[10px] uppercase tracking-widest">Scroll</span>
-          <span className="block h-8 w-px animate-pulse bg-zinc-500" />
+          <span className="block h-8 w-px animate-pulse bg-graphite" />
         </div>
       </section>
 
@@ -210,28 +210,28 @@ export default function ShowcaseStory({ metrics }: ShowcaseStoryProps) {
               >
                 <div className="grid w-full max-w-5xl items-center gap-10 lg:grid-cols-2">
                   <div>
-                    <p className="font-mono text-sm text-zinc-400">{product.index}</p>
-                    <p className="mt-2 font-mono text-xs uppercase tracking-[0.3em] text-emerald-400">
+                    <p className="font-mono text-sm text-graphite">{product.index}</p>
+                    <p className="mt-2 font-mono text-xs uppercase tracking-[0.3em] text-brand">
                       {product.tag}
                     </p>
                     <h2 className="mt-4 text-5xl font-extrabold tracking-tight sm:text-6xl">
                       {product.name}
                     </h2>
-                    <p className="mt-6 max-w-md text-lg leading-relaxed text-zinc-400">
+                    <p className="mt-6 max-w-md text-lg leading-relaxed text-graphite">
                       {product.copy}
                     </p>
                     <Link
                       href={product.href}
-                      className="mt-8 inline-block text-sm font-semibold text-emerald-400 hover:underline"
+                      className="mt-8 inline-block text-sm font-semibold text-brand hover:underline"
                     >
                       Read the case study →
                     </Link>
                   </div>
-                  <div className="rounded-xl border border-zinc-800 bg-zinc-950 p-5 font-mono text-xs shadow-2xl">
-                    <div className="mb-3 flex items-center gap-1.5 border-b border-zinc-800 pb-2">
-                      <span className="h-2 w-2 rounded-full bg-red-500/80" />
-                      <span className="h-2 w-2 rounded-full bg-yellow-500/80" />
-                      <span className="h-2 w-2 rounded-full bg-green-500/80" />
+                  <div className="rounded-xl border border-mist bg-card-bg p-5 font-mono text-xs shadow-soft">
+                    <div className="mb-3 flex items-center gap-1.5 border-b border-mist pb-2">
+                      <span className="h-2 w-2 rounded-full bg-[var(--kalaa-danger)]" />
+                      <span className="h-2 w-2 rounded-full bg-[var(--kalaa-warning)]" />
+                      <span className="h-2 w-2 rounded-full bg-[var(--kalaa-success)]" />
                     </div>
                     <div className="space-y-1.5">
                       {product.lines.map((line) => (
@@ -249,7 +249,7 @@ export default function ShowcaseStory({ metrics }: ShowcaseStoryProps) {
       </section>
 
       {/* 4. METRICS */}
-      <section className="border-y border-zinc-800/60 px-6 py-24">
+      <section className="border-y border-mist px-6 py-24">
         <div className="mx-auto grid max-w-5xl grid-cols-2 gap-10 text-center md:grid-cols-6 md:text-left">
           {metrics.map((m) => (
             <CountUpMetric key={m.label} value={m.value} label={m.label} />
@@ -261,7 +261,7 @@ export default function ShowcaseStory({ metrics }: ShowcaseStoryProps) {
       <section ref={loopRef} className={staticScene ? "px-6 py-32" : "relative h-[260vh]"}>
         <div className={staticScene ? "" : "sticky top-0 flex h-screen items-center"}>
           <div className="mx-auto w-full max-w-4xl px-6">
-            <p className="font-mono text-xs uppercase tracking-[0.3em] text-emerald-400">The loop</p>
+            <p className="font-mono text-xs uppercase tracking-[0.3em] text-brand">The loop</p>
             <h2 className="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">
               Build. Execute. Diagnose. Modify.
             </h2>
@@ -273,12 +273,12 @@ export default function ShowcaseStory({ metrics }: ShowcaseStoryProps) {
                     key={step.name}
                     className="border-l-2 pl-5 transition-all duration-500"
                     style={{
-                      borderColor: on ? "#10b981" : "#27272a",
+                      borderColor: on ? "var(--color-brand)" : "var(--color-mist)",
                       opacity: on ? 1 : 0.3
                     }}
                   >
                     <p className="text-xl font-bold">{step.name}</p>
-                    <p className="mt-2 text-sm leading-relaxed text-zinc-400">{step.copy}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-graphite">{step.copy}</p>
                   </div>
                 );
               })}
@@ -292,7 +292,7 @@ export default function ShowcaseStory({ metrics }: ShowcaseStoryProps) {
         <h2 className="max-w-3xl text-4xl font-extrabold tracking-tight sm:text-6xl">
           Your product could feel like this.
         </h2>
-        <p className="mt-6 max-w-xl text-lg text-zinc-400">
+        <p className="mt-6 max-w-xl text-lg text-graphite">
           This page and the minimal site carry the same information — two
           experiences, one engineer. Whether your product needs quiet clarity or
           cinematic polish, I build both.
@@ -301,10 +301,10 @@ export default function ShowcaseStory({ metrics }: ShowcaseStoryProps) {
           <Link href="/contact" className="btn-brand !px-6 !py-3 !text-sm">
             Book a call
           </Link>
-          <Link href="/" className="btn border border-zinc-700 bg-zinc-900 !px-6 !py-3 !text-sm text-zinc-100 hover:bg-zinc-800">
+          <Link href="/" className="btn-secondary !px-6 !py-3 !text-sm">
             See the minimal version
           </Link>
-          <Link href="/os" className="btn border border-zinc-700 bg-zinc-900 !px-6 !py-3 !text-sm text-zinc-100 hover:bg-zinc-800">
+          <Link href="/os" className="btn-secondary !px-6 !py-3 !text-sm">
             Boot the desktop
           </Link>
         </div>

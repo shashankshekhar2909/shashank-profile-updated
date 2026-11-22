@@ -131,7 +131,7 @@ export default function ExperiencePage() {
         <div className="mt-6 relative pl-6 border-l-2 border-mist space-y-8">
           {experienceData.timeline.map((entry) => (
             <div key={entry.title} className="relative">
-              <span className="absolute -left-[31px] top-1.5 h-4 w-4 rounded-full border-2 border-zinc-500 bg-stone" />
+              <span className="absolute -left-[31px] top-1.5 h-4 w-4 rounded-full border-2 border-[var(--kalaa-border-strong)] bg-stone" />
               <div className="flex items-center justify-between text-xs text-graphite font-mono">
                 <span className="font-bold text-ink text-sm">{entry.title}</span>
                 <span>{entry.period}</span>

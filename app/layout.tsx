@@ -1,6 +1,10 @@
+import "@kalaa/tokens/tokens.css";
+import "@kalaa/tokens/fonts.css";
+import "@kalaa/react/styles.css";
 import "./globals.css";
 import type { Metadata } from "next";
 import Script from "next/script";
+import { appearanceScript } from "@kalaa/tokens/appearance-script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AskAlpha from "@/components/AskAlpha";
@@ -102,7 +106,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      data-default-theme="dark"
+      data-default-accent="mayur"
+      data-default-shape="soft"
+      data-theme="dark"
+      data-accent="mayur"
+      data-shape="soft"
+      suppressHydrationWarning
+    >
+      <head>
+        <script
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: appearanceScript }}
+        />
+      </head>
       <body>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-BCQQMMTVM2"

@@ -2,41 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  color-scheme: dark;
-
-  /* Premium Dark Theme variables (default) */
-  --color-stone: #060608;
-  --color-ink: #f4f4f5;
-  --color-mist: #1f1f23;
-  --color-graphite: #a1a1aa;
-  --color-accent: #e4e4e7;
-  --color-brand: #10b981;
-  --color-brand-dim: rgba(16, 185, 129, 0.12);
-  --card-bg: #0b0b0d;
-  --ring: 0 0 0 1px rgba(255, 255, 255, 0.08);
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color-scheme: light;
-
-    /* Clean Light Theme variables */
-    --color-stone: #f8f8fa;
-    --color-ink: #09090b;
-    --color-mist: #e4e4e7;
-    --color-graphite: #4b5563;
-    --color-accent: #27272a;
-    --color-brand: #059669;
-    --color-brand-dim: rgba(5, 150, 105, 0.1);
-    --card-bg: #ffffff;
-    --ring: 0 0 0 1px rgba(0, 0, 0, 0.05);
-  }
+:root,
+[data-theme],
+[data-accent],
+[data-shape] {
+  /* Portfolio variables mapped onto Kalaa design token roles */
+  --color-stone: var(--kalaa-bg);
+  --color-ink: var(--kalaa-text);
+  --color-mist: var(--kalaa-border);
+  --color-border-strong: var(--kalaa-border-strong);
+  --color-graphite: var(--kalaa-text-muted);
+  --color-subtle: var(--kalaa-text-subtle);
+  --color-accent: var(--kalaa-text-muted);
+  --color-brand: var(--kalaa-accent);
+  --color-brand-hover: var(--kalaa-accent-hover);
+  --color-brand-dim: var(--kalaa-accent-soft);
+  --color-on-brand: var(--kalaa-on-accent);
+  --card-bg: var(--kalaa-surface);
+  --color-surface-alt: var(--kalaa-surface-alt);
+  --ring: 0 0 0 1px var(--kalaa-border);
 }
 
 body {
   @apply antialiased bg-stone text-ink font-sans selection:bg-ink selection:text-stone transition-colors duration-200;
-  font-feature-settings: "ss01", "ss03", "cv02", "cv03", "cv04";
   text-rendering: optimizeLegibility;
 }
 
@@ -72,13 +60,11 @@ button,
 }
 
 .prose-content code {
-  @apply rounded px-1.5 py-0.5 font-mono text-[13px] text-ink;
-  background-color: rgba(120, 120, 120, 0.15);
+  @apply rounded px-1.5 py-0.5 font-mono text-[13px] text-ink bg-surface-alt;
 }
 
 .prose-content pre {
-  @apply rounded-xl p-4 overflow-x-auto font-mono text-[13px] leading-6 border border-mist my-6;
-  background-color: rgba(120, 120, 120, 0.05);
+  @apply rounded-xl p-4 overflow-x-auto font-mono text-[13px] leading-6 border border-mist my-6 bg-surface-alt text-ink;
 }
 
 .section-title {
@@ -88,7 +74,11 @@ button,
 
 /* Premium Card layout with interactive micro-animations */
 .card {
-  @apply bg-card-bg border border-mist rounded-xl shadow-soft transition-all duration-300 hover:translate-y-[-2px] hover:border-zinc-500/30;
+  @apply bg-card-bg border border-mist rounded-xl shadow-soft transition-all duration-300 hover:translate-y-[-2px];
+}
+
+.card:hover {
+  border-color: var(--kalaa-border-strong);
 }
 
 .link-hover {
@@ -111,7 +101,7 @@ button,
 }
 
 .btn-secondary {
-  @apply btn border border-mist bg-card-bg text-ink hover:bg-zinc-800/10;
+  @apply btn border border-mist bg-card-bg text-ink hover:bg-surface-alt;
 }
 
 /* Infrastructure Diagram & Flow lines animations */
@@ -147,11 +137,11 @@ button,
 .btn-brand {
   @apply btn;
   background-color: var(--color-brand);
-  color: #04120c;
+  color: var(--color-on-brand);
 }
 
 .btn-brand:hover {
-  opacity: 0.9;
+  background-color: var(--color-brand-hover);
 }
 
 /* Hero dot-grid backdrop */
@@ -240,8 +230,8 @@ button,
 
 .os-wallpaper {
   background:
-    radial-gradient(ellipse 70% 55% at 50% 0%, rgba(16, 185, 129, 0.08), transparent 60%),
-    radial-gradient(#1f1f23 1px, transparent 1px);
+    radial-gradient(ellipse 70% 55% at 50% 0%, var(--color-brand-dim), transparent 60%),
+    radial-gradient(var(--color-mist) 1px, transparent 1px);
   background-size: 100% 100%, 26px 26px;
 }
 

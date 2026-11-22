@@ -89,14 +89,14 @@ export default function AskAlpha() {
             type="button"
             onClick={() => setOpen(false)}
             aria-label="Close Ask Alpha"
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-mist text-accent hover:bg-mist/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand)]"
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-mist text-accent hover:bg-surface-alt focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand)]"
           >
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M2 2l10 10M12 2L2 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
           </button>
         </div>
-        <div className="min-h-0 flex-1 bg-[#0f1115]">
+        <div className="min-h-0 flex-1 bg-surface-alt">
           {mounted && (
             <iframe
               src={CHAT_URL}
@@ -128,7 +128,7 @@ export default function AskAlpha() {
           setMounted(true);
           setOpen((v) => !v);
         }}
-        className="fixed bottom-5 right-5 z-40 inline-flex h-11 items-center gap-2 rounded-full border border-mist bg-card-bg px-4 text-sm font-semibold text-ink shadow-soft hover:bg-mist/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand)] motion-reduce:transition-none"
+        className="fixed bottom-5 right-5 z-40 inline-flex h-11 items-center gap-2 rounded-pill border border-mist bg-card-bg px-4 text-sm font-semibold text-ink shadow-soft hover:bg-surface-alt focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-brand)] motion-reduce:transition-none"
       >
         <span aria-hidden="true" className="h-2 w-2 rounded-full bg-[var(--color-brand)]" />
         Ask Alpha

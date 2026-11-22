@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { AppearanceMenu } from "@kalaa/react";
 import clsx from "clsx";
 import site from "@/content/site.json";
 
@@ -41,6 +42,9 @@ export default function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
+          <div className="hidden md:block">
+            <AppearanceMenu align="end" />
+          </div>
           <Link href="/contact" className="btn-brand !px-3 !py-1.5 !text-[11px]" onClick={() => setOpen(false)}>
             Contact
           </Link>
@@ -77,13 +81,17 @@ export default function Header() {
                 onClick={() => setOpen(false)}
                 aria-current={isActive(item.href) ? "page" : undefined}
                 className={clsx(
-                  "rounded-lg px-3 py-2.5 text-sm text-accent hover:bg-mist/30",
+                  "rounded-lg px-3 py-2.5 text-sm text-accent hover:bg-surface-alt",
                   isActive(item.href) && "font-semibold text-brand"
                 )}
               >
                 {item.label}
               </Link>
             ))}
+          </div>
+          <div className="mt-3 flex items-center justify-between border-t border-mist pt-3">
+            <span className="text-xs font-medium text-graphite">Appearance</span>
+            <AppearanceMenu align="end" />
           </div>
         </nav>
       )}

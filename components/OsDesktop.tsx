@@ -63,12 +63,12 @@ const APPS: { id: AppId; title: string; icon: string }[] = [
 ];
 
 const BOOT_LINES = [
-  { text: "BuildOS v2.0 — initializing kernel...", style: "text-zinc-500" },
-  { text: "✓ Mounted /dev/portfolio", style: "text-emerald-400" },
-  { text: "✓ Loaded 10 project modules", style: "text-emerald-400" },
-  { text: "✓ SSH fleet connection established", style: "text-emerald-400" },
-  { text: "✓ Knowledge graph indexed (OKF)", style: "text-emerald-400" },
-  { text: "→ Starting desktop environment...", style: "text-blue-400" }
+  { text: "BuildOS v2.0 — initializing kernel...", style: "text-graphite" },
+  { text: "✓ Mounted /dev/portfolio", style: "text-[var(--kalaa-success)]" },
+  { text: "✓ Loaded 10 project modules", style: "text-[var(--kalaa-success)]" },
+  { text: "✓ SSH fleet connection established", style: "text-[var(--kalaa-success)]" },
+  { text: "✓ Knowledge graph indexed (OKF)", style: "text-[var(--kalaa-success)]" },
+  { text: "→ Starting desktop environment...", style: "text-[var(--kalaa-chart-1)]" }
 ];
 
 export default function OsDesktop(props: OsDesktopProps) {
@@ -220,22 +220,22 @@ export default function OsDesktop(props: OsDesktopProps) {
     switch (appId) {
       case "about":
         return (
-          <div className="space-y-3 text-sm text-zinc-300">
+          <div className="space-y-3 text-sm text-graphite">
             <div>
-              <p className="text-lg font-bold text-zinc-100">{props.siteName}</p>
-              <p className="text-emerald-400 text-xs font-semibold">{props.siteTitle}</p>
-              <p className="text-zinc-400 text-xs mt-1">{props.location}</p>
+              <p className="text-lg font-bold text-ink">{props.siteName}</p>
+              <p className="text-brand text-xs font-semibold">{props.siteTitle}</p>
+              <p className="text-graphite text-xs mt-1">{props.location}</p>
             </div>
             <p className="leading-relaxed">
               I build AI-assisted workflows that plan, validate, and improve
               applications — plus the developer tools and self-hosted
               infrastructure they run on.
             </p>
-            <p className="text-xs text-zinc-400">
+            <p className="text-xs text-graphite">
               8+ years: enterprise search (7.7M+ SKUs), Angular/React systems,
               FastAPI services, Docker fleets.
             </p>
-            <Link href="/about" className="inline-block text-xs font-semibold text-emerald-400 hover:underline">
+            <Link href="/about" className="inline-block text-xs font-semibold text-brand hover:underline">
               Full story →
             </Link>
           </div>
@@ -247,13 +247,13 @@ export default function OsDesktop(props: OsDesktopProps) {
               <Link
                 key={p.slug}
                 href={`/projects/${p.slug}`}
-                className="block rounded-lg border border-zinc-800 p-3 hover:border-emerald-500/40 hover:bg-zinc-900/60 transition-colors"
+                className="block rounded-lg border border-mist p-3 hover:border-[var(--kalaa-border-strong)] hover:bg-surface-alt transition-colors"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-semibold text-zinc-100">{p.title}</span>
-                  <span className="text-[10px] font-mono text-zinc-400">{p.timeline}</span>
+                  <span className="text-sm font-semibold text-ink">{p.title}</span>
+                  <span className="text-[10px] font-mono text-graphite">{p.timeline}</span>
                 </div>
-                <p className="mt-1 text-xs text-zinc-400 leading-relaxed line-clamp-2">{p.summary}</p>
+                <p className="mt-1 text-xs text-graphite leading-relaxed line-clamp-2">{p.summary}</p>
               </Link>
             ))}
           </div>
@@ -284,12 +284,12 @@ export default function OsDesktop(props: OsDesktopProps) {
         return (
           <div className="grid grid-cols-2 gap-3">
             {props.metrics.map((m, i) => (
-              <div key={m.label} className="rounded-lg border border-zinc-800 p-3">
-                <div className="text-xl font-extrabold text-zinc-100">{m.value}</div>
-                <div className="mt-0.5 text-[10px] uppercase tracking-wider text-zinc-400">{m.label}</div>
-                <div className="mt-2 h-1 w-full overflow-hidden rounded bg-zinc-800">
+              <div key={m.label} className="rounded-lg border border-mist p-3">
+                <div className="text-xl font-extrabold text-ink">{m.value}</div>
+                <div className="mt-0.5 text-[10px] uppercase tracking-wider text-graphite">{m.label}</div>
+                <div className="mt-2 h-1 w-full overflow-hidden rounded bg-surface-alt">
                   <div
-                    className="h-full bg-emerald-500/70 pulse-slow"
+                    className="h-full bg-brand pulse-slow"
                     style={{ width: `${55 + ((i * 17) % 40)}%` }}
                   />
                 </div>
@@ -299,9 +299,9 @@ export default function OsDesktop(props: OsDesktopProps) {
         );
       case "resume":
         return (
-          <div className="space-y-3 text-sm text-zinc-300">
-            <p className="font-semibold text-zinc-100">Shashank Shekhar — Resume</p>
-            <ul className="space-y-1.5 text-xs text-zinc-400">
+          <div className="space-y-3 text-sm text-graphite">
+            <p className="font-semibold text-ink">Shashank Shekhar — Resume</p>
+            <ul className="space-y-1.5 text-xs text-graphite">
               <li>• CrowdAnalytix — Software Engineer II (Product Systems), 2019–Present</li>
               <li>• Freelance Developer, 2017–2019 — 15+ apps delivered</li>
               <li>• MCA (BBAU, Lucknow) · B.Sc. IT (Amity, Lucknow)</li>
@@ -310,11 +310,11 @@ export default function OsDesktop(props: OsDesktopProps) {
             <div className="flex gap-3 pt-1">
               <a
                 href="/resume-shashank-shekhar.pdf"
-                className="rounded-lg bg-emerald-500 px-3 py-1.5 text-xs font-semibold text-emerald-950 hover:opacity-90"
+                className="btn-brand !px-3 !py-1.5"
               >
                 Download PDF
               </a>
-              <Link href="/resume" className="rounded-lg border border-zinc-700 px-3 py-1.5 text-xs font-semibold text-zinc-200 hover:bg-zinc-800">
+              <Link href="/resume" className="btn-secondary !px-3 !py-1.5">
                 Open full page
               </Link>
             </div>
@@ -322,28 +322,28 @@ export default function OsDesktop(props: OsDesktopProps) {
         );
       case "contact":
         return (
-          <div className="space-y-3 text-sm text-zinc-300">
+          <div className="space-y-3 text-sm text-graphite">
             <p className="leading-relaxed">
               Building AI-integrated products, agentic systems, or
               infrastructure? Let&apos;s talk.
             </p>
             <div className="space-y-1.5 text-xs font-mono">
               <p>
-                <span className="text-zinc-500">email:</span>{" "}
-                <a className="text-emerald-400 hover:underline" href={`mailto:${props.email}`}>{props.email}</a>
+                <span className="text-graphite">email:</span>{" "}
+                <a className="text-brand hover:underline" href={`mailto:${props.email}`}>{props.email}</a>
               </p>
               <p>
-                <span className="text-zinc-500">github:</span>{" "}
-                <a className="text-blue-400 hover:underline" href={props.github} target="_blank" rel="noreferrer">{props.github.replace("https://", "")}</a>
+                <span className="text-graphite">github:</span>{" "}
+                <a className="text-[var(--kalaa-chart-1)] hover:underline" href={props.github} target="_blank" rel="noreferrer">{props.github.replace("https://", "")}</a>
               </p>
               <p>
-                <span className="text-zinc-500">linkedin:</span>{" "}
-                <a className="text-blue-400 hover:underline" href={props.linkedin} target="_blank" rel="noreferrer">{props.linkedin.replace("https://", "")}</a>
+                <span className="text-graphite">linkedin:</span>{" "}
+                <a className="text-[var(--kalaa-chart-1)] hover:underline" href={props.linkedin} target="_blank" rel="noreferrer">{props.linkedin.replace("https://", "")}</a>
               </p>
             </div>
             <a
               href={`mailto:${props.email}`}
-              className="inline-block rounded-lg bg-emerald-500 px-3 py-1.5 text-xs font-semibold text-emerald-950 hover:opacity-90"
+              className="btn-brand !px-3 !py-1.5"
             >
               Book a call
             </a>
@@ -354,9 +354,9 @@ export default function OsDesktop(props: OsDesktopProps) {
 
   if (!booted) {
     return (
-      <div className="fixed inset-0 z-[60] flex items-center justify-center bg-[#060608]">
+      <div className="fixed inset-0 z-[60] flex items-center justify-center bg-stone">
         <div className="w-full max-w-md px-8 font-mono text-xs">
-          <p className="mb-6 text-center text-2xl font-bold tracking-tight text-zinc-100">
+          <p className="mb-6 text-center text-2xl font-bold tracking-tight text-ink">
             ▲ BuildOS
           </p>
           <div className="space-y-1.5">
@@ -370,9 +370,9 @@ export default function OsDesktop(props: OsDesktopProps) {
               </p>
             ))}
           </div>
-          <div className="mt-6 h-1 w-full overflow-hidden rounded bg-zinc-800">
+          <div className="mt-6 h-1 w-full overflow-hidden rounded bg-surface-alt">
             <div
-              className="h-full w-full origin-left bg-emerald-500/80"
+              className="h-full w-full origin-left bg-brand"
               style={{ animation: "os-progress 2.1s linear forwards" }}
             />
           </div>
@@ -384,25 +384,25 @@ export default function OsDesktop(props: OsDesktopProps) {
   return (
     <div
       ref={desktopRef}
-      className="os-desktop-in os-wallpaper fixed inset-0 z-[60] overflow-hidden bg-[#060608] font-sans select-none"
+      className="os-desktop-in os-wallpaper fixed inset-0 z-[60] overflow-hidden bg-stone font-sans select-none"
       onPointerMove={onPointerMove}
       onPointerUp={onPointerUp}
     >
       {/* Menu bar */}
-      <div className="absolute inset-x-0 top-0 z-[200] flex h-8 items-center justify-between border-b border-zinc-800/80 bg-zinc-950/80 px-4 text-xs text-zinc-300 backdrop-blur">
+      <div className="absolute inset-x-0 top-0 z-[200] flex h-8 items-center justify-between border-b border-mist bg-card-bg/90 px-4 text-xs text-graphite backdrop-blur">
         <div className="flex items-center gap-4">
-          <span className="font-bold text-zinc-100">▲ BuildOS</span>
-          <span className="hidden sm:inline text-zinc-500">
+          <span className="font-bold text-ink">▲ BuildOS</span>
+          <span className="hidden sm:inline text-graphite">
             {activeWindow ? APPS.find((a) => a.id === activeWindow.appId)?.title : "Desktop"}
           </span>
         </div>
         <div className="flex items-center gap-4">
-          <Link href="/" className="text-zinc-500 hover:text-zinc-200 transition-colors">
+          <Link href="/" className="text-graphite hover:text-ink transition-colors">
             Exit to classic site
           </Link>
           <span className="inline-flex items-center gap-1.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="font-mono text-zinc-400">{clock}</span>
+            <span className="h-1.5 w-1.5 rounded-full bg-[var(--kalaa-success)] animate-pulse" />
+            <span className="font-mono text-graphite">{clock}</span>
           </span>
         </div>
       </div>
@@ -416,14 +416,14 @@ export default function OsDesktop(props: OsDesktopProps) {
           return (
             <div
               key={w.appId}
-              className={`os-window absolute rounded-xl border bg-zinc-950/95 shadow-2xl backdrop-blur ${
-                isActive ? "border-zinc-600" : "border-zinc-800"
+              className={`os-window absolute rounded-xl border bg-card-bg/95 shadow-soft backdrop-blur ${
+                isActive ? "border-[var(--kalaa-border-strong)]" : "border-mist"
               }`}
               style={{ left: w.x, top: w.y, zIndex: w.z, width: `min(${w.w}px, 94vw)` }}
               onPointerDown={() => focusApp(w.appId)}
             >
               <div
-                className="flex cursor-grab items-center justify-between rounded-t-xl border-b border-zinc-800 bg-zinc-900/70 px-3 py-2 active:cursor-grabbing"
+                className="flex cursor-grab items-center justify-between rounded-t-xl border-b border-mist bg-surface-alt px-3 py-2 active:cursor-grabbing"
                 onPointerDown={(e) => onTitlePointerDown(e, w.appId)}
               >
                 <div className="flex items-center gap-2">
@@ -431,17 +431,17 @@ export default function OsDesktop(props: OsDesktopProps) {
                     aria-label={`Close ${app.title}`}
                     onClick={() => closeApp(w.appId)}
                     onPointerDown={(e) => e.stopPropagation()}
-                    className="h-3 w-3 rounded-full bg-red-500/90 hover:bg-red-400"
+                    className="h-3 w-3 rounded-full bg-[var(--kalaa-danger)] hover:opacity-80"
                   />
                   <button
                     aria-label={`Minimize ${app.title}`}
                     onClick={() => minimizeApp(w.appId)}
                     onPointerDown={(e) => e.stopPropagation()}
-                    className="h-3 w-3 rounded-full bg-yellow-500/90 hover:bg-yellow-400"
+                    className="h-3 w-3 rounded-full bg-[var(--kalaa-warning)] hover:opacity-80"
                   />
-                  <span className="h-3 w-3 rounded-full bg-zinc-700" />
+                  <span className="h-3 w-3 rounded-full bg-mist" />
                 </div>
-                <span className="text-xs font-semibold text-zinc-300">
+                <span className="text-xs font-semibold text-ink">
                   {app.icon} {app.title}
                 </span>
                 <span className="w-14" />
@@ -455,7 +455,7 @@ export default function OsDesktop(props: OsDesktopProps) {
                 className="absolute bottom-0 right-0 h-5 w-5 cursor-nwse-resize"
                 style={{
                   backgroundImage:
-                    "linear-gradient(135deg, transparent 55%, #3f3f46 55%, #3f3f46 62%, transparent 62%, transparent 72%, #3f3f46 72%, #3f3f46 79%, transparent 79%)"
+                    "linear-gradient(135deg, transparent 55%, var(--kalaa-border-strong) 55%, var(--kalaa-border-strong) 62%, transparent 62%, transparent 72%, var(--kalaa-border-strong) 72%, var(--kalaa-border-strong) 79%, transparent 79%)"
                 }}
               />
             </div>
@@ -464,22 +464,22 @@ export default function OsDesktop(props: OsDesktopProps) {
 
       {/* Dock */}
       <div className="absolute inset-x-0 bottom-4 z-[200] flex justify-center">
-        <div className="flex items-end gap-2 rounded-2xl border border-zinc-800 bg-zinc-950/80 px-3 py-2 backdrop-blur">
+        <div className="flex items-end gap-2 rounded-2xl border border-mist bg-card-bg/90 px-3 py-2 backdrop-blur">
           {APPS.map((app) => {
             const open = windows.some((w) => w.appId === app.id);
             return (
               <button
                 key={app.id}
                 onClick={() => openApp(app.id)}
-                className="os-dock-icon group relative flex h-12 w-12 items-center justify-center rounded-xl bg-zinc-900/80 text-2xl hover:bg-zinc-800"
+                className="os-dock-icon group relative flex h-12 w-12 items-center justify-center rounded-xl bg-surface-alt text-2xl hover:bg-mist"
                 aria-label={`Open ${app.title}`}
               >
                 {app.icon}
-                <span className="pointer-events-none absolute -top-8 rounded bg-zinc-800 px-2 py-0.5 text-[10px] text-zinc-200 opacity-0 transition-opacity group-hover:opacity-100">
+                <span className="pointer-events-none absolute -top-8 rounded border border-mist bg-card-bg px-2 py-0.5 text-[10px] text-ink opacity-0 transition-opacity group-hover:opacity-100">
                   {app.title}
                 </span>
                 {open && (
-                  <span className="absolute -bottom-1.5 h-1 w-1 rounded-full bg-emerald-400" />
+                  <span className="absolute -bottom-1.5 h-1 w-1 rounded-full bg-brand" />
                 )}
               </button>
             );

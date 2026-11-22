@@ -19,10 +19,10 @@ export const metadata: Metadata = {
 };
 
 const mockupLineStyles: Record<string, string> = {
-  muted: "text-zinc-500",
-  ok: "text-emerald-400",
-  info: "text-blue-400",
-  accent: "text-purple-400"
+  muted: "text-graphite",
+  ok: "text-[var(--kalaa-success)]",
+  info: "text-[var(--kalaa-chart-1)]",
+  accent: "text-[var(--kalaa-chart-4)]"
 };
 
 export default function HomePage() {
@@ -39,8 +39,8 @@ export default function HomePage() {
         <div className="hero-grid absolute inset-0 -z-10" aria-hidden="true" />
         <div className="grid items-center gap-12 lg:grid-cols-[1fr_0.95fr]">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-mist px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-graphite bg-card-bg mb-6">
-              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <div className="inline-flex items-center gap-2 rounded-pill border border-mist px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-graphite bg-card-bg mb-6">
+              <span className="h-2 w-2 rounded-full bg-[var(--kalaa-success)] animate-pulse"></span>
               Currently building BuildOS
             </div>
             <h1 className="text-4xl font-extrabold tracking-tight text-ink sm:text-6xl font-sans leading-none">
@@ -64,7 +64,7 @@ export default function HomePage() {
                 href={site.links.github}
                 target="_blank"
                 rel="noreferrer"
-                className="btn border border-mist bg-card-bg text-ink hover:bg-mist/35"
+                className="btn border border-mist bg-card-bg text-ink hover:bg-surface-alt"
               >
                 GitHub
               </a>
@@ -185,7 +185,7 @@ export default function HomePage() {
             <div>
               <div className="flex items-center justify-between">
                 <span className="font-bold text-ink text-sm">BuildOS Agent</span>
-                <span className="text-[10px] font-semibold text-amber-500 uppercase tracking-wider">Active Dev</span>
+                <span className="text-[10px] font-semibold text-[var(--kalaa-warning)] uppercase tracking-wider">Active Dev</span>
               </div>
               <p className="mt-2 text-xs text-graphite leading-relaxed">
                 AI engineering workspace for repository planning, parsing, and multi-agent coordination.
@@ -200,7 +200,7 @@ export default function HomePage() {
             <div>
               <div className="flex items-center justify-between">
                 <span className="font-bold text-ink text-sm">Node Commander</span>
-                <span className="text-[10px] font-semibold text-emerald-500 uppercase tracking-wider">Live</span>
+                <span className="text-[10px] font-semibold text-[var(--kalaa-success)] uppercase tracking-wider">Live</span>
               </div>
               <p className="mt-2 text-xs text-graphite leading-relaxed">
                 Agentless SSH fleet management dashboard for Docker deployments and zero-downtime migrations.
@@ -215,7 +215,7 @@ export default function HomePage() {
             <div>
               <div className="flex items-center justify-between">
                 <span className="font-bold text-ink text-sm">Knowledge Hub</span>
-                <span className="text-[10px] font-semibold text-blue-500 uppercase tracking-wider">In Dev</span>
+                <span className="text-[10px] font-semibold text-[var(--kalaa-chart-1)] uppercase tracking-wider">In Dev</span>
               </div>
               <p className="mt-2 text-xs text-graphite leading-relaxed">
                 AST tree-sitter based schema parser compiling directories into structured repository memory maps.
@@ -230,7 +230,7 @@ export default function HomePage() {
             <div>
               <div className="flex items-center justify-between">
                 <span className="font-bold text-ink text-sm">Kalaa</span>
-                <span className="text-[10px] font-semibold text-zinc-500 uppercase tracking-wider">Live</span>
+                <span className="text-[10px] font-semibold text-graphite uppercase tracking-wider">Live</span>
               </div>
               <p className="mt-2 text-xs text-graphite leading-relaxed">
                 Open-source design system: tokens, 70+ accessible React components and a theme picker used across my apps.
@@ -253,14 +253,14 @@ export default function HomePage() {
           {featured.map((product) => (
             <div key={product.slug} className="card overflow-hidden grid lg:grid-cols-[1fr_1.1fr] border border-mist bg-card-bg">
               {/* Product Visual Side */}
-              <div className="p-8 bg-zinc-950 border-b lg:border-b-0 lg:border-r border-mist flex flex-col justify-between min-h-[300px]">
+              <div className="p-8 bg-surface-alt border-b lg:border-b-0 lg:border-r border-mist flex flex-col justify-between min-h-[300px]">
                 <div className="flex flex-col gap-4">
                   <div className="flex items-center gap-2">
                     <span className="badge">{product.type}</span>
-                    <span className="text-[10px] tracking-wide text-zinc-400 font-mono">{product.timeline}</span>
+                    <span className="text-[10px] tracking-wide text-graphite font-mono">{product.timeline}</span>
                   </div>
-                  <h3 className="text-2xl font-bold tracking-tight text-zinc-100">{product.title}</h3>
-                  <p className="text-sm leading-relaxed text-zinc-400">{product.summary}</p>
+                  <h3 className="text-2xl font-bold tracking-tight text-ink">{product.title}</h3>
+                  <p className="text-sm leading-relaxed text-graphite">{product.summary}</p>
                 </div>
 
                 {product.image && (
@@ -273,18 +273,18 @@ export default function HomePage() {
                 )}
                 {/* CSS Generated Dashboard Layout Mockup */}
                 {!product.image && product.mockup && (
-                  <div className="mt-8 rounded-lg border border-zinc-800 bg-zinc-900/60 p-4 font-mono text-[10px] text-zinc-400 select-none shadow-inner" aria-hidden="true">
-                    <div className="flex items-center justify-between border-b border-zinc-800 pb-2 mb-3">
+                  <div className="mt-8 rounded-lg border border-mist bg-card-bg p-4 font-mono text-[10px] text-graphite select-none shadow-inner" aria-hidden="true">
+                    <div className="flex items-center justify-between border-b border-mist pb-2 mb-3">
                       <div className="flex items-center gap-1.5">
-                        <span className="h-2 w-2 rounded-full bg-red-500/80"></span>
-                        <span className="h-2 w-2 rounded-full bg-yellow-500/80"></span>
-                        <span className="h-2 w-2 rounded-full bg-green-500/80"></span>
+                        <span className="h-2 w-2 rounded-full bg-[var(--kalaa-danger)]"></span>
+                        <span className="h-2 w-2 rounded-full bg-[var(--kalaa-warning)]"></span>
+                        <span className="h-2 w-2 rounded-full bg-[var(--kalaa-success)]"></span>
                       </div>
-                      <span className="text-[9px] text-zinc-500">session: {product.slug}</span>
+                      <span className="text-[9px] text-graphite">session: {product.slug}</span>
                     </div>
                     <div className="space-y-1">
                       {product.mockup.map((line) => (
-                        <p key={line.text} className={mockupLineStyles[line.style] ?? "text-zinc-400"}>
+                        <p key={line.text} className={mockupLineStyles[line.style] ?? "text-graphite"}>
                           {line.text}
                         </p>
                       ))}
@@ -396,50 +396,50 @@ export default function HomePage() {
           <h2 className="section-title">Self-Hosted Infrastructure</h2>
           <p className="mt-2 text-sm text-graphite">Centralized control and container routing across my private network.</p>
         </div>
-        <div className="card p-8 bg-zinc-950 overflow-hidden flex flex-col items-center">
-          <div className="w-full max-w-2xl font-mono text-[10px] text-zinc-400">
-            <div className="text-center text-zinc-500 mb-6 border border-zinc-800 rounded py-1 px-3">
+        <div className="card p-8 bg-card-bg overflow-hidden flex flex-col items-center">
+          <div className="w-full max-w-2xl font-mono text-[10px] text-graphite">
+            <div className="text-center text-graphite mb-6 border border-mist rounded py-1 px-3">
               Infrastructure Routing Topology
             </div>
 
-            <svg viewBox="0 0 800 220" className="w-full h-auto text-zinc-400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Network topology: internet traffic routed through Cloudflare and a cloud tunnel to a reverse proxy, which distributes to Node Commander, the Docker fleet, and monitoring, all serving apps">
+            <svg viewBox="0 0 800 220" className="w-full h-auto text-graphite" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Network topology: internet traffic routed through Cloudflare and a cloud tunnel to a reverse proxy, which distributes to Node Commander, the Docker fleet, and monitoring, all serving apps">
               {/* Nodes */}
-              <rect x="20" y="90" width="80" height="40" rx="4" className="stroke-zinc-700 fill-zinc-900" />
-              <text x="60" y="115" textAnchor="middle" fill="#f4f4f5" fontSize="10" fontWeight="bold">Internet</text>
+              <rect x="20" y="90" width="80" height="40" rx="4" stroke="var(--kalaa-border-strong)" fill="var(--kalaa-surface-alt)" />
+              <text x="60" y="115" textAnchor="middle" fill="var(--kalaa-text)" fontSize="10" fontWeight="bold">Internet</text>
 
-              <rect x="160" y="90" width="85" height="40" rx="4" className="stroke-zinc-700 fill-zinc-900" />
-              <text x="202" y="115" textAnchor="middle" fill="#f4f4f5" fontSize="10">Cloudflare</text>
+              <rect x="160" y="90" width="85" height="40" rx="4" stroke="var(--kalaa-border-strong)" fill="var(--kalaa-surface-alt)" />
+              <text x="202" y="115" textAnchor="middle" fill="var(--kalaa-text)" fontSize="10">Cloudflare</text>
 
-              <rect x="300" y="90" width="80" height="40" rx="4" className="stroke-zinc-700 fill-zinc-900" />
-              <text x="340" y="115" textAnchor="middle" fill="#f4f4f5" fontSize="10">Cloud Tunnel</text>
+              <rect x="300" y="90" width="80" height="40" rx="4" stroke="var(--kalaa-border-strong)" fill="var(--kalaa-surface-alt)" />
+              <text x="340" y="115" textAnchor="middle" fill="var(--kalaa-text)" fontSize="10">Cloud Tunnel</text>
 
-              <rect x="430" y="90" width="90" height="40" rx="4" className="stroke-zinc-700 fill-zinc-900" />
-              <text x="475" y="115" textAnchor="middle" fill="#f4f4f5" fontSize="10">Reverse Proxy</text>
+              <rect x="430" y="90" width="90" height="40" rx="4" stroke="var(--kalaa-border-strong)" fill="var(--kalaa-surface-alt)" />
+              <text x="475" y="115" textAnchor="middle" fill="var(--kalaa-text)" fontSize="10">Reverse Proxy</text>
 
-              <rect x="570" y="30" width="90" height="40" rx="4" className="stroke-zinc-700 fill-zinc-900" />
-              <text x="615" y="55" textAnchor="middle" fill="#f4f4f5" fontSize="10">Node Cmdr</text>
+              <rect x="570" y="30" width="90" height="40" rx="4" stroke="var(--kalaa-border-strong)" fill="var(--kalaa-surface-alt)" />
+              <text x="615" y="55" textAnchor="middle" fill="var(--kalaa-text)" fontSize="10">Node Cmdr</text>
 
-              <rect x="570" y="90" width="90" height="40" rx="4" className="stroke-zinc-700 fill-zinc-900" />
-              <text x="615" y="115" textAnchor="middle" fill="#f4f4f5" fontSize="10">Docker Fleet</text>
+              <rect x="570" y="90" width="90" height="40" rx="4" stroke="var(--kalaa-border-strong)" fill="var(--kalaa-surface-alt)" />
+              <text x="615" y="115" textAnchor="middle" fill="var(--kalaa-text)" fontSize="10">Docker Fleet</text>
 
-              <rect x="570" y="150" width="90" height="40" rx="4" className="stroke-zinc-700 fill-zinc-900" />
-              <text x="615" y="175" textAnchor="middle" fill="#f4f4f5" fontSize="10">Monitoring</text>
+              <rect x="570" y="150" width="90" height="40" rx="4" stroke="var(--kalaa-border-strong)" fill="var(--kalaa-surface-alt)" />
+              <text x="615" y="175" textAnchor="middle" fill="var(--kalaa-text)" fontSize="10">Monitoring</text>
 
-              <rect x="710" y="90" width="70" height="40" rx="4" className="stroke-zinc-700 fill-zinc-900 animate-pulse" />
-              <text x="745" y="115" textAnchor="middle" fill="#10b981" fontSize="10" fontWeight="bold">Apps</text>
+              <rect x="710" y="90" width="70" height="40" rx="4" stroke="var(--kalaa-border-strong)" fill="var(--kalaa-surface-alt)" className="animate-pulse" />
+              <text x="745" y="115" textAnchor="middle" fill="var(--color-brand)" fontSize="10" fontWeight="bold">Apps</text>
 
               {/* Connections with custom animated class */}
-              <path d="M100 110 H160" className="stroke-zinc-500 flow-line" strokeWidth="1.5" />
-              <path d="M245 110 H300" className="stroke-zinc-500 flow-line" strokeWidth="1.5" />
-              <path d="M380 110 H430" className="stroke-zinc-500 flow-line" strokeWidth="1.5" />
+              <path d="M100 110 H160" stroke="var(--kalaa-text-muted)" className="flow-line" strokeWidth="1.5" />
+              <path d="M245 110 H300" stroke="var(--kalaa-text-muted)" className="flow-line" strokeWidth="1.5" />
+              <path d="M380 110 H430" stroke="var(--kalaa-text-muted)" className="flow-line" strokeWidth="1.5" />
               
-              <path d="M520 110 H570" className="stroke-zinc-500 flow-line" strokeWidth="1.5" />
-              <path d="M520 110 L570 50" className="stroke-zinc-500 flow-line" strokeWidth="1.5" />
-              <path d="M520 110 L570 170" className="stroke-zinc-500 flow-line" strokeWidth="1.5" />
+              <path d="M520 110 H570" stroke="var(--kalaa-text-muted)" className="flow-line" strokeWidth="1.5" />
+              <path d="M520 110 L570 50" stroke="var(--kalaa-text-muted)" className="flow-line" strokeWidth="1.5" />
+              <path d="M520 110 L570 170" stroke="var(--kalaa-text-muted)" className="flow-line" strokeWidth="1.5" />
 
-              <path d="M660 50 L710 110" className="stroke-zinc-500 flow-line" strokeWidth="1.5" />
-              <path d="M660 110 H710" className="stroke-zinc-500 flow-line" strokeWidth="1.5" />
-              <path d="M660 170 L710 110" className="stroke-zinc-500 flow-line" strokeWidth="1.5" />
+              <path d="M660 50 L710 110" stroke="var(--kalaa-text-muted)" className="flow-line" strokeWidth="1.5" />
+              <path d="M660 110 H710" stroke="var(--kalaa-text-muted)" className="flow-line" strokeWidth="1.5" />
+              <path d="M660 170 L710 110" stroke="var(--kalaa-text-muted)" className="flow-line" strokeWidth="1.5" />
             </svg>
           </div>
         </div>
@@ -451,42 +451,42 @@ export default function HomePage() {
           <h2 className="section-title">AI Processing Stack</h2>
           <p className="mt-2 text-sm text-graphite">Visualizing the orchestration pipelines that power my AI tools.</p>
         </div>
-        <div className="card p-8 bg-zinc-950 overflow-hidden flex flex-col items-center">
-          <div className="w-full max-w-2xl font-mono text-[10px] text-zinc-400">
-            <div className="text-center text-zinc-500 mb-6 border border-zinc-800 rounded py-1 px-3">
+        <div className="card p-8 bg-card-bg overflow-hidden flex flex-col items-center">
+          <div className="w-full max-w-2xl font-mono text-[10px] text-graphite">
+            <div className="text-center text-graphite mb-6 border border-mist rounded py-1 px-3">
               Context-Aware Retrieval and Agent Execution Pipeline
             </div>
 
-            <svg viewBox="0 0 800 160" className="w-full h-auto text-zinc-400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI pipeline: raw models flow through a smart router, prompt builder, Knowledge Hub, and agent planner into an execution sandbox managed by Node Commander">
+            <svg viewBox="0 0 800 160" className="w-full h-auto text-graphite" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI pipeline: raw models flow through a smart router, prompt builder, Knowledge Hub, and agent planner into an execution sandbox managed by Node Commander">
               {/* Nodes */}
-              <rect x="15" y="60" width="85" height="40" rx="4" className="stroke-zinc-700 fill-zinc-900" />
-              <text x="57" y="85" textAnchor="middle" fill="#f4f4f5" fontSize="10">Raw Models</text>
+              <rect x="15" y="60" width="85" height="40" rx="4" stroke="var(--kalaa-border-strong)" fill="var(--kalaa-surface-alt)" />
+              <text x="57" y="85" textAnchor="middle" fill="var(--kalaa-text)" fontSize="10">Raw Models</text>
 
-              <rect x="125" y="60" width="85" height="40" rx="4" className="stroke-zinc-700 fill-zinc-900" />
-              <text x="167" y="85" textAnchor="middle" fill="#f4f4f5" fontSize="10">Smart Router</text>
+              <rect x="125" y="60" width="85" height="40" rx="4" stroke="var(--kalaa-border-strong)" fill="var(--kalaa-surface-alt)" />
+              <text x="167" y="85" textAnchor="middle" fill="var(--kalaa-text)" fontSize="10">Smart Router</text>
 
-              <rect x="235" y="60" width="95" height="40" rx="4" className="stroke-zinc-700 fill-zinc-900" />
-              <text x="282" y="85" textAnchor="middle" fill="#f4f4f5" fontSize="10">Prompt Builder</text>
+              <rect x="235" y="60" width="95" height="40" rx="4" stroke="var(--kalaa-border-strong)" fill="var(--kalaa-surface-alt)" />
+              <text x="282" y="85" textAnchor="middle" fill="var(--kalaa-text)" fontSize="10">Prompt Builder</text>
 
-              <rect x="355" y="60" width="95" height="40" rx="4" className="stroke-zinc-700 fill-zinc-900" />
-              <text x="402" y="85" textAnchor="middle" fill="#f4f4f5" fontSize="10">Knowledge Hub</text>
+              <rect x="355" y="60" width="95" height="40" rx="4" stroke="var(--kalaa-border-strong)" fill="var(--kalaa-surface-alt)" />
+              <text x="402" y="85" textAnchor="middle" fill="var(--kalaa-text)" fontSize="10">Knowledge Hub</text>
 
-              <rect x="475" y="60" width="85" height="40" rx="4" className="stroke-zinc-700 fill-zinc-900" />
-              <text x="517" y="85" textAnchor="middle" fill="#f4f4f5" fontSize="10">Agent Planner</text>
+              <rect x="475" y="60" width="85" height="40" rx="4" stroke="var(--kalaa-border-strong)" fill="var(--kalaa-surface-alt)" />
+              <text x="517" y="85" textAnchor="middle" fill="var(--kalaa-text)" fontSize="10">Agent Planner</text>
 
-              <rect x="585" y="60" width="85" height="40" rx="4" className="stroke-zinc-700 fill-zinc-900" />
-              <text x="627" y="85" textAnchor="middle" fill="#f4f4f5" fontSize="10">Execution Sandbox</text>
+              <rect x="585" y="60" width="85" height="40" rx="4" stroke="var(--kalaa-border-strong)" fill="var(--kalaa-surface-alt)" />
+              <text x="627" y="85" textAnchor="middle" fill="var(--kalaa-text)" fontSize="10">Execution Sandbox</text>
 
-              <rect x="695" y="60" width="90" height="40" rx="4" className="stroke-zinc-700 fill-zinc-900 animate-pulse" />
-              <text x="740" y="85" textAnchor="middle" fill="#10b981" fontSize="10" fontWeight="bold">Node Cmdr</text>
+              <rect x="695" y="60" width="90" height="40" rx="4" stroke="var(--kalaa-border-strong)" fill="var(--kalaa-surface-alt)" className="animate-pulse" />
+              <text x="740" y="85" textAnchor="middle" fill="var(--color-brand)" fontSize="10" fontWeight="bold">Node Cmdr</text>
 
               {/* Connectors */}
-              <path d="M100 80 H125" className="stroke-zinc-500 flow-line" strokeWidth="1.5" />
-              <path d="M210 80 H235" className="stroke-zinc-500 flow-line" strokeWidth="1.5" />
-              <path d="M330 80 H355" className="stroke-zinc-500 flow-line" strokeWidth="1.5" />
-              <path d="M450 80 H475" className="stroke-zinc-500 flow-line" strokeWidth="1.5" />
-              <path d="M560 80 H585" className="stroke-zinc-500 flow-line" strokeWidth="1.5" />
-              <path d="M670 80 H695" className="stroke-zinc-500 flow-line" strokeWidth="1.5" />
+              <path d="M100 80 H125" stroke="var(--kalaa-text-muted)" className="flow-line" strokeWidth="1.5" />
+              <path d="M210 80 H235" stroke="var(--kalaa-text-muted)" className="flow-line" strokeWidth="1.5" />
+              <path d="M330 80 H355" stroke="var(--kalaa-text-muted)" className="flow-line" strokeWidth="1.5" />
+              <path d="M450 80 H475" stroke="var(--kalaa-text-muted)" className="flow-line" strokeWidth="1.5" />
+              <path d="M560 80 H585" stroke="var(--kalaa-text-muted)" className="flow-line" strokeWidth="1.5" />
+              <path d="M670 80 H695" stroke="var(--kalaa-text-muted)" className="flow-line" strokeWidth="1.5" />
             </svg>
           </div>
         </div>
@@ -594,7 +594,7 @@ export default function HomePage() {
               className="card p-6 flex flex-col justify-between hover:-translate-y-1 group"
             >
               <div>
-                <div className="flex justify-between text-[10px] text-zinc-500 font-mono">
+                <div className="flex justify-between text-[10px] text-graphite font-mono">
                   <span>{article.date}</span>
                   <span>{article.readTime}</span>
                 </div>
@@ -629,7 +629,7 @@ export default function HomePage() {
           <div className="relative pl-6 border-l-2 border-mist space-y-10">
             {experienceData.timeline.map((entry) => (
               <div key={entry.title} className="relative">
-                <span className="absolute -left-[31px] top-1.5 h-4 w-4 rounded-full border-2 border-zinc-500 bg-stone" />
+                <span className="absolute -left-[31px] top-1.5 h-4 w-4 rounded-full border-2 border-[var(--kalaa-border-strong)] bg-stone" />
                 <div className="flex items-center justify-between text-xs text-graphite font-mono">
                   <span className="font-bold text-ink text-sm">{entry.title}</span>
                   <span>{entry.period}</span>
@@ -668,7 +668,7 @@ export default function HomePage() {
             <Button href="/resume" variant="secondary">
               View Resume
             </Button>
-            <Link href="/contact" className="btn border border-mist bg-card-bg text-ink hover:bg-mist/35">
+            <Link href="/contact" className="btn border border-mist bg-card-bg text-ink hover:bg-surface-alt">
               Contact Form
             </Link>
           </div>
