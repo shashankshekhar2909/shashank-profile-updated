@@ -266,9 +266,9 @@ export default function HomePage() {
                 {product.image && (
                   <figure className="mt-8">
                     <Link href={`/projects/${product.slug}`}>
-                      <Image src={product.image.src} alt={product.image.alt} width={product.image.width} height={product.image.height} unoptimized className="h-auto w-full rounded-lg border border-zinc-800" />
+                      <Image src={product.image.src} alt={product.image.alt} width={product.image.width} height={product.image.height} unoptimized className="h-auto w-full rounded-lg border border-mist" />
                     </Link>
-                    {product.image.caption && <figcaption className="mt-2 text-xs leading-relaxed text-zinc-400">{product.image.caption}</figcaption>}
+                    {product.image.caption && <figcaption className="mt-2 text-xs leading-relaxed text-graphite">{product.image.caption}</figcaption>}
                   </figure>
                 )}
                 {/* CSS Generated Dashboard Layout Mockup */}
