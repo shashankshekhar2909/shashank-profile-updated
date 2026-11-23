@@ -229,14 +229,14 @@ export default function HomePage() {
           <div className="card p-6 flex flex-col justify-between min-h-[160px]">
             <div>
               <div className="flex items-center justify-between">
-                <span className="font-bold text-ink text-sm">LayerOne</span>
-                <span className="text-[10px] font-semibold text-zinc-500 uppercase tracking-wider">In Progress</span>
+                <span className="font-bold text-ink text-sm">Kalaa</span>
+                <span className="text-[10px] font-semibold text-zinc-500 uppercase tracking-wider">Live</span>
               </div>
               <p className="mt-2 text-xs text-graphite leading-relaxed">
-                Open-source cross-framework design tokens and core accessible web components.
+                Open-source design system: tokens, 70+ accessible React components and a theme picker used across my apps.
               </p>
             </div>
-            <Link href="/projects/layerone-design-system" className="mt-4 text-[11px] font-semibold text-ink hover:underline">
+            <Link href="/projects/kalaa-design-system" className="mt-4 text-[11px] font-semibold text-ink hover:underline">
               Read Details →
             </Link>
           </div>

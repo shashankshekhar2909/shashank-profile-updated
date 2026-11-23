@@ -66,7 +66,7 @@ export default function AboutPage() {
     "BuildOS Agent - AI engineering workspace for planning, parsing, and multi-agent coordination",
     "Node Commander - Agentless SSH fleet management for Docker deployments and migrations",
     "Knowledge Hub - Tree-sitter AST parser compiling repositories into structured project memory",
-    "LayerOne - Open-source cross-framework design tokens and accessible web components"
+    "Kalaa - Open-source design system with tokens, accessible React components and a theme picker (live)"
   ];
 
   const contentAutomationSystems = [

@@ -2,7 +2,7 @@ You are Codex acting as a senior product engineer + UI engineer.
 
 Goal:
 Build a production-ready profile webapp to replace https://www.buildwithshashank.com/.
-The site should present me as an "AI-Integrated Product Engineer" (broad systems + AI), highlight enterprise scale (7.7M+ SKUs), and showcase independent systems (workflow builder, AI automation services, data adapter, LayerOne design system, homelab infra). The site must be clean, fast, SEO-friendly, and easy to update.
+The site should present me as an "AI-Integrated Product Engineer" (broad systems + AI), highlight enterprise scale (7.7M+ SKUs), and showcase independent systems (workflow builder, AI automation services, data adapter, Kalaa design system, homelab infra). The site must be clean, fast, SEO-friendly, and easy to update.
 
 Tech constraints:
 - Use Next.js (App Router) + TypeScript.
@@ -91,7 +91,7 @@ D) AI-Integrated Automation Services (Independent)
 E) Data Transformation Adapter (In Progress)
    - CSV/JSON -> structured template -> export JSON/CSV
 
-F) LayerOne Design System (In Progress)
+F) Kalaa Design System (Live: kalaa.buildwithshashank.com; replaces LayerOne)
    - theme tokens + reusable components for Angular + Next.js
 
 G) Homelab / Infra (Independent)
